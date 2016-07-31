@@ -26,7 +26,7 @@ $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
 $myusername = mysqli_real_escape_string($myusername);
 $mypassword = mysqli_real_escape_string($mypassword);
-$sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
+$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
 $result=mysqli_query($sql);
 
 // Mysql_num_row is counting table row
