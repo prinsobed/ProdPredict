@@ -53,7 +53,7 @@
                     <ul>	
                     <li>
                     	<label for = "username">Username: <span class="required"></span></label>
-                    	<input type="email" name="username" class="field-text" value=""  accesskey="1" placeholder="Corporate Email" required/>
+                    	<input type="email" name="username" class="field-text" accesskey="1" placeholder="Corporate Email" required/>
                     <br></li>
 
                     <li>
