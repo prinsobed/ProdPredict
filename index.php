@@ -48,7 +48,7 @@
     				<div class="panel-body">
                     <div class="row2">
 
-                        <form action=" " method="POST" class="form-style-1">
+                        <form action="includes/checklogin.php" method="POST" class="form-style-1">
                     
                     <ul>	
                     <li>
