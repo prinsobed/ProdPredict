@@ -3,7 +3,7 @@
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Home</title>
+    <title>ProdPredict | User Data</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li>Welcome</li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -48,7 +48,7 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Home</a></li>
+  		<li><a href="admin_home.htm">Admin Home / User Data / View</a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
@@ -57,23 +57,9 @@
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
+           	  <nav>
                 	<div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                            <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_fields.htm" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Wells</div>
+    				<div class="panel-heading">Users</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
@@ -86,23 +72,18 @@
                     </div>
                     </div>
                     
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
+                <div class="panel panel-default">
+    				<div class="panel-heading">Analysis</div>
     				<div class="panel-body">
                     	<div class="row2">
-                        <ul>
-                            <a class="btn btn-default" href="import_production.htm" role="button">Import File</a>
-                            </ul>
   							<ul>
-                        	<a class="btn btn-default" href="add_production.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="#" role="button">User Home</a>
                             </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_production.htm" role="button">View Existing</a>
-            				</ul>	
+                            	
 						</div>
                     </div>
-                    </div>
-        		</nav>
+                  </div>
+</nav>
             </div>
             </div>
             
@@ -111,68 +92,22 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Analysis</div>
+    				<div class="panel-heading">User Data</div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
-  							<div class="col-sm-4">
-                            <div class="row2">
-  							<div class="col-sm-12">
-    						<a href="history_check_query.htm" class="thumbnail">
-      						<img src="../assets/images/main-history-med.png" alt="History">
-                            <div class="caption">
-        					History
-                            </div>
-    						</a>
-  							</div>
-
-							</div>
-                            <div class="row2">
-  							<div class="col-sm-12"></div>
-							</div>
-                            </div>
-                            
-                             <!-- Performance -->
-  							<div class="col-sm-4">
-                            <div class="row2">
-  							<div class="col-sm-12">
-    						<a href="performance_check_query.htm" class="thumbnail">
-      						<img src="../assets/images/main-performance-med.png" alt="Performance">
-                            <div class="caption">
-        					Performance
-                            </div>
-    						</a>
-  							</div>
-
-							</div>
-                            <div class="row2">
-  							<div class="col-sm-12"></div>
-							</div>
-                            </div>
-                            
-                             <!-- Forecast -->
-  							<div class="col-sm-4">
-                            <div class="row2">
-  							<div class="col-sm-12">
-    						<a href="forecast_check_query.htm" class="thumbnail">
-      						<img src="../assets/images/main-forecast-med.png" alt="Forecast">
-                            <div class="caption">
-        					Forecast
-                            </div>
-    						</a>
-  							</div>
-
-							</div>
-                            <div class="row2">
-  							<div class="col-sm-12"></div>
-							</div>
-                            </div>
+  							<article>
+        <div id="add_user">
+            
+            
+            <!-- Code Here -->
+        </div>
+    </article>
                             
                             
                   
             </div>
 			</div>
-            </div></div>
     		</section>
             
     </main>

@@ -3,7 +3,7 @@
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Home</title>
+    <title>ProdPredict | Add User</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li>Welcome</li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -48,7 +48,7 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Home</a></li>
+  		<li><a href="admin_home.htm">Admin Home / Add User</a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
@@ -57,23 +57,9 @@
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
+           	  <nav>
                 	<div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                            <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_fields.htm" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Wells</div>
+    				<div class="panel-heading">Users</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
@@ -86,23 +72,18 @@
                     </div>
                     </div>
                     
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
+                <div class="panel panel-default">
+    				<div class="panel-heading">Analysis</div>
     				<div class="panel-body">
                     	<div class="row2">
-                        <ul>
-                            <a class="btn btn-default" href="import_production.htm" role="button">Import File</a>
-                            </ul>
   							<ul>
-                        	<a class="btn btn-default" href="add_production.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="#" role="button">User Home</a>
                             </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_production.htm" role="button">View Existing</a>
-            				</ul>	
+                            	
 						</div>
                     </div>
-                    </div>
-        		</nav>
+                  </div>
+</nav>
             </div>
             </div>
             
@@ -111,68 +92,48 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Analysis</div>
+    				<div class="panel-heading">Add New User</div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
-  							<div class="col-sm-4">
-                            <div class="row2">
-  							<div class="col-sm-12">
-    						<a href="history_check_query.htm" class="thumbnail">
-      						<img src="../assets/images/main-history-med.png" alt="History">
-                            <div class="caption">
-        					History
-                            </div>
-    						</a>
-  							</div>
+  							<article>
+        <div id="add_user">
+            <form action = "" method = "POST">
+                <ul class="form-style-1">
 
-							</div>
-                            <div class="row2">
-  							<div class="col-sm-12"></div>
-							</div>
-                            </div>
-                            
-                             <!-- Performance -->
-  							<div class="col-sm-4">
-                            <div class="row2">
-  							<div class="col-sm-12">
-    						<a href="performance_check_query.htm" class="thumbnail">
-      						<img src="../assets/images/main-performance-med.png" alt="Performance">
-                            <div class="caption">
-        					Performance
-                            </div>
-    						</a>
-  							</div>
+                    <label for = "firstname">First Name: </label>
+                    <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name"/><br>
+                    <br>
 
-							</div>
-                            <div class="row2">
-  							<div class="col-sm-12"></div>
-							</div>
-                            </div>
-                            
-                             <!-- Forecast -->
-  							<div class="col-sm-4">
-                            <div class="row2">
-  							<div class="col-sm-12">
-    						<a href="forecast_check_query.htm" class="thumbnail">
-      						<img src="../assets/images/main-forecast-med.png" alt="Forecast">
-                            <div class="caption">
-        					Forecast
-                            </div>
-    						</a>
-  							</div>
+                    <label for = "lastname">Last Name: <span class="required"></span></label>
+                    <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name"/><br><br>
 
-							</div>
-                            <div class="row2">
-  							<div class="col-sm-12"></div>
-							</div>
-                            </div>
+                    <label for = "company">Company: <span class="required"></span></label>
+                    <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company"/><br><br>
+
+                    <label for = "email">Email: <span class="required"></span></label>
+                    <input type="text" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email"/><br><br>
+
+                    <label for = "password">Password: <span class="required"></span></label>
+                    <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password"/><br><br>
+
+                    <label for = "type">Type: <span class="required"></span></label>
+                    <input type="radio" name="type" value="User" accesskey="6" checked> User
+                    <input type="radio" name="type" value="Admin"> Admin</input><br><br>
+                    <br>
+
+                    <input type="submit" name="clear" value="Clear" accesskey="7">
+                    <input type="submit" name="submit" value="Save" accesskey="8">
+
+                </ul>
+            </form>
+        </div>
+    </article>
                             
                             
                   
             </div>
 			</div>
-            </div></div>
     		</section>
             
     </main>

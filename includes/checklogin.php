@@ -24,8 +24,10 @@ $mypassword=$_POST['password'];
 // To protect MySQL injection (more detail about MySQL injection)
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
-//$myusername = mysqli_real_escape_string($myusername);
-//$mypassword = mysqli_real_escape_string($mypassword);
+$myusername = mysqli_real_escape_string($myusername);
+$mypassword = mysqli_real_escape_string($mypassword);
+//$enc_mypassword=md5($mypassword);
+
 $sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
 $result=mysqli_query($sql);
 

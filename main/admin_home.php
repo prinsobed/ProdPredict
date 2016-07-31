@@ -3,7 +3,7 @@
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Home</title>
+    <title>ProdPredict | Admin Home</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li>Welcome</li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -48,16 +48,31 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Home</a></li>
+  		<li><a href="#">Admin Home </a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
     <!-- Main Page starts here -->
-  	<main>
+  	  	<main>
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
             	<nav>
+                	<div class="panel panel-default">
+    				<div class="panel-heading">Users</div>
+    				<div class="panel-body">
+                    	<div class="row2">
+  							<ul>
+                        	<a class="btn btn-default" href="admin_add_user.php" role="button">Add New</a>
+                            </ul>
+                            <ul>
+              				<a class="btn btn-default" href="admin_edit_user.php" role="button">View Existing</a>
+            				</ul>	
+						</div>
+                    </div>
+                    </div>
+                
+                
                 	<div class="panel panel-default">
     				<div class="panel-heading">Fields</div>
     				<div class="panel-body">
@@ -118,7 +133,7 @@
   							<div class="col-sm-4">
                             <div class="row2">
   							<div class="col-sm-12">
-    						<a href="history_check_query.htm" class="thumbnail">
+    						<a href="#" class="thumbnail">
       						<img src="../assets/images/main-history-med.png" alt="History">
                             <div class="caption">
         					History
@@ -136,7 +151,7 @@
   							<div class="col-sm-4">
                             <div class="row2">
   							<div class="col-sm-12">
-    						<a href="performance_check_query.htm" class="thumbnail">
+    						<a href="#" class="thumbnail">
       						<img src="../assets/images/main-performance-med.png" alt="Performance">
                             <div class="caption">
         					Performance
@@ -154,7 +169,7 @@
   							<div class="col-sm-4">
                             <div class="row2">
   							<div class="col-sm-12">
-    						<a href="forecast_check_query.htm" class="thumbnail">
+    						<a href="#" class="thumbnail">
       						<img src="../assets/images/main-forecast-med.png" alt="Forecast">
                             <div class="caption">
         					Forecast
@@ -166,13 +181,67 @@
                             <div class="row2">
   							<div class="col-sm-12"></div>
 							</div>
+                            </div>  
+            </div>
+            <div class="panel panel-default">
+    				<div class="panel-heading">Data</div>
+    				<div class="panel-body">
+                    	<div class="row2">
+                        <!-- History -->
+  							<div class="col-sm-4">
+                            <div class="row2">
+  							<div class="col-sm-12">
+    						<a href="#" class="thumbnail">
+      						<img src="../assets/images/main-history-med.png" alt="History">
+                            <div class="caption">
+        					Uploaded Files
+                            </div>
+    						</a>
+  							</div>
+
+							</div>
+                            <div class="row2">
+  							<div class="col-sm-12"></div>
+							</div>
                             </div>
                             
+                             <!-- Performance -->
+  							<div class="col-sm-4">
+                            <div class="row2">
+  							<div class="col-sm-12">
+    						<a href="#" class="thumbnail">
+      						<img src="../assets/images/main-performance-med.png" alt="Performance">
+                            <div class="caption">
+        					Saved File Edits
+                            </div>
+    						</a>
+  							</div>
+
+							</div>
+                            <div class="row2">
+  							<div class="col-sm-12"></div>
+							</div>
+                            </div>
                             
-                  
+                             <!-- Forecast -->
+  							<div class="col-sm-4">
+                            <div class="row2">
+  							<div class="col-sm-12">
+    						<a href="#" class="thumbnail">
+      						<img src="../assets/images/main-forecast-med.png" alt="Forecast">
+                            <div class="caption">
+        					Saved Reports
+                            </div>
+    						</a>
+  							</div>
+
+							</div>
+                            <div class="row2">
+  							<div class="col-sm-12"></div>
+							</div>
+                            </div>
             </div>
 			</div>
-            </div></div>
     		</section>
             
     </main>
