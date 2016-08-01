@@ -174,9 +174,22 @@ $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_t
                 VALUES ('$fname','$lname', '$company','$email', '$password', '$u_type')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+//    echo "New record created successfully";
+    ?>
+    <div class="w3-container w3-green">
+    <h3>Success!</h3>
+    <p>New User Added</p>
+    </div>
+    <?
+
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+//    echo "Error: " . $sql . "<br>" . $conn->error;
+    ?>
+    <div class="w3-container w3-red">
+        <h3>Failure!</h3>
+        <p>User not added</p>
+    </div>
+    <?
 }
 
 $conn->close();
