@@ -1,11 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Kraine
- * Date: 7/30/2016
- * Time: 3:25 PM
+ * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
+ * Project: ProdPredict V1
+ * Date: 8/1/2016
+ * Time: 8:02 AM
  */
-
 
 $host="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
 $username="bed8c15b456030"; // Mysql username
@@ -46,4 +46,3 @@ if($count==1){
 else {
     echo "Wrong Username or Password";
 }
-?>
