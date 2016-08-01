@@ -3,7 +3,7 @@
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Well Production History</title>
+    <title>ProdPredict | User Data</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -48,61 +48,42 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Home / Well Production History / Check History / Report</a></li>
+  		<li><a href="admin_home.htm">Admin Home / User Data / View</a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
     <!-- Main Page starts here -->
-  	  	<main>
+  	<main>
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
+           	  <nav>
                 	<div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
+    				<div class="panel-heading">Users</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                            <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/well/add_well.htm" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="view_fields.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/well/view_wells.htm" role="button">Add Existing</a>
             				</ul>	
 						</div>
                     </div>
                     </div>
                     
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Wells</div>
+                <div class="panel panel-default">
+    				<div class="panel-heading">Analysis</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="add_well.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="#" role="button">User Home</a>
                             </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_wells.htm" role="button">Add Existing</a>
-            				</ul>	
+                            	
 						</div>
                     </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <ul>
-                            <a class="btn btn-default" href="import_production.htm" role="button">Import File</a>
-                            </ul>
-  							<ul>
-                        	<a class="btn btn-default" href="add_production.htm" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_production.htm" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-        		</nav>
+                  </div>
+</nav>
             </div>
             </div>
             
@@ -111,16 +92,15 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Well Production History Report</div>
+    				<div class="panel-heading">User Data</div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
   							<article>
         <div id="add_user">
             
+            
             <!-- Code Here -->
-            
-            
         </div>
     </article>
                             
@@ -128,7 +108,6 @@
                   
             </div>
 			</div>
-            </div></div>
     		</section>
             
     </main>

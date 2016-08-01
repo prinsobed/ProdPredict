@@ -3,7 +3,7 @@
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Well Production Performance</title>
+    <title>ProdPredict | Add User</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -48,61 +48,42 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Home / Well Production Performance / Check Performance / Graph</a></li>
+  		<li><a href="admin_home.htm">Admin Home / Add User</a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
     <!-- Main Page starts here -->
-  	  	<main>
+  	<main>
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
+           	  <nav>
                 	<div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
+    				<div class="panel-heading">Users</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                            <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/well/add_well.htm" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="view_fields.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/well/view_wells.htm" role="button">Add Existing</a>
             				</ul>	
 						</div>
                     </div>
                     </div>
                     
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Wells</div>
+                <div class="panel panel-default">
+    				<div class="panel-heading">Analysis</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="add_well.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="#" role="button">User Home</a>
                             </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_wells.htm" role="button">Add Existing</a>
-            				</ul>	
+                            	
 						</div>
                     </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <ul>
-                            <a class="btn btn-default" href="import_production.htm" role="button">Import File</a>
-                            </ul>
-  							<ul>
-                        	<a class="btn btn-default" href="add_production.htm" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_production.htm" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-        		</nav>
+                  </div>
+</nav>
             </div>
             </div>
             
@@ -111,16 +92,41 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Well Production Performance Graph</div>
+    				<div class="panel-heading">Add New User</div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
   							<article>
         <div id="add_user">
-            
-            <!-- Code Here -->
-            
-            
+            <form action = "" method = "POST">
+                <ul class="form-style-1">
+
+                    <label for = "firstname">First Name: </label>
+                    <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name"/><br>
+                    <br>
+
+                    <label for = "lastname">Last Name: <span class="required"></span></label>
+                    <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name"/><br><br>
+
+                    <label for = "company">Company: <span class="required"></span></label>
+                    <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company"/><br><br>
+
+                    <label for = "email">Email: <span class="required"></span></label>
+                    <input type="text" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email"/><br><br>
+
+                    <label for = "password">Password: <span class="required"></span></label>
+                    <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password"/><br><br>
+
+                    <label for = "type">Type: <span class="required"></span></label>
+                    <input type="radio" name="type" value="User" accesskey="6" checked> User
+                    <input type="radio" name="type" value="Admin"> Admin</input><br><br>
+                    <br>
+
+                    <input type="submit" name="clear" value="Clear" accesskey="7">
+                    <input type="submit" name="submit" value="Save" accesskey="8">
+
+                </ul>
+            </form>
         </div>
     </article>
                             
@@ -128,7 +134,6 @@
                   
             </div>
 			</div>
-            </div></div>
     		</section>
             
     </main>

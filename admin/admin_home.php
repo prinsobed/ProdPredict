@@ -81,7 +81,7 @@
                             <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="view_fields.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/field/view_fields.htm" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -92,10 +92,10 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="add_well.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/well/add_well.htm" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="view_wells.htm" role="button">Add Existing</a>
+              				<a class="btn btn-default" href="../main/well/view_wells.htm" role="button">Add Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -106,13 +106,13 @@
     				<div class="panel-body">
                     	<div class="row2">
                         <ul>
-                            <a class="btn btn-default" href="import_production.htm" role="button">Import File</a>
+                            <a class="btn btn-default" href="../main/production/import_production.htm" role="button">Import File</a>
                             </ul>
   							<ul>
-                        	<a class="btn btn-default" href="add_production.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/production/add_production.htm" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="view_production.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/production/view_production.htm" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>

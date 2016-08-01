@@ -3,15 +3,13 @@
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Edit Imported Production</title>
+    <title>ProdPredict | Edit User</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/dropzone.css">
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/bootstrap.js"></script>
 	<script src="../assets/js/npm.js"></script>
-    <script src="../assets/js/dropzone.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -50,61 +48,42 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Home / Imported Production Data / Edit</a></li>
+  		<li><a href="admin_home.htm">Admin Home / User Data / Edit</a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
     <!-- Main Page starts here -->
-  	  	<main>
+  	<main>
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
+           	  <nav>
                 	<div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
+    				<div class="panel-heading">Users</div>
     				<div class="panel-body">
                     	<div class="row2">
-                       	  <ul>
-                            <a class="btn btn-default" href="import_production.htm" role="button">Import File</a>
-                            </ul>
   							<ul>
-                        	<a class="btn btn-default" href="add_production.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/well/add_well.htm" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="view_production.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/well/view_wells.htm" role="button">Add Existing</a>
             				</ul>	
 						</div>
                     </div>
                     </div>
                     
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
+                <div class="panel panel-default">
+    				<div class="panel-heading">Analysis</div>
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                            <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
+                        	<a class="btn btn-default" href="#" role="button">User Home</a>
                             </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_fields.htm" role="button">View Existing</a>
-            				</ul>	
+                            	
 						</div>
                     </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Well</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                        	<a class="btn btn-default" href="add_well.htm" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_wells.htm" role="button">Add Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-        		</nav>
+                  </div>
+</nav>
             </div>
             </div>
             
@@ -113,7 +92,7 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Edit Imported Production</div>
+    				<div class="panel-heading">Edit User</div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
@@ -122,8 +101,6 @@
             
             
             <!-- Code Here -->
-   
-            
         </div>
     </article>
                             
@@ -131,7 +108,6 @@
                   
             </div>
 			</div>
-            </div></div>
     		</section>
             
     </main>
