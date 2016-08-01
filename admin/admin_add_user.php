@@ -102,20 +102,20 @@
                 <ul class="form-style-1">
 
                     <label for = "firstname">First Name: </label>
-                    <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name"/><br>
+                    <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
                     <br>
 
                     <label for = "lastname">Last Name: <span class="required"></span></label>
-                    <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name"/><br><br>
+                    <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
 
                     <label for = "company">Company: <span class="required"></span></label>
-                    <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company"/><br><br>
+                    <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
 
                     <label for = "email">Email: <span class="required"></span></label>
-                    <input type="text" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email"/><br><br>
+                    <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
 
                     <label for = "password">Password: <span class="required"></span></label>
-                    <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password"/><br><br>
+                    <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password" required/><br><br>
 
                     <label for = "type">Type: <span class="required"></span></label>
                     <input type="radio" name="type" value="User" accesskey="6" checked> User
