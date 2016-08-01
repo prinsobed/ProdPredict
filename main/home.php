@@ -1,15 +1,25 @@
-﻿<!DOCTYPE html>
+﻿<?php
+/**
+ * Created by PhpStorm.
+ * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
+ * Project: ProdPredict V1
+ * Date: 8/1/2016
+ * Time: 8:02 AM
+ */
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Well Production Forecast</title>
+    <title>ProdPredict | Home</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
-    <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/bootstrap.js"></script>
-	<script src="../../assets/js/npm.js"></script>
+    <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+	<script src="../assets/js/npm.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -48,12 +58,12 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-        <li><a href="../home.html">Home</a> / Well Production Forecast / Check Forecast</li>
+  		<li><a href="#">Home</a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
     <!-- Main Page starts here -->
-  	  	<main>
+  	<main>
     	<div class="row2">
   			<div class="col-sm-3">
             <!-- Side Navigation for Fields, Wells and Production -->
@@ -63,10 +73,10 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                            <a class="btn btn-default" href="../field/add_field.htm" role="button">Add New</a>
+                            <a class="btn btn-default" href="field/add_field.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../field/view_fields.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="field/view_fields.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -77,10 +87,10 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="../well/add_well.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="well/add_well.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../well/view_wells.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="well/view_wells.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -91,13 +101,13 @@
     				<div class="panel-body">
                     	<div class="row2">
                         <ul>
-                            <a class="btn btn-default" href="../production/import_production.htm" role="button">Import File</a>
+                            <a class="btn btn-default" href="production/import_production.php" role="button">Import File</a>
                             </ul>
   							<ul>
-                        	<a class="btn btn-default" href="../production/add_production.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="production/add_production.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../production/view_production.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="production/view_production.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -111,18 +121,62 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Well Production Forecast Query</div>
+    				<div class="panel-heading">Analysis</div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
-  							<article>
-        <div id="add_user">
-            
-            <!-- Code Here -->
-            
-            
-        </div>
-    </article>
+  							<div class="col-sm-4">
+                            <div class="row2">
+  							<div class="col-sm-12">
+    						<a href="history/history_check_query.php" class="thumbnail">
+      						<img src="../assets/images/main-history-med.png" alt="History">
+                            <div class="caption">
+        					History
+                            </div>
+    						</a>
+  							</div>
+
+							</div>
+                            <div class="row2">
+  							<div class="col-sm-12"></div>
+							</div>
+                            </div>
+                            
+                             <!-- Performance -->
+  							<div class="col-sm-4">
+                            <div class="row2">
+  							<div class="col-sm-12">
+    						<a href="performance/performance_check_query.php" class="thumbnail">
+      						<img src="../assets/images/main-performance-med.png" alt="Performance">
+                            <div class="caption">
+        					Performance
+                            </div>
+    						</a>
+  							</div>
+
+							</div>
+                            <div class="row2">
+  							<div class="col-sm-12"></div>
+							</div>
+                            </div>
+                            
+                             <!-- Forecast -->
+  							<div class="col-sm-4">
+                            <div class="row2">
+  							<div class="col-sm-12">
+    						<a href="forecast/forecast_check_query.php" class="thumbnail">
+      						<img src="../assets/images/main-forecast-med.png" alt="Forecast">
+                            <div class="caption">
+        					Forecast
+                            </div>
+    						</a>
+  							</div>
+
+							</div>
+                            <div class="row2">
+  							<div class="col-sm-12"></div>
+							</div>
+                            </div>
                             
                             
                   

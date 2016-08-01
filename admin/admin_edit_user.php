@@ -35,7 +35,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome</a></li>
+                <li>Welcome</li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -48,7 +48,7 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="admin_home.htm">Admin Home / User Data / Edit</a></li>
+  		<li><a href="admin_home.php">Admin Home</a> / User Data / Edit</li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
@@ -63,27 +63,16 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="../main/well/add_well.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/well/add_well.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../main/well/view_wells.htm" role="button">Add Existing</a>
+              				<a class="btn btn-default" href="../main/well/view_wells.php" role="button">Add Existing</a>
             				</ul>	
 						</div>
                     </div>
                     </div>
-                    
-                <div class="panel panel-default">
-    				<div class="panel-heading">Analysis</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                        	<a class="btn btn-default" href="#" role="button">User Home</a>
-                            </ul>
-                            	
-						</div>
-                    </div>
-                  </div>
-</nav>
+              </nav>
+
             </div>
             </div>
             

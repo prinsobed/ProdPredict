@@ -35,7 +35,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome</a></li>
+                <li>Welcome</li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -48,7 +48,7 @@
     
    	<!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="#">Admin Home </a></li>
+  		<li><a href="admin_home.php">Admin Home </a></li>
 	</ol>
 	<!-- End of Breadcrum or Address Bar -->
     
@@ -78,10 +78,10 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                            <a class="btn btn-default" href="add_field.htm</a>" role="button">Add New</a>
+                            <a class="btn btn-default" href="../main/field/add_field.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../main/field/view_fields.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/field/view_fields.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -92,10 +92,10 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="../main/well/add_well.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/well/add_well.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../main/well/view_wells.htm" role="button">Add Existing</a>
+              				<a class="btn btn-default" href="../main/well/view_wells.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
@@ -106,13 +106,13 @@
     				<div class="panel-body">
                     	<div class="row2">
                         <ul>
-                            <a class="btn btn-default" href="../main/production/import_production.htm" role="button">Import File</a>
+                            <a class="btn btn-default" href="../main/production/import_production.php" role="button">Import File</a>
                             </ul>
   							<ul>
-                        	<a class="btn btn-default" href="../main/production/add_production.htm" role="button">Add New</a>
+                        	<a class="btn btn-default" href="../main/production/add_production.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../main/production/view_production.htm" role="button">View Existing</a>
+              				<a class="btn btn-default" href="../main/production/view_production.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>

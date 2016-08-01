@@ -1,9 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Kraine
- * Date: 7/30/2016
- * Time: 4:04 PM
+ * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
+ * Project: ProdPredict V1
+ * Date: 8/1/2016
+ * Time: 8:02 AM
  */
 
 // Check if session is not registered, redirect back to main page.
@@ -17,10 +18,10 @@ session_start();
 
 
 if ( isset( $_SESSION['username'] ) ){
-    header("location: main/home.html"); // << makes the script send them to any page we set
+    header("location: main/home.php"); // << makes the script send them to any page we set
 //    $thisuser = 'username';
     } else {
     print "<h2>Could not log you in, Sorry.</h2>";
     exit();
     }
-?>
+
