@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿<?php
+/**
+ * Created by PhpStorm.
+ * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
+ * Project: ProdPredict V1
+ * Date: 8/1/2016
+ * Time: 8:02 AM
+ */
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <!-- Start of Head -->
 <head>
@@ -140,4 +150,34 @@
 <!-- End of Page Body -->
 </html>
 
+<?php
+$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+$username="bed8c15b456030"; // Mysql username
+$password="58380471"; // Mysql password
+$dbname="db_prodpredict"; // Database name
 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$fname = $_POST['firstname'];
+$lfield = $_POST['lastname'];
+$company = $_POST['company'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$u_type = $_POST['type'];
+
+$sql = "INSERT INTO users (firstname, lastname, company, email, password, user_type)
+                VALUES ('$fname','$lname', '$company','$email', '$password', '$u_type')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
