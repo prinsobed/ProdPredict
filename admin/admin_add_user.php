@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/w3.css">
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/bootstrap.js"></script>
 	<script src="../assets/js/npm.js"></script>
@@ -176,18 +177,22 @@ $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_t
 if ($conn->query($sql) === TRUE) {
 //    echo "New record created successfully";
     ?>
+    <div class="w3-container">
     <div class="w3-container w3-green">
     <h3>Success!</h3>
     <p>New User Added</p>
+    </div>
     </div>
     <?
 
 } else {
 //    echo "Error: " . $sql . "<br>" . $conn->error;
     ?>
+    <div class="w3-container">
     <div class="w3-container w3-red">
         <h3>Failure!</h3>
         <p>User not added</p>
+    </div>
     </div>
     <?
 }
