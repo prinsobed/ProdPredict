@@ -176,26 +176,26 @@ $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_t
 
 if ($conn->query($sql) === TRUE) {
 //    echo "New record created successfully";
-    echo "
+    echo '
     <div class=\"w3-container\">
     <div class=\"w3-container w3-green\">
     <h3>Success!</h3>
     <p>New User Added</p>
     </div>
     </div>
-    ";
+    ';
 
 
 } else {
 //    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "
+    echo '
     <div class=\"w3-container\">
     <div class=\"w3-container w3-green\">
     <h3>Failure!</h3>
     <p>User Not Added</p>
     </div>
     </div>
-    ";
+    ';
 }
 
 $conn->close();
