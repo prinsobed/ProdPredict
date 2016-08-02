@@ -73,10 +73,10 @@
     				<div class="panel-body">
                     	<div class="row2">
   							<ul>
-                        	<a class="btn btn-default" href="../main/well/add_well.php" role="button">Add New</a>
+                        	<a class="btn btn-default" href="admin_add_user.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="../main/well/view_wells.php" role="button">Add Existing</a>
+              				<a class="btn btn-default" href="admin_view_users.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
