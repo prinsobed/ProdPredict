@@ -6,6 +6,18 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
+
+$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+$username="bed8c15b456030"; // Mysql username
+$password="58380471"; // Mysql password
+$dbname="db_prodpredict"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -212,4 +224,39 @@
 <!-- End of Page Body -->
 </html>
 
+<?php
 
+$well_id = $_POST['well_id'];
+$well_name = $_POST['well_name'];
+$well_field = $_POST['well_field'];
+$well_prod_start = $_POST['well_prod_start'];
+$well_status = $_POST['well_status'];
+
+$sql = "INSERT INTO users (well_id, well_name, well_off_on, well_prod_start, well_status)
+                VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+//    echo '
+//            <div class=\"w3-container\">
+//            <div class=\"w3-container w3-green\">
+//            <h3>Success!</h3>
+//            <p>New User Added</p>
+//            </div>
+//            </div>';
+
+}
+else{
+    echo "Error";
+//    echo '
+//            <div class=\"w3-container\">
+//            <div class=\"w3-container w3-red\">
+//            <h3>Failure!</h3>
+//            <p>User Not Added</p>
+//            </div>
+//            </div>';
+
+}
+
+$conn->close();
+?>

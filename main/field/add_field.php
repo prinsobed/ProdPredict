@@ -6,6 +6,18 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
+
+$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+$username="bed8c15b456030"; // Mysql username
+$password="58380471"; // Mysql password
+$dbname="db_prodpredict"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -126,8 +138,8 @@
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
-            <form action = "home.php" method = "POST">
+        <div id="main_feature">
+            <form action = "" method = "POST">
                 <ul class="form-style-1">
                     <li>
                     <label for = "field_id">Field ID: <span class="required"></span></label>
@@ -464,4 +476,46 @@
 <!-- End of Page Body -->
 </html>
 
+<?php
 
+$field_id = $_POST['field_id'];
+$name = $_POST['name'];
+$situated = $_POST['situated'];
+$location = $_POST['location'];
+$block = $_POST['block'];
+$field_type = $_POST['field_type'];
+$water_depth = $_POST['water_depth'];
+$discovery_date = $_POST['discovery_date'];
+$production_start = $_POST['production_start'];
+$status = $_POST['status'];
+
+
+
+$sql = "INSERT INTO users (field_id, field_name, situated_off_on, location, block_name, field_type,water_depth, discovery_date, production_start, status)
+                VALUES ('$field_id','$name', '$situated','$location', '$block', '$field_type', '$water_depth','$discovery_date', '$production_start', '$status')";
+
+if ($conn->query($sql) === TRUE) {
+       echo "New record created successfully";
+//    echo '
+//            <div class=\"w3-container\">
+//            <div class=\"w3-container w3-green\">
+//            <h3>Success!</h3>
+//            <p>New User Added</p>
+//            </div>
+//            </div>';
+
+}
+else{
+    echo "Error";
+//    echo '
+//            <div class=\"w3-container\">
+//            <div class=\"w3-container w3-red\">
+//            <h3>Failure!</h3>
+//            <p>User Not Added</p>
+//            </div>
+//            </div>';
+
+}
+
+$conn->close();
+?>
