@@ -32,7 +32,7 @@ $sql="SELECT * FROM users WHERE email='{$myusername}' and password='{$mypassword
 $result=mysqli_query($sql);
 
 while($returnedResult = mysqli_fetch_array($result)){
-    echo $returnedResult[0];
+    echo $returnedResult;
 }
 
 /*
