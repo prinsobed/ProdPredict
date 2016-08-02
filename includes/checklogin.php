@@ -35,7 +35,7 @@ $result=mysqli_query($sql);
 $count=mysqli_num_rows($result);
 
 // If result matched $myusername and $mypassword, table row must be 1 row
-if($count==1){
+if($result){
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
     session_start();
