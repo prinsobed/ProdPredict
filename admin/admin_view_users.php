@@ -20,6 +20,7 @@
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/bootstrap.js"></script>
 	<script src="../assets/js/npm.js"></script>
+    <script src="../assets/js/tables.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -88,9 +89,6 @@
 
 
 
-?>
-
-
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
             <div class="col-sm-9">
@@ -116,6 +114,8 @@
                 </tr>
                 </thead>
             <?php
+            include "../includes/ajax.php";
+
             $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
             $username="bed8c15b456030"; // Mysql username
             $password="58380471"; // Mysql password
