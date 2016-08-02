@@ -31,6 +31,12 @@ $mypassword = mysqli_real_escape_string($mypassword, $conn);
 $sql="SELECT * FROM users WHERE email='{$myusername}' and password='{$mypassword}'";
 $result=mysqli_query($sql);
 
+while($returnedResult = mysqli_fetch_array($result)){
+    echo $returnedResult[0];
+}
+
+/*
+
 // Mysql_num_row is counting table row
 $count=mysqli_num_rows($result);
 
@@ -46,5 +52,5 @@ if($result){
 else {
     echo "Wrong Username or Password";
 }
-
+*/
 
