@@ -426,7 +426,7 @@ if ($conn->connect_error) {
                     </li>
 
                     <li>
-                    <label for = "water_depth">Water Depth: </label>
+                    <label for = "water_depth">Water Depth(m): </label>
                     <input type="text" name="water_depth" class="field-text" value=""  accesskey="7" placeholder="Depth in metres"/><br>
                     </li>
 
@@ -494,28 +494,28 @@ $status = $_POST['status'];
 $sql = "INSERT INTO users (field_id, field_name, situated_off_on, location, block_name, field_type,water_depth, discovery_date, production_start, status)
                 VALUES ('$field_id','$name', '$situated','$location', '$block', '$field_type', '$water_depth','$discovery_date', '$production_start', '$status')";
 
-if ($conn->query($sql) === TRUE) {
-       echo "New record created successfully";
-//    echo '
-//            <div class=\"w3-container\">
-//            <div class=\"w3-container w3-green\">
-//            <h3>Success!</h3>
-//            <p>New User Added</p>
-//            </div>
-//            </div>';
-
-}
-else{
-    echo "Error";
-//    echo '
-//            <div class=\"w3-container\">
-//            <div class=\"w3-container w3-red\">
-//            <h3>Failure!</h3>
-//            <p>User Not Added</p>
-//            </div>
-//            </div>';
-
-}
+//if ($conn->query($sql) === TRUE) {
+//       echo "New record created successfully";
+////    echo '
+////            <div class=\"w3-container\">
+////            <div class=\"w3-container w3-green\">
+////            <h3>Success!</h3>
+////            <p>New User Added</p>
+////            </div>
+////            </div>';
+//
+//}
+//else{
+//    echo "Error";
+////    echo '
+////            <div class=\"w3-container\">
+////            <div class=\"w3-container w3-red\">
+////            <h3>Failure!</h3>
+////            <p>User Not Added</p>
+////            </div>
+////            </div>';
+//
+//}
 
 $conn->close();
 ?>

@@ -138,24 +138,34 @@ if ($conn->connect_error) {
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="main_feature">
             <form>
                 <ul class="form-style-1">
 
-                    <label for = "prod_ID">Production ID: <span class="required"></span></label>
-                    <input type="text" name="prod_ID" class="field-text" value=""  accesskey="1" placeholder="Production Identification No." required/><br>
-                    <br>
-
                     <label for = "well_ID">Well: </label>
                     <select name="well_ID" required>
-                        <option value="" accesskey="3">Please Select</option>
-                        <option value="AFG">Afghanistan</option>
-                        <option value="ALA">Ã…land Islands</option>
+                        <?php
+                        $query = mysqli_query("SELECT well_id FROM well");
+                        while ($new_row = mysqli_fetch_array($query)){
+                            echo "<option value=\"wel1_ID\">" . $new_row['well_id'] . "</option>";
+                        }
+                        ?>
                     </select><br>
                     <br>
 
                     <label for = "prod_date">Production Date: </label>
                     <input type="date" name="prod_date" accesskey="3"/><br>
+                    <br>
+
+                    <label for = "well">Well: <span class="required"></span></label>
+                    <select name="well" required>
+                        <?php
+                        $query = mysqli_query("SELECT well_id FROM well");
+                        while ($new_row = mysqli_fetch_array($query)){
+                            echo "<option value=\"wel11\">" . $new_row['well_id'] . "</option>";
+                        }
+                        ?>
+                    </select><br>
                     <br>
 
                     <label for = "oil_prod">Oil Produced (BOPD): <span class="required"></span></label>
@@ -226,37 +236,45 @@ if ($conn->connect_error) {
 
 <?php
 
-$well_id = $_POST['well_id'];
-$well_name = $_POST['well_name'];
-$well_field = $_POST['well_field'];
-$well_prod_start = $_POST['well_prod_start'];
-$well_status = $_POST['well_status'];
+$prod_date = $_POST['prod_date'];
+$well = $_POST['well'];
+$oil_prod = $_POST['oil_prod'];
+$gas_prod = $_POST['gas_prod'];
+$water_prod = $_POST['water_prod'];
+$gas_oil_ratio = $_POST['gas_oil_ratio'];
+$basic_sed_water = $_POST['basic_sed_water'];
+$bean = $_POST['bean'];
+$tubing_hang_press = $_POST['tubing_hang_press'];
+$bottom_hole_pressure = $_POST['bottom_hole_pressure'];
+$a_p_i = $_POST['a_p_i'];
 
-$sql = "INSERT INTO users (well_id, well_name, well_off_on, well_prod_start, well_status)
-                VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-//    echo '
-//            <div class=\"w3-container\">
-//            <div class=\"w3-container w3-green\">
-//            <h3>Success!</h3>
-//            <p>New User Added</p>
-//            </div>
-//            </div>';
 
-}
-else{
-    echo "Error";
-//    echo '
-//            <div class=\"w3-container\">
-//            <div class=\"w3-container w3-red\">
-//            <h3>Failure!</h3>
-//            <p>User Not Added</p>
-//            </div>
-//            </div>';
+$sql = "INSERT INTO users (production_date, well, oil, gas, water, gor, bsw, bean, thp,bhp, api)
+                VALUES ('$prod_date','$well','$oil_prod', '$gas_prod','$water_prod', '$gas_oil_ratio', '$basic_sed_water', '$bean','$tubing_hang_press', '$bottom_hole_pressure', '$a_p_i')";
 
-}
+//if ($conn->query($sql) === TRUE) {
+//    echo "New record created successfully";
+////    echo '
+////            <div class=\"w3-container\">
+////            <div class=\"w3-container w3-green\">
+////            <h3>Success!</h3>
+////            <p>New User Added</p>
+////            </div>
+////            </div>';
+//
+//}
+//else{
+//    echo "Error";
+////    echo '
+////            <div class=\"w3-container\">
+////            <div class=\"w3-container w3-red\">
+////            <h3>Failure!</h3>
+////            <p>User Not Added</p>
+////            </div>
+////            </div>';
+//
+//}
 
 $conn->close();
 ?>
