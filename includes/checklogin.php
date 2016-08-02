@@ -18,8 +18,8 @@ $conn=mysqli_connect("$host", "$username", "$password")or die("Cannot Connect");
 mysqli_select_db($conn, $db_name)or die("Cannot Select DB");
 
 // username and password sent from form
-echo $myusername=$_POST['username'];
-echo $mypassword=$_POST['password'];
+$myusername=$_POST['username'];
+$mypassword=$_POST['password'];
 
 // To protect MySQL injection (more detail about MySQL injection)
 //$myusername = stripslashes($myusername);
@@ -28,14 +28,14 @@ echo $mypassword=$_POST['password'];
 //$mypassword = mysqli_real_escape_string($mypassword, $conn);
 //$enc_mypassword=md5($mypassword);
 
-/*
+
 $sql="SELECT * FROM users WHERE email='{$myusername}' and password='{$mypassword}'";
 $result=mysqli_query($sql);
 
 while($returnedResult = mysqli_fetch_array($result)){
-    echo $returnedResult;
+    echo $returnedResult["email"];
 }
-*/
+
 
 /*
 
