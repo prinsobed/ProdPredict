@@ -98,41 +98,41 @@ textarea, select{
 }
 
 
-/*Editable Table*/
- table.zebra-style {
-     font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-     text-align:left;
-     border:1px solid #ccc;
-     margin-bottom:25px;
-     width:90%
- }
-table.zebra-style th {
-    color: #444;
-    font-size: 13px;
-    font-weight: normal;
-    padding: 10px 8px;
-}
-table.zebra-style td {
-    color: #777;
-    padding: 8px;
-    font-size:13px;
-}
-table.zebra-style tr.odd {
-    background:#f2f2f2;
-}
-body {
-    background:#fafafa;
-}
-.container {
-    width: 800px;
-    border: 1px solid #C4CDE0;
-    border-radius: 2px;
-    margin: 0 auto;
-    height: 1300px;
-    background:#fff;
-    padding-left:10px;
-}
-#status { padding:10px; background:#88C4FF; color:#000; font-weight:bold; font-size:12px; margin-bottom:10px; display:none; width:90%; }
+/*!*Editable Table*!*/
+ /*table.zebra-style {*/
+     /*font-family:"Lucida Sans Unicode", "Lucida Grande", Sans-Serif;*/
+     /*text-align:left;*/
+     /*border:1px solid #ccc;*/
+     /*margin-bottom:25px;*/
+     /*width:90%*/
+ /*}*/
+/*table.zebra-style th {*/
+    /*color: #444;*/
+    /*font-size: 13px;*/
+    /*font-weight: normal;*/
+    /*padding: 10px 8px;*/
+/*}*/
+/*table.zebra-style td {*/
+    /*color: #777;*/
+    /*padding: 8px;*/
+    /*font-size:13px;*/
+/*}*/
+/*table.zebra-style tr.odd {*/
+    /*background:#f2f2f2;*/
+/*}*/
+/*body {*/
+    /*background:#fafafa;*/
+/*}*/
+/*.container {*/
+    /*width: 800px;*/
+    /*border: 1px solid #C4CDE0;*/
+    /*border-radius: 2px;*/
+    /*margin: 0 auto;*/
+    /*height: 1300px;*/
+    /*background:#fff;*/
+    /*padding-left:10px;*/
+/*}*/
+/*#status { padding:10px; background:#88C4FF; color:#000; font-weight:bold; font-size:12px; margin-bottom:10px; display:none; width:90%; }*/
 
 
 /*END OF CSS*/
