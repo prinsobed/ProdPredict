@@ -24,11 +24,11 @@ $mypassword=$_POST['password'];
 // To protect MySQL injection (more detail about MySQL injection)
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
-$myusername = mysqli_real_escape_string($myusername);
-$mypassword = mysqli_real_escape_string($mypassword);
+$myusername = mysqli_real_escape_string($myusername, $conn);
+$mypassword = mysqli_real_escape_string($mypassword, $conn);
 //$enc_mypassword=md5($mypassword);
 
-$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
+$sql="SELECT * FROM users WHERE email='{$myusername}' and password='{$mypassword}'";
 $result=mysqli_query($sql);
 
 // Mysql_num_row is counting table row
@@ -46,3 +46,6 @@ if($count==1){
 else {
     echo "Wrong Username or Password";
 }
+
+
+?>
