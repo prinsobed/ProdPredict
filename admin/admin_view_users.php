@@ -85,7 +85,12 @@
 
             </div>
             </div>
-            
+
+
+
+?>
+
+
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
             <div class="col-sm-9">
@@ -97,8 +102,62 @@
                         <!-- History -->
   							<article>
         <div id="add_user">
-            
-            
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+            <?php
+            $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+            $username="bed8c15b456030"; // Mysql username
+            $password="58380471"; // Mysql password
+            $dbname="db_prodpredict"; // Database name
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+
+            $sql = "SELECT id, firstname, lastname, company, email, password, user_type FROM users";
+
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '
+
+                <tbody>
+                <tr class="odd">
+                    <td id="id" contenteditable="false">' .$row["id"].'</td>
+                    <td id="f_name" contenteditable="true">' .$row["firstname"].'</td>
+                    <td id="l_name" contenteditable="true">' .$row["lastname"].'</td>
+                    <td id="company" contenteditable="true">' .$row["company"].'</td>
+                    <td id="email" contenteditable="true">' .$row["email"].'</td>
+                    <td id="password" contenteditable="true">' .$row["password"].'</td>
+                    <td id="u_type" contenteditable="true">' .$row["user_type"].'</td>
+                </tr>
+
+                </tbody>
+            ';
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+            ?>
+            </table>
             <!-- Code Here -->
         </div>
     </article>
