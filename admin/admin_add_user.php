@@ -152,23 +152,25 @@
                 VALUES ('$fname','$lname', '$company','$email', '$password', '$u_type')";
 
             if ($conn->query($sql) === TRUE) {
-//    echo "New record created successfully";
-                echo '
-    <div class=\"w3-container\">
-    <div class=\"w3-container w3-green\">
-    <h3>Success!</h3>
-    <p>New User Added</p>
-    </div>
-    </div>';
+            //    echo "New record created successfully";
+            ?>
+            <div class=\"w3-container\">
+            <div class=\"w3-container w3-green\">
+            <h3>Success!</h3>
+            <p>New User Added</p>
+            </div>
+            </div>
+            <?php
             }
             else{
-                echo '
-    <div class=\"w3-container w3-green\">
-    <h3>Failure!</h3>
-    <p>User Not Added</p>
-    </div>
-    </div>
-    ';
+            ?>
+            <div class=\"w3-container\">
+            <div class=\"w3-container w3-red\">
+            <h3>Failure!</h3>
+            <p>User Not Added</p>
+            </div>
+            </div>
+            <?php
             }
 
             $conn->close();
