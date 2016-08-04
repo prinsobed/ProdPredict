@@ -208,14 +208,15 @@
                     <label for = "well_field">Field: <span class="required"></span></label>
                     <select name="well_field" required>
                         <?php
-                        $sel = "SELECT field_id FROM field";
+                        $sel = "SELECT * field_id FROM field";
                         $result = $conn->query($sel);
 
                         if ($result->num_rows > 0) {
                             // output data of each row
                             while($row = $result->fetch_assoc()) {
+                                $items = $row["field_id"];
                                 ?>
-                                <option value="wel1_field"><?php echo  $row["field_id"]; ?> </br></option>;
+                                <option value="wel1_field"><?php echo $items; ?> </br></option>;
                         <?php
                             }
                         } else {?>
