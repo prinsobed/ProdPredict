@@ -89,7 +89,79 @@
 
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
-            <div class="col-sm-9">
+
+                <!--PHP Code to implement Record Insert -->
+                <?php
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // define variables and set to empty values
+                $fname = $lname = $company = $email = $password = $type =  "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                    $fname = test_input($_POST["firstname"]);
+                    $lname = test_input($_POST["lastname"]);
+                    $company = test_input($_POST["company"]);
+                    $email = test_input($_POST["email"]);
+                    $password = test_input($_POST["password"]);
+                    $type = test_input($_POST["type"]);
+                }
+
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+
+                $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_type)
+                          VALUES ('$fname','$lname', '$company','$email', '$password', '$type')";
+
+                if ($conn->query($sql) === TRUE) {
+                    //    echo "New record created successfully";
+                    ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Success",
+                                "contents":"User Added"
+                            });
+                        });
+                    </script>
+                <?php
+                }
+                else{
+                ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Failure",
+                                "contents":"No User Added"
+                            });
+                        });
+                    </script>
+                    <?php
+                }
+                $conn->close();
+                ?>
+
+                <!--End of PHP Code to implement Record Insert -->
+
+
+
+                <div class="col-sm-9">
             	
   					<div class="panel panel-default">
     				<div class="panel-heading">Add New User</div>
@@ -98,7 +170,7 @@
                         <!-- History -->
   							<article>
         <div id="main_feature">
-            <form action = "" method = "POST">
+            <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST">
                 <ul class="form-style-1">
 
                     <label for = "firstname">First Name: </label>
@@ -128,54 +200,54 @@
                 </ul>
             </form>
 
-            <?php
-            $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-            $username="bed8c15b456030"; // Mysql username
-            $password="58380471"; // Mysql password
-            $dbname="db_prodpredict"; // Database name
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $fname = $_POST['firstname'];
-            $lfield = $_POST['lastname'];
-            $company = $_POST['company'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $u_type = $_POST['type'];
-
-            $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_type)
-                VALUES ('$fname','$lname', '$company','$email', '$password', '$u_type')";
-
-            if ($conn->query($sql) === TRUE) {
-            //    echo "New record created successfully";
-            echo '
-            <div class=\"w3-container\">
-            <div class=\"w3-container w3-green\">
-            <h3>Success!</h3>
-            <p>New User Added</p>
-            </div>
-            </div>';
-
-            }
-            else{
-            echo '
-            <div class=\"w3-container\">
-            <div class=\"w3-container w3-red\">
-            <h3>Failure!</h3>
-            <p>User Not Added</p>
-            </div>
-            </div>';
-
-            }
-
-            $conn->close();
-            ?>
-
+<!--            --><?php
+//            $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+//            $username="bed8c15b456030"; // Mysql username
+//            $password="58380471"; // Mysql password
+//            $dbname="db_prodpredict"; // Database name
+//
+//            // Create connection
+//            $conn = new mysqli($servername, $username, $password, $dbname);
+//            // Check connection
+//            if ($conn->connect_error) {
+//                die("Connection failed: " . $conn->connect_error);
+//            }
+//
+//            $fname = $_POST['firstname'];
+//            $lfield = $_POST['lastname'];
+//            $company = $_POST['company'];
+//            $email = $_POST['email'];
+//            $password = $_POST['password'];
+//            $u_type = $_POST['type'];
+//
+//            $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_type)
+//                VALUES ('$fname','$lname', '$company','$email', '$password', '$u_type')";
+//
+//            if ($conn->query($sql) === TRUE) {
+//            //    echo "New record created successfully";
+//            echo '
+//            <div class=\"w3-container\">
+//            <div class=\"w3-container w3-green\">
+//            <h3>Success!</h3>
+//            <p>New User Added</p>
+//            </div>
+//            </div>';
+//
+//            }
+//            else{
+//            echo '
+//            <div class=\"w3-container\">
+//            <div class=\"w3-container w3-red\">
+//            <h3>Failure!</h3>
+//            <p>User Not Added</p>
+//            </div>
+//            </div>';
+//
+//            }
+//
+//            $conn->close();
+//            ?>
+<!---->
 
         </div>
     </article>
