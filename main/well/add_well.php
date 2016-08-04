@@ -208,7 +208,7 @@
                     <label for = "well_field">Field: <span class="required"></span></label>
                     <select name="well_field" required>
                         <?php
-                        $sel = "SELECT * field_id FROM field";
+                        $sel = "SELECT field_id FROM field";
                         $result = $conn->query($sel);
 
                         if ($result->num_rows > 0) {
