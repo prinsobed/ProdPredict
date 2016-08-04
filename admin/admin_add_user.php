@@ -207,56 +207,6 @@
 
                 </ul>
             </form>
-
-<!--            --><?php
-//            $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-//            $username="bed8c15b456030"; // Mysql username
-//            $password="58380471"; // Mysql password
-//            $dbname="db_prodpredict"; // Database name
-//
-//            // Create connection
-//            $conn = new mysqli($servername, $username, $password, $dbname);
-//            // Check connection
-//            if ($conn->connect_error) {
-//                die("Connection failed: " . $conn->connect_error);
-//            }
-//
-//            $fname = $_POST['firstname'];
-//            $lfield = $_POST['lastname'];
-//            $company = $_POST['company'];
-//            $email = $_POST['email'];
-//            $password = $_POST['password'];
-//            $u_type = $_POST['type'];
-//
-//            $sql = "INSERT INTO users (firstname, lastname, company, email, password, user_type)
-//                VALUES ('$fname','$lname', '$company','$email', '$password', '$u_type')";
-//
-//            if ($conn->query($sql) === TRUE) {
-//            //    echo "New record created successfully";
-//            echo '
-//            <div class=\"w3-container\">
-//            <div class=\"w3-container w3-green\">
-//            <h3>Success!</h3>
-//            <p>New User Added</p>
-//            </div>
-//            </div>';
-//
-//            }
-//            else{
-//            echo '
-//            <div class=\"w3-container\">
-//            <div class=\"w3-container w3-red\">
-//            <h3>Failure!</h3>
-//            <p>User Not Added</p>
-//            </div>
-//            </div>';
-//
-//            }
-//
-//            $conn->close();
-//            ?>
-<!---->
-
         </div>
     </article>
                             

@@ -45,7 +45,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><p>Welcome</p></li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -476,11 +476,6 @@
                     </li>
 
                     <li>
-                    <label for = "block">Block/Quadrant: </label>
-                    <input type="text" name="block" class="field-text" value=""  accesskey="5" placeholder="Block/Quadrant Name or ID"/><br>
-                    </li>
-
-                    <li>
                     <label for = "field_type">Type: <span class="required"></span></label>
                     <input type="radio" name="field_type" value="Oil" accesskey="6"> Oil
                     <input type="radio" name="field_type" value="Gas"> Gas
@@ -535,47 +530,3 @@
 </body>
 <!-- End of Page Body -->
 </html>
-
-<?php
-//
-//$field_id = $_POST['field_id'];
-//$name = $_POST['name'];
-//$situated = $_POST['situated'];
-//$location = $_POST['location'];
-//$block = $_POST['block'];
-//$field_type = $_POST['field_type'];
-//$water_depth = $_POST['water_depth'];
-//$discovery_date = $_POST['discovery_date'];
-//$production_start = $_POST['production_start'];
-//$status = $_POST['status'];
-//
-//
-//
-//$sql = "INSERT INTO users (field_id, field_name, situated_off_on, location, block_name, field_type,water_depth, discovery_date, production_start, status)
-//                VALUES ('$field_id','$name', '$situated','$location', '$block', '$field_type', '$water_depth','$discovery_date', '$production_start', '$status')";
-//
-////if ($conn->query($sql) === TRUE) {
-////       echo "New record created successfully";
-//////    echo '
-//////            <div class=\"w3-container\">
-//////            <div class=\"w3-container w3-green\">
-//////            <h3>Success!</h3>
-//////            <p>New User Added</p>
-//////            </div>
-//////            </div>';
-////
-////}
-////else{
-////    echo "Error";
-//////    echo '
-//////            <div class=\"w3-container\">
-//////            <div class=\"w3-container w3-red\">
-//////            <h3>Failure!</h3>
-//////            <p>User Not Added</p>
-//////            </div>
-//////            </div>';
-////
-////}
-//
-//$conn->close();
-//?>

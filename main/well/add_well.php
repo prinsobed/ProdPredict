@@ -6,18 +6,6 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
-
-$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-$username="bed8c15b456030"; // Mysql username
-$password="58380471"; // Mysql password
-$dbname="db_prodpredict"; // Database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +45,7 @@ if ($conn->connect_error) {
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li>Welcome</li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -130,7 +118,75 @@ if ($conn->connect_error) {
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
-            <div class="col-sm-9">
+
+                <!--PHP Code to implement Record Insert -->
+                <?php
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // define variables and set to empty values
+                $well_id = $well_name = $well_field = $well_prod_start = $well_status =   "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                    $well_id = test_input($_POST["well_id"]);
+                    $well_name = test_input($_POST["well_name"]);
+                    $well_field = test_input($_POST["well_field"]);
+                    $well_prod_start = test_input($_POST["well_prod_start"]);
+                    $well_status = test_input($_POST["well_status"]);
+                }
+
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+
+                $sql = "INSERT INTO well (well_id, well_name, field, production_start, status)
+                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
+
+                if ($conn->query($sql) === TRUE) {
+                    //    echo "New record created successfully";
+                    ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Success",
+                                "contents":"User Added"
+                            });
+                        });
+                    </script>
+                <?php
+                }
+                else{
+                ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Failure",
+                                "contents":"No User Added"
+                            });
+                        });
+                    </script>
+                    <?php
+                }
+                $conn->close();
+                ?>
+
+
+                <div class="col-sm-9">
             	
   					<div class="panel panel-default">
     				<div class="panel-heading">Add New Well</div>
@@ -198,41 +254,3 @@ if ($conn->connect_error) {
 </body>
 <!-- End of Page Body -->
 </html>
-
-
-<?php
-
-$well_id = $_POST['well_id'];
-$well_name = $_POST['well_name'];
-$well_field = $_POST['well_field'];
-$well_prod_start = $_POST['well_prod_start'];
-$well_status = $_POST['well_status'];
-
-$sql = "INSERT INTO users (well_id, well_name, well_off_on, well_prod_start, well_status)
-                VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
-
-//if ($conn->query($sql) === TRUE) {
-//    echo "New record created successfully";
-////    echo '
-////            <div class=\"w3-container\">
-////            <div class=\"w3-container w3-green\">
-////            <h3>Success!</h3>
-////            <p>New User Added</p>
-////            </div>
-////            </div>';
-//
-//}
-//else{
-//    echo "Error";
-////    echo '
-////            <div class=\"w3-container\">
-////            <div class=\"w3-container w3-red\">
-////            <h3>Failure!</h3>
-////            <p>User Not Added</p>
-////            </div>
-////            </div>';
-//
-//}
-
-$conn->close();
-?>
