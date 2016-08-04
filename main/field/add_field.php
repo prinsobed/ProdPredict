@@ -6,18 +6,6 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
-
-$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-$username="bed8c15b456030"; // Mysql username
-$password="58380471"; // Mysql password
-$dbname="db_prodpredict"; // Database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +118,81 @@ if ($conn->connect_error) {
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
-            <div class="col-sm-9">
+
+                <!--PHP Code to implement Record Insert -->
+                <?php
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // define variables and set to empty values
+                $field_id = $name = $situated = $location = $field_type = $water_depth= $discovery_date = $production_start = $status =   "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                    $field_id = test_input($_POST["field_id"]);
+                    $name = test_input($_POST["name"]);
+                    $situated = test_input($_POST["situated"]);
+                    $location = test_input($_POST["location"]);
+                    $field_type = test_input($_POST["field_type"]);
+                    $water_depth = test_input($_POST["water_depth"]);
+                    $discovery_date = test_input($_POST["discovery_date"]);
+                    $production_start = test_input($_POST["production_start"]);
+                    $status = test_input($_POST["status"]);
+                }
+
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+
+                $sql = "INSERT INTO field (field_id, field_name, situated_off_on, location, field_type, water_depth, discovery_date, production_start, status)
+                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$discovery_date', '$production_start','$status')";
+
+                if ($conn->query($sql) === TRUE) {
+                    //    echo "New record created successfully";
+                    ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Success",
+                                "contents":"User Added"
+                            });
+                        });
+                    </script>
+                <?php
+                }
+                else{
+                ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Failure",
+                                "contents":"No User Added"
+                            });
+                        });
+                    </script>
+                    <?php
+                }
+                $conn->close();
+                ?>
+
+                <!--End of PHP Code to implement Record Insert -->
+
+
+                <div class="col-sm-9">
             	
   					<div class="panel panel-default">
     				<div class="panel-heading">Add New Field</div>
@@ -139,7 +201,7 @@ if ($conn->connect_error) {
                         <!-- History -->
   							<article>
         <div id="main_feature">
-            <form action = "" method = "POST">
+            <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST">
                 <ul class="form-style-1">
                     <li>
                     <label for = "field_id">Field ID: <span class="required"></span></label>
@@ -453,9 +515,7 @@ if ($conn->connect_error) {
             </form>
         </div>
     </article>
-                            
-                            
-                  
+
             </div>
 			</div>
             </div></div>
@@ -477,45 +537,45 @@ if ($conn->connect_error) {
 </html>
 
 <?php
-
-$field_id = $_POST['field_id'];
-$name = $_POST['name'];
-$situated = $_POST['situated'];
-$location = $_POST['location'];
-$block = $_POST['block'];
-$field_type = $_POST['field_type'];
-$water_depth = $_POST['water_depth'];
-$discovery_date = $_POST['discovery_date'];
-$production_start = $_POST['production_start'];
-$status = $_POST['status'];
-
-
-
-$sql = "INSERT INTO users (field_id, field_name, situated_off_on, location, block_name, field_type,water_depth, discovery_date, production_start, status)
-                VALUES ('$field_id','$name', '$situated','$location', '$block', '$field_type', '$water_depth','$discovery_date', '$production_start', '$status')";
-
-//if ($conn->query($sql) === TRUE) {
-//       echo "New record created successfully";
-////    echo '
-////            <div class=\"w3-container\">
-////            <div class=\"w3-container w3-green\">
-////            <h3>Success!</h3>
-////            <p>New User Added</p>
-////            </div>
-////            </div>';
 //
-//}
-//else{
-//    echo "Error";
-////    echo '
-////            <div class=\"w3-container\">
-////            <div class=\"w3-container w3-red\">
-////            <h3>Failure!</h3>
-////            <p>User Not Added</p>
-////            </div>
-////            </div>';
+//$field_id = $_POST['field_id'];
+//$name = $_POST['name'];
+//$situated = $_POST['situated'];
+//$location = $_POST['location'];
+//$block = $_POST['block'];
+//$field_type = $_POST['field_type'];
+//$water_depth = $_POST['water_depth'];
+//$discovery_date = $_POST['discovery_date'];
+//$production_start = $_POST['production_start'];
+//$status = $_POST['status'];
 //
-//}
-
-$conn->close();
-?>
+//
+//
+//$sql = "INSERT INTO users (field_id, field_name, situated_off_on, location, block_name, field_type,water_depth, discovery_date, production_start, status)
+//                VALUES ('$field_id','$name', '$situated','$location', '$block', '$field_type', '$water_depth','$discovery_date', '$production_start', '$status')";
+//
+////if ($conn->query($sql) === TRUE) {
+////       echo "New record created successfully";
+//////    echo '
+//////            <div class=\"w3-container\">
+//////            <div class=\"w3-container w3-green\">
+//////            <h3>Success!</h3>
+//////            <p>New User Added</p>
+//////            </div>
+//////            </div>';
+////
+////}
+////else{
+////    echo "Error";
+//////    echo '
+//////            <div class=\"w3-container\">
+//////            <div class=\"w3-container w3-red\">
+//////            <h3>Failure!</h3>
+//////            <p>User Not Added</p>
+//////            </div>
+//////            </div>';
+////
+////}
+//
+//$conn->close();
+//?>
