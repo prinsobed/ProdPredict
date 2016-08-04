@@ -208,11 +208,19 @@
                     <label for = "well_field">Field: <span class="required"></span></label>
                     <select name="well_field" required>
                         <?php
-                        $query = mysqli_query("SELECT field_id FROM field");
-                        while ($new_row = mysqli_fetch_array($query)){
-                            echo "<option value=\"wel1_field\">" . $new_row['field_id'] . "</option>";
+                        $sel = "SELECT * field_id FROM field";
+                        $result = $conn->query($sel);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                echo "<option value=\"wel1_field\">" .  $row["field_id"]. "</br>". "</option>";
+                            }
+                        } else {
+                            echo "No Fields Entered";
                         }
                         ?>
+
                     </select><br>
                     <br>
 
