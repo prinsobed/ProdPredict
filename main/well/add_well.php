@@ -214,10 +214,13 @@
                         if ($result->num_rows > 0) {
                             // output data of each row
                             while($row = $result->fetch_assoc()) {
-                                echo "<option value='wel1_field'>" .  $row["field_id"]. "</br>". "</option>";
+                                ?>
+                                <option value="wel1_field"><?php echo  $row["field_id"]; ?> </br></option>;
+                        <?php
                             }
-                        } else {
-                            echo "No Fields Entered";
+                        } else {?>
+                                <option value="wel1_field"><?php echo  "No Fields Found"; ?> </br></option>;
+                        <?php
                         }
                         ?>
 
