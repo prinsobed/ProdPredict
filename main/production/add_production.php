@@ -161,7 +161,7 @@
                     return $data;
                 }
 
-                $sql = "INSERT INTO field (well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api)
+                $sql = "INSERT INTO production (well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api)
                           VALUES ('$prod_well','$prod_date', '$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
 
                 if ($conn->query($sql) === TRUE) {
