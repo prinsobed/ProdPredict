@@ -247,7 +247,7 @@ if ($conn->connect_error) {
 
                                                 <li>
                                                     <label for = "dca_type">DCA Type: <span class="required">*</span></label>
-                                                    <input type="radio" name="dca_type" value="All" checked accesskey="4"> All<br>
+                                                    <input type="radio" name="dca_type" value="All" checked accesskey="4"> All
                                                     <input type="radio" name="dca_type" value="exponential"> Exponential
                                                     <input type="radio" name="dca_type" value="hyperbolic"> Hyperbolic
                                                     <input type="radio" name="dca_type" value="harmonic"> Harmonic
@@ -256,8 +256,8 @@ if ($conn->connect_error) {
 
                                                 <li>
                                                     <label for = "report_type">Report Type: <span class="required">*</span></label>
-                                                    <input type="radio" name="report_type" value="Graph" checked accesskey="5"> All<br>
-                                                    <input type="radio" name="report_type" value="Data"> Oil
+                                                    <input type="radio" name="report_type" value="Graph" checked accesskey="5"> Graph
+                                                    <input type="radio" name="report_type" value="Data"> Data
                                                 </li><br><br>
 
                                                 <input type="submit" value="Clear" accesskey="6">
