@@ -201,7 +201,7 @@
                     <label for = "prod_well">Well: </label>
                     <select name="prod_well" required>
                         <?php
-                        $sel = "SELECT * well_id FROM well";
+                        $sel = "SELECT * FROM well WHERE well_id=GHW099";
                         $result = $conn->query($sel);
 
                         if ($result->num_rows > 0) {

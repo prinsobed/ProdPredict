@@ -477,9 +477,9 @@
 
                     <li>
                     <label for = "field_type">Type: <span class="required"></span></label>
-                    <input type="radio" name="field_type" value="Oil" accesskey="6"> Oil
+                    <input type="radio" name="field_type" value="Oil" accesskey="6" checked> Oil
                     <input type="radio" name="field_type" value="Gas"> Gas
-                    <input type="radio" name="field_type" value="Gas"> Both<br>
+                    <input type="radio" name="field_type" value="Both"> Both<br>
                     </li>
 
                     <li>
