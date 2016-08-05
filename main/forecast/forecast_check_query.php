@@ -151,7 +151,7 @@ if ($conn->connect_error) {
                                         <form>
                                             <ul class="form-style-1">
 
-                                                <label for = "num_wells">Number of Wells:</label>
+                                                <label for = "num_wells">Number of Wells: <span class="required">*</span></label>
                                                 <select name="num_wells" required accesskey="1">
                                                     <option value="1">1</option>;
                                                     <option value="2">2</option>;
@@ -159,8 +159,8 @@ if ($conn->connect_error) {
                                                 </select><br>
                                                 <br>
 
-                                                <label for = "Wells">Forecast Wells </label><br>
-                                                <label for = "well_1">Well 1: </label>
+                                                <label for = "Wells">Forecast Wells </label>
+                                                <label for = "well_1">Well 1: <span class="required">*</span></label>
                                                 <select name="well_1" required accesskey="2">
                                                     <?php
                                                     $sel = "SELECT * FROM well";
@@ -226,12 +226,12 @@ if ($conn->connect_error) {
                                                 </select><br>
                                                 <br>
 
-                                                <label for = "period">Forecast Period </label><br>
-                                                <label for = "start_date">From (Forecast Start): </label>
+                                                <label for = "period">Forecast Period </label>
+                                                <label for = "start_date">From (Forecast Start): <span class="required">*</span></label>
                                                 <input type="date" name="start_date" accesskey="5"/><br>
                                                 <br>
 
-                                                <label for = "end_date">To (Forecast End): </label>
+                                                <label for = "end_date">To (Forecast End): <span class="required">*</span></label>
                                                 <input type="date" name="end_date" accesskey="6"/><br>
                                                 <br>
 
@@ -254,10 +254,10 @@ if ($conn->connect_error) {
                                                 </li>
 
                                                 <li>
-                                                    <label for = "report_type">Report Type: <span class="required"></span></label>
+                                                    <label for = "report_type">Report Type: <span class="required">*</span></label>
                                                     <input type="radio" name="report_type" value="Graph" checked accesskey="5"> All<br>
                                                     <input type="radio" name="report_type" value="Data"> Oil
-                                                </li>
+                                                </li><br><br>
 
                                                 <input type="submit" value="Clear" accesskey="6">
                                                 <input type="submit" value="Save" accesskey="7">

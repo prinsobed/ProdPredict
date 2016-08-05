@@ -151,10 +151,10 @@ if ($conn->connect_error) {
                                         <form>
                                             <ul class="form-style-1">
 
-                                                <label for = "hist_well">Well: </label>
+                                                <label for = "hist_well">Well: <span class="required">*</span></label>
                                                 <select name="hist_well" required accesskey="1">
                                                     <?php
-                                                    $sel = "SELECT * FROM well WHERE well_id=GHW099";
+                                                    $sel = "SELECT * FROM well";
                                                     $result = $conn->query($sel);
 
                                                     if ($result->num_rows > 0) {
@@ -162,29 +162,29 @@ if ($conn->connect_error) {
                                                         while($row = $result->fetch_assoc()) {
                                                             $items = $row["well_id"];
                                                             ?>
-                                                            <option value="hist_well"><?php echo $items; ?> </br></option>;
+                                                            <option value=" "><?php echo $items; ?> </br></option>;
                                                             <?php
                                                         }
                                                     } else {?>
-                                                        <option value="hist_well"><?php echo  "No Fields Found"; ?> </br></option>;
+                                                        <option value=" "><?php echo  "No Fields Found"; ?></br></option>;
                                                         <?php
                                                     }
                                                     ?>
                                                 </select><br>
                                                 <br>
 
-                                                <label for = "period">History Period </label><br>
-                                                <label for = "start_date">From (History Start): </label>
+                                                <label for = "period">History Period </label>
+                                                <label for = "start_date">From (History Start): <span class="required">*</span></label>
                                                 <input type="date" name="start_date" accesskey="2"/><br>
                                                 <br>
 
-                                                <label for = "end_date">To (History End): </label>
+                                                <label for = "end_date">To (History End): <span class="required">*</span></label>
                                                 <input type="date" name="end_date" accesskey="3"/><br>
                                                 <br>
 
                                                 <li>
                                                     <label for = "hydrocarbon">Hydrocarbon: <span class="required">*</span></label>
-                                                    <input type="radio" name="hydrocarbon" value="All" checked accesskey="4"> All<br>
+                                                    <input type="radio" name="hydrocarbon" value="All" checked accesskey="4"> All
                                                     <input type="radio" name="hydrocarbon" value="Oil"> Oil
                                                     <input type="radio" name="hydrocarbon" value="Gas"> Gas
                                                     <input type="radio" name="hydrocarbon" value="Water"> Water
@@ -192,10 +192,10 @@ if ($conn->connect_error) {
                                                 </li>
 
                                                 <li>
-                                                    <label for = "report_type">Report Type: <span class="required"></span></label>
-                                                    <input type="radio" name="report_type" value="Graph" checked accesskey="5"> All<br>
-                                                    <input type="radio" name="report_type" value="Data"> Oil
-                                                </li>
+                                                    <label for = "report_type">Report Type: <span class="required">*</span></label>
+                                                    <input type="radio" name="report_type" value="Graph" checked accesskey="5"> Graph
+                                                    <input type="radio" name="report_type" value="Data"> Data
+                                                </li><br><br>
 
                                                 <input type="submit" value="Clear" accesskey="6">
                                                 <input type="submit" value="Save" accesskey="7">
