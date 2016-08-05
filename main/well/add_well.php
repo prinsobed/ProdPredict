@@ -216,11 +216,11 @@
                             while($row = $result->fetch_assoc()) {
                                 $items = $row["field_id"];
                                 ?>
-                                <option value="wel1_field"><?php echo $items; ?> </br></option>;
+                                <option value=" "><?php echo $items; ?> </br></option>;
                         <?php
                             }
                         } else {?>
-                                <option value="wel1_field"><?php echo  "No Fields Found"; ?> </br></option>;
+                                <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
                         <?php
                         }
                         ?>

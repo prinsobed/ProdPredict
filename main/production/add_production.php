@@ -209,11 +209,11 @@
                             while($row = $result->fetch_assoc()) {
                                 $items = $row["well_id"];
                                 ?>
-                                <option value="prod_well"><?php echo $items; ?> </br></option>;
+                                <option value=" "><?php echo $items; ?> </br></option>;
                                 <?php
                             }
                         } else {?>
-                            <option value="prod_well"><?php echo  "No Fields Found"; ?> </br></option>;
+                            <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
                             <?php
                         }
                         ?>
