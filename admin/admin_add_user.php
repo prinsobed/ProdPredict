@@ -21,14 +21,8 @@
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/bootstrap.js"></script>
 	<script src="../assets/js/npm.js"></script>
-
-    <link rel="stylesheet" href="../assets/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="../assets/css/simplemodal.css" type="text/css" media="screen" title="no title" charset="utf-8">
-    <script src="../assets/js/mootools-core-1.3.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../assets/js/mootools-more-1.3.1.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../assets/js/simple-modal.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../assets/js/demo.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.noty.packaged.min.js"></script>
 </head>
 <!-- End of Head -->
 

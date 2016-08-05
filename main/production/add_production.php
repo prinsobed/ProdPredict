@@ -6,18 +6,6 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
-
-$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-$username="bed8c15b456030"; // Mysql username
-$password="58380471"; // Mysql password
-$dbname="db_prodpredict"; // Database name
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +20,9 @@ if ($conn->connect_error) {
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
 	<script src="../../assets/js/npm.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery.noty.packaged.min.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -57,7 +48,7 @@ if ($conn->connect_error) {
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li>Welcome</li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -130,6 +121,71 @@ if ($conn->connect_error) {
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
+
+                <!--PHP Code to implement Record Insert -->
+                <?php
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                // define variables and set to empty values
+                $prod_well = $prod_date = $oil_prod = $gas_prod = $water_prod = $gas_oil_ratio = $basic_sed_water = $bean = $tubing_hang_press = $bottom_hole_pressure = $a_p_i =  "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                    $prod_well = test_input($_POST["prod_well"]);
+                    $prod_date = test_input($_POST["prod_date"]);
+                    $oil_prod = test_input($_POST["oil_prod"]);
+                    $gas_prod = test_input($_POST["gas_prod"]);
+                    $water_prod = test_input($_POST["water_prod"]);
+                    $gas_oil_ratio = test_input($_POST["gas_oil_ratio"]);
+                    $basic_sed_water = test_input($_POST["basic_sed_water"]);
+                    $bean = test_input($_POST["bean"]);
+                    $tubing_hang_press = test_input($_POST["tubing_hang_press"]);
+                    $bottom_hole_pressure = test_input($_POST["bottom_hole_pressure"]);
+                    $a_p_i= test_input($_POST["a_p_i"]);
+                }
+
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+
+                $sql = "INSERT INTO field (well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api)
+                          VALUES ('$prod_well','$prod_date', '$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
+
+                if ($conn->query($sql) === TRUE) {
+                      echo "New record created successfully";
+
+                }
+                else{
+                ?>
+                    <script type="text/javascript">
+                        $("myElement").addEvent("click", function(){
+                            var SM = new SimpleModal({"btn_ok":"Close"});
+                            SM.show({
+                                "title":"Failure",
+                                "contents":"No User Added"
+                            });
+                        });
+                    </script>
+                    <?php
+                }
+
+                ?>
+
+                <!--End of PHP Code to implement Record Insert -->
+
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
@@ -142,12 +198,23 @@ if ($conn->connect_error) {
             <form>
                 <ul class="form-style-1">
 
-                    <label for = "well_ID">Well: </label>
-                    <select name="well_ID" required>
+                    <label for = "prod_well">Well: </label>
+                    <select name="prod_well" required>
                         <?php
-                        $query = mysqli_query("SELECT well_id FROM well");
-                        while ($new_row = mysqli_fetch_array($query)){
-                            echo "<option value=\"wel1_ID\">" . $new_row['well_id'] . "</option>";
+                        $sel = "SELECT * well_id FROM well";
+                        $result = $conn->query($sel);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                $items = $row["well_id"];
+                                ?>
+                                <option value="prod_well"><?php echo $items; ?> </br></option>;
+                                <?php
+                            }
+                        } else {?>
+                            <option value="prod_well"><?php echo  "No Fields Found"; ?> </br></option>;
+                            <?php
                         }
                         ?>
                     </select><br>
@@ -155,17 +222,6 @@ if ($conn->connect_error) {
 
                     <label for = "prod_date">Production Date: </label>
                     <input type="date" name="prod_date" accesskey="3"/><br>
-                    <br>
-
-                    <label for = "well">Well: <span class="required"></span></label>
-                    <select name="well" required>
-                        <?php
-                        $query = mysqli_query("SELECT well_id FROM well");
-                        while ($new_row = mysqli_fetch_array($query)){
-                            echo "<option value=\"wel11\">" . $new_row['well_id'] . "</option>";
-                        }
-                        ?>
-                    </select><br>
                     <br>
 
                     <label for = "oil_prod">Oil Produced (BOPD): <span class="required"></span></label>
@@ -235,46 +291,5 @@ if ($conn->connect_error) {
 </html>
 
 <?php
-
-$prod_date = $_POST['prod_date'];
-$well = $_POST['well'];
-$oil_prod = $_POST['oil_prod'];
-$gas_prod = $_POST['gas_prod'];
-$water_prod = $_POST['water_prod'];
-$gas_oil_ratio = $_POST['gas_oil_ratio'];
-$basic_sed_water = $_POST['basic_sed_water'];
-$bean = $_POST['bean'];
-$tubing_hang_press = $_POST['tubing_hang_press'];
-$bottom_hole_pressure = $_POST['bottom_hole_pressure'];
-$a_p_i = $_POST['a_p_i'];
-
-
-
-$sql = "INSERT INTO users (production_date, well, oil, gas, water, gor, bsw, bean, thp,bhp, api)
-                VALUES ('$prod_date','$well','$oil_prod', '$gas_prod','$water_prod', '$gas_oil_ratio', '$basic_sed_water', '$bean','$tubing_hang_press', '$bottom_hole_pressure', '$a_p_i')";
-
-//if ($conn->query($sql) === TRUE) {
-//    echo "New record created successfully";
-////    echo '
-////            <div class=\"w3-container\">
-////            <div class=\"w3-container w3-green\">
-////            <h3>Success!</h3>
-////            <p>New User Added</p>
-////            </div>
-////            </div>';
-//
-//}
-//else{
-//    echo "Error";
-////    echo '
-////            <div class=\"w3-container\">
-////            <div class=\"w3-container w3-red\">
-////            <h3>Failure!</h3>
-////            <p>User Not Added</p>
-////            </div>
-////            </div>';
-//
-//}
-
 $conn->close();
 ?>
