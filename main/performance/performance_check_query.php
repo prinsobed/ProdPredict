@@ -229,11 +229,11 @@ if ($conn->connect_error) {
 
                                                 <label for = "period">Performance Period </label>
                                                 <label for = "start_date">From (Performance Start): <span class="required">*</span></label>
-                                                <input type="date" name="start_date" accesskey="5"/><br>
+                                                <input type="date" name="start_date" accesskey="5" required/><br>
                                                 <br>
 
                                                 <label for = "end_date">To (Performance End): <span class="required">*</span></label>
-                                                <input type="date" name="end_date" accesskey="6"/><br>
+                                                <input type="date" name="end_date" accesskey="6" required/><br>
                                                 <br>
 
                                                 <li>
@@ -248,7 +248,7 @@ if ($conn->connect_error) {
                                                 <li>
                                                     <label for = "report_type">Report Type: <span class="required">*</span></label>
                                                     <input type="radio" name="report_type" value="Graph" checked accesskey="5"> Graph
-                                                    <input type="radio" name="report_type" value="Data"> Data
+                                                    <input type="radio" name="report_type" value="Data" required> Data
                                                 </li><br><br>
 
                                                 <input type="submit" value="Clear" accesskey="6">

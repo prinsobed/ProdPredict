@@ -197,7 +197,7 @@
             <div id="main_feature">
             <form action="" method="post">
                 <ul class="form-style-1">
-                    <label for = "well_id">Well ID: <span class="required"></span></label>
+                    <label for = "well_id">Well ID: <span class="required">*</span></label>
                     <input type="text" name="well_id" class="field-text" value=""  accesskey="1" placeholder="Well Identification No." required/><br>
                     <br>
 
@@ -205,7 +205,7 @@
                     <input type="text" name="well_name" class="field-text" value=""  accesskey="2" placeholder="Well Name"/><br>
                     <br>
 
-                    <label for = "well_field">Field: <span class="required"></span></label>
+                    <label for = "well_field">Field: <span class="required">*</span></label>
                     <select name="well_field" required>
                         <?php
                         $sel = "SELECT * field_id FROM field";
@@ -228,12 +228,12 @@
                     </select><br>
                     <br>
 
-                    <label for = "well_prod_start">Productions Start Date: </label>
-                    <input type="date" name="well_prod_start" accesskey="4"/><br>
+                    <label for = "well_prod_start">Productions Start Date: <span class="required">*</span></label>
+                    <input type="date" name="well_prod_start" accesskey="4" required/><br>
                     <br>
 
                     <label for = "well_status">Status: <span class="required"></span></label>
-                    <input type="radio" name="well_status" value="Production" accesskey="5"> Production
+                    <input type="radio" name="well_status" value="Production" accesskey="5" checked> Production
                     <input type="radio" name="well_status" value="Abandonment"> Abandonment<br>
                     <br><br>
 

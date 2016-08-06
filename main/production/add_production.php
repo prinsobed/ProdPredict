@@ -220,43 +220,43 @@
                     </select><br>
                     <br>
 
-                    <label for = "prod_date">Production Date: </label>
-                    <input type="date" name="prod_date" accesskey="3"/><br>
+                    <label for = "prod_date">Production Date: <span class="required">*</span></label>
+                    <input type="date" name="prod_date" accesskey="3" value="<?php echo date('Y-m-d'); ?>" required/><br>
                     <br>
 
-                    <label for = "oil_prod">Oil Produced (BOPD): <span class="required"></span></label>
+                    <label for = "oil_prod">Oil Produced (BOPD): <span class="required">*</span></label>
                     <input type="text" name="oil_prod" class="field-text" value=""  accesskey="4" placeholder="Oil Produced"/><br>
                     <br>
 
-                    <label for = "gas_prod">Gas Produced (MMCFD): <span class="required"></span></label>
-                    <input type="text" name="gas_prod" class="field-text" value=""  accesskey="5" placeholder="Gas Produced"/><br>
+                    <label for = "gas_prod">Gas Produced (MMCFD): <span class="required">*</span></label>
+                    <input type="text" name="gas_prod" class="field-text" value=""  accesskey="5" placeholder="Gas Produced" required/><br>
                     <br>
 
-                    <label for = "water_prod">Water Produced (BBLS): <span class="required"></span></label>
-                    <input type="text" name="water_prod" class="field-text" value=""  accesskey="6" placeholder="Water Produced"/><br>
+                    <label for = "water_prod">Water Produced (BBLS): <span class="required">*</span></label>
+                    <input type="text" name="water_prod" class="field-text" value=""  accesskey="6" placeholder="Water Produced" required/><br>
                     <br>
 
-                    <label for = "gas_oil_ratio">Gas Oil Ratio (SCF/B): <span class="required"></span></label>
-                    <input type="text" name="gas_oil_ratio" class="field-text" value=""  accesskey="7" placeholder="Gas Oil Ratio"/><br>
+                    <label for = "gas_oil_ratio">Gas Oil Ratio (SCF/B): <span class="required">*</span></label>
+                    <input type="text" name="gas_oil_ratio" class="field-text" value=""  accesskey="7" placeholder="Gas Oil Ratio" required/><br>
                     <br>
 
-                    <label for = "basic_sed_water">Basic Sediment Water (%): <span class="required"></span></label>
-                    <input type="text" name="basic_sed_water" class="field-text" value=""  accesskey="8" placeholder="Basic Sediment Water"/><br>
+                    <label for = "basic_sed_water">Basic Sediment Water (%): <span class="required">*</span></label>
+                    <input type="text" name="basic_sed_water" class="field-text" value=""  accesskey="8" placeholder="Basic Sediment Water" required/><br>
                     <br>
 
-                    <label for = "bean">Bean (1/16"): <span class="required"></span></label>
-                    <input type="text" name="bean" class="field-text" value=""  accesskey="9" placeholder="Bean/Choke"/><br>
+                    <label for = "bean">Bean (1/16"): <span class="required">*</span></label>
+                    <input type="text" name="bean" class="field-text" value=""  accesskey="9" placeholder="Bean/Choke" required/><br>
                     <br>
 
-                    <label for = "tubing_hang_press">Tubing Hang Pressure (PSI): <span class="required"></span></label>
-                    <input type="text" name="tubing_hang_press" class="field-text" value=""  accesskey="10" placeholder="Tubing Hanger Press"/><br>
+                    <label for = "tubing_hang_press">Tubing Hang Pressure (PSI): <span class="required">*</span></label>
+                    <input type="text" name="tubing_hang_press" class="field-text" value=""  accesskey="10" placeholder="Tubing Hanger Press" required/><br>
                     <br>
 
-                    <label for = "bottom_hole_pressure">Bottom Hole Pressure (PSGI): <span class="required"></span></label>
-                    <input type="text" name="bottom_hole_pressure" class="field-text" value=""  accesskey="11" placeholder="Bottom Hole Pressure"/><br>
+                    <label for = "bottom_hole_pressure">Bottom Hole Pressure (PSGI): <span class="required">*</span></label>
+                    <input type="text" name="bottom_hole_pressure" class="field-text" value=""  accesskey="11" placeholder="Bottom Hole Pressure" required/><br>
                     <br>
 
-                    <label for = "a_p_i">API: <span class="required"></span></label>
+                    <label for = "a_p_i">API: <span class="required">*</span></label>
                     <input type="text" name="a_p_i" class="field-text" value="47.7"  accesskey="12" disabled/><br>
                     <br><br>
 
@@ -281,7 +281,7 @@
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-  			<div class="col-sm-12">Designed by Obed Kraine Boachi, ©2016.</div>
+  			<div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
 		</div>
     </footer>
     <!-- End of Footer -->

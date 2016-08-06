@@ -176,11 +176,11 @@ if ($conn->connect_error) {
 
                                                 <label for = "period">History Period </label>
                                                 <label for = "start_date">From (History Start): <span class="required">*</span></label>
-                                                <input type="date" name="start_date" accesskey="2"/><br>
+                                                <input type="date" name="start_date" accesskey="2" required/><br>
                                                 <br>
 
                                                 <label for = "end_date">To (History End): <span class="required">*</span></label>
-                                                <input type="date" name="end_date" accesskey="3"/><br>
+                                                <input type="date" name="end_date" accesskey="3" required/><br>
                                                 <br>
 
                                                 <li>

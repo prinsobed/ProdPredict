@@ -47,7 +47,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li>Welcome</li>
+                <li><a href="#">Welcome</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>

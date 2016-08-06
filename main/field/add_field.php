@@ -204,7 +204,7 @@
             <form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST">
                 <ul class="form-style-1">
                     <li>
-                    <label for = "field_id">Field ID: <span class="required"></span></label>
+                    <label for = "field_id">Field ID: <span class="required">*</span></label>
                     <input type="text" name="field_id" class="field-text" value=""  accesskey="1" placeholder="Field Identification No." required/><br>
                     </li>
 
@@ -214,13 +214,13 @@
                     </li>
 
                     <li>
-                    <label for = "situated">Situated: <span class="required"></span></label>
-                    <input type="radio" name="situated" value="Onshore" accesskey="3"> Onshore     
+                    <label for = "situated">Situated: <span class="required">*</span></label>
+                    <input type="radio" name="situated" value="Onshore" accesskey="3" checked> Onshore
                     <input type="radio" name="situated" value="Offshore"> Offshore<br>
                     </li>
 
                     <li>
-                    <label for = "location">Location: <span class="required"></span></label>
+                    <label for = "location">Location: <span class="required">*</span></label>
                     <select name="location" required>
                         <option value="" accesskey="4">Please Select</option>
                         <option value="AFG">Afghanistan</option>
@@ -476,30 +476,30 @@
                     </li>
 
                     <li>
-                    <label for = "field_type">Type: <span class="required"></span></label>
+                    <label for = "field_type">Type: <span class="required">*</span></label>
                     <input type="radio" name="field_type" value="Oil" accesskey="6" checked> Oil
                     <input type="radio" name="field_type" value="Gas"> Gas
                     <input type="radio" name="field_type" value="Both"> Both<br>
                     </li>
 
                     <li>
-                    <label for = "water_depth">Water Depth(m): </label>
-                    <input type="text" name="water_depth" class="field-text" value=""  accesskey="7" placeholder="Depth in metres"/><br>
+                    <label for = "water_depth">Water Depth(m): <span class="required">*</span></label>
+                    <input type="text" name="water_depth" class="field-text" value=""  accesskey="7" placeholder="Depth in metres" required/><br>
                     </li>
 
                     <li>
-                    <label for = "discovery_date">Discovery Date: </label>
-                    <input type="date" name="discovery_date" accesskey="8"/><br>
+                    <label for = "discovery_date">Discovery Date: <span class="required">*</span></label>
+                    <input type="date" name="discovery_date" accesskey="8" required/><br>
                     </li>
 
                     <li>
-                    <label for = "production_start">Production Start: </label>
-                    <input type="date" name="production_start" accesskey="9"/><br>
+                    <label for = "production_start">Production Start: <span class="required">*</span></label>
+                    <input type="date" name="production_start" accesskey="9" required/><br>
                     </li>
 
                     <li>
-                    <label for = "status">Status: <span class="required"></span></label>
-                    <input type="radio" name="status" value="Production" accesskey="10"> Production
+                    <label for = "status">Status: <span class="required"><*/span></label>
+                    <input type="radio" name="status" value="Production" accesskey="10" checked> Production
                     <input type="radio" name="status" value="Abandonment"> Abandonment<br><br><br>
                     </li>
 
