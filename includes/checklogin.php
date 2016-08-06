@@ -15,7 +15,7 @@ $db_name="db_prodpredict"; // Database name
 $tbl_name="users"; // Table name
 
 // Connect to server and select databse.
-$conn=mysqli_connect($host, $username, $password)or die("Cannot Connect");
+$conn=mysqli_connect($host, $username, $password, $db_name)or die("Cannot Connect");
 mysqli_select_db($conn, $db_name)or die("Cannot Select DB");
 
 // username and password sent from form

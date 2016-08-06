@@ -198,7 +198,7 @@
             <form>
                 <ul class="form-style-1">
 
-                    <label for = "prod_well">Well: </label>
+                    <label for = "prod_well">Well: <span class="required">*</span></label>
                     <select name="prod_well" required>
                         <?php
                         $sel = "SELECT * FROM well WHERE well_id=GHW099";
