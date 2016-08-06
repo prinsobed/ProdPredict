@@ -34,7 +34,7 @@ $sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypasswor
 $result=mysqli_query($conn, $sql);
 
 while($returnedResult = mysqli_fetch_array($result)){
-    echo $returnedResult["email"];
+    echo $returnedResult["fname"];
 }
 
 
