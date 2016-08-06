@@ -30,8 +30,8 @@ $mypassword=$_POST['password'];
 //$enc_mypassword=md5($mypassword);
 
 
-$sql="SELECT * FROM users WHERE email='$myusername' and password='$mypassword'";
-$result=mysqli_query($sql);
+$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
+$result=mysqli_query($conn, $sql);
 
 while($returnedResult = mysqli_fetch_array($result)){
     echo $returnedResult["email"];
