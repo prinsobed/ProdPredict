@@ -46,7 +46,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome <?php echo " ". $_SESSION['username']; ?></a></li>
+                <li><a href="#">Welcome </a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button"  class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
@@ -122,7 +122,7 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Analysis</div>
+    				<div class="panel-heading">Analysis for <?php echo " ". $_SESSION['username']; ?></div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
