@@ -136,7 +136,7 @@ session_start();
                 }
 
                 // define variables and set to empty values
-                $field_id = $name = $situated = $location = $field_type = $water_depth= $discovery_date = $production_start = $status =   "";
+                $field_id = $name = $situated = $location = $field_type = $water_depth= $status =   "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -146,8 +146,6 @@ session_start();
                     $location = test_input($_POST["location"]);
                     $field_type = test_input($_POST["field_type"]);
                     $water_depth = test_input($_POST["water_depth"]);
-                    $discovery_date = test_input($_POST["discovery_date"]);
-                    $production_start = test_input($_POST["production_start"]);
                     $status = test_input($_POST["status"]);
                 }
 
@@ -158,8 +156,8 @@ session_start();
                     return $data;
                 }
 
-                $sql = "INSERT INTO field (field_id, field_name, situated_off_on, location, field_type, water_depth, discovery_date, production_start, status)
-                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$discovery_date', '$production_start','$status')";
+                $sql = "INSERT INTO field (field_id, field_name, situated_off_on, location, field_type, water_depth, status)
+                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status')";
 
                 if ($conn->query($sql) === TRUE) {
                     //    echo "New record created successfully";
@@ -485,19 +483,10 @@ session_start();
                     </li>
 
                     <li>
-                    <label for = "water_depth">Water Depth(m): <span class="required">*</span></label>
-                    <input type="text" name="water_depth" class="field-text" value=""  accesskey="7" placeholder="Depth in metres" required/><br>
+                    <label for = "water_depth">Water Depth(m): </label>
+                    <input type="text" name="water_depth" class="field-text" value=""  accesskey="7" placeholder="Depth in metres"/><br>
                     </li>
 
-                    <li>
-                    <label for = "discovery_date">Discovery Date: <span class="required">*</span></label>
-                    <input type="date" name="discovery_date" accesskey="8" required/><br>
-                    </li>
-
-                    <li>
-                    <label for = "production_start">Production Start: <span class="required">*</span></label>
-                    <input type="date" name="production_start" accesskey="9" required/><br>
-                    </li>
 
                     <li>
                     <label for = "status">Status: <span class="required"><*/span></label>
