@@ -49,7 +49,7 @@ session_start();
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
                 <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
+                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
             </ul>
         </div>
       </div>
