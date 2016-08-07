@@ -48,7 +48,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Welcome <?php echo " ". $returnedResult['firstname']; ?></a></li>
                 <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
+                <li><button type="button" formaction="includes/checklogin.php" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
         </div>
       </div>
