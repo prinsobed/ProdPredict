@@ -13,7 +13,6 @@
 
 session_start();
 $myusername = $_SESSION['username'];
-$_SESSION['firstname'] = $returnedResult['firstname'];
 
 if(isset($myusername)){
     header("location: ../main/home.php");

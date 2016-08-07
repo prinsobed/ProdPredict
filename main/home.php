@@ -46,9 +46,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome <?php echo " ". $returnedResult['firstname']; ?></a></li>
+                <li><a href="#">Welcome <?php echo " ". $username; ?></a></li>
                 <li><a href="#">Settings</a></li>
-                <li><button type="button" formaction="includes/checklogin.php" class="btn navbar-btn btn-circle">Log Out</button></li>
+                <li><button type="button" <?php header("location:login_success.php");?> class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
         </div>
       </div>
