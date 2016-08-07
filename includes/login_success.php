@@ -19,7 +19,7 @@ session_start();
 
 
 if ( isset( $_SESSION['username'] ) ){
-    header("location: main/home.php"); // << makes the script send them to any page we set
+    header("location: ../main/home.php"); // << makes the script send them to any page we set
 //    $thisuser = 'username';
     } else {
     print "<h2>Could not log you in, Sorry.</h2>";
