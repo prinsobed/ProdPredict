@@ -122,7 +122,7 @@
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
-    				<div class="panel-heading">Analysis for <?php echo " ". $_SESSION['username']; ?></div>
+    				<div class="panel-heading">Analysis for <?php echo "{$_SESSION['username']};"  ?></div>
     				<div class="panel-body">
                     	<div class="row2">
                         <!-- History -->
