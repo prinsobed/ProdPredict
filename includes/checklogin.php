@@ -33,9 +33,18 @@ $mypassword=$_POST['password'];
 $sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
 $result=mysqli_query($conn, $sql);
 
+if(mysqli_num_rows($result) == 1){
 while($returnedResult = mysqli_fetch_array($result)){
-    echo $returnedResult["email"];
+    session_start();
+    $_SESSION['username'] = $myusername;
+    $_SESSION['firstname'] = $returnedResult['firstname'];
 }
+header("location:login_success.php");
+}else{
+    header('Location: ../index.php?login=error');
+}
+//    echo $returnedResult["email"];
+//}
 
 
 /*
