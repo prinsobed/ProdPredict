@@ -7,6 +7,8 @@
  * Time: 8:02 AM
  */
 
+session_start();
+
 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
 $username="bed8c15b456030"; // Mysql username
 $password="58380471"; // Mysql password
@@ -58,9 +60,9 @@ if ($conn->connect_error) {
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome</a></li>
+                <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
                 <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
+                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
             </ul>
         </div>
       </div>
