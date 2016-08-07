@@ -6,6 +6,8 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +47,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome</a></li>
+                <li><a href="#">Welcome<?php echo "{$_SESSION['firstname']}"; ?></a></li>
                 <li><a href="#">Settings</a></li>
                 <li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li>
             </ul>
