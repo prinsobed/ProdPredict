@@ -23,10 +23,10 @@ $myusername=$_POST['username'];
 $mypassword=$_POST['password'];
 
 // To protect MySQL injection (more detail about MySQL injection)
-$myusername = stripslashes($myusername);
-$mypassword = stripslashes($mypassword);
-$myusername = mysqli_real_escape_string($myusername, $conn);
-$mypassword = mysqli_real_escape_string($mypassword, $conn);
+//$myusername = stripslashes($myusername);
+//$mypassword = stripslashes($mypassword);
+//$myusername = mysqli_real_escape_string($myusername, $conn);
+//$mypassword = mysqli_real_escape_string($mypassword, $conn);
 //$enc_mypassword=md5($mypassword);
 
 
@@ -37,6 +37,7 @@ while($returnedResult = mysqli_fetch_array($result)){
 //    echo $returnedResult["email"];
     header("location: login_success.php");
 }
+
 
 
 
