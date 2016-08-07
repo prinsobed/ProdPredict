@@ -37,12 +37,13 @@ $result=mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) == 1){
 while($returnedResult = mysqli_fetch_array($result)){
-//    echo $returnedResult["email"];
+
     session_start();
     $_SESSION['username'] = $myusername;
-}
+    }
     header("location:login_success.php");
-}else{
+}
+else{
     header('Location: ../index.php?login=error');
 }
 
