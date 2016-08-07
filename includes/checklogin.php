@@ -30,39 +30,20 @@ $mypassword=$_POST['password'];
 //$enc_mypassword=md5($mypassword);
 
 
-$sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
+$sql="SELECT * FROM users WHERE email='$myusername' and password='$mypassword'";
 $result=mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) == 1){
-while($returnedResult = mysqli_fetch_array($result)){
-    session_start();
-    $_SESSION['username'] = $myusername;
-    $_SESSION['firstname'] = $returnedResult['firstname'];
-}
-header("location:login_success.php");
+    while($row = $result->fetch_array()){
+        session_start();
+        $_SESSION['username'] = $myusername;
+        $_SESSION['firstname'] = $row['firstname'];
+    }
+    header("location:login_success.php");
 }else{
     header('Location: ../index.php?login=error');
 }
-//    echo $returnedResult["email"];
-//}
 
 
-/*
 
-// Mysql_num_row is counting table row
-$count=mysqli_num_rows($result);
-
-// If result matched $myusername and $mypassword, table row must be 1 row
-if($result){
-
-// Register $myusername, $mypassword and redirect to file "login_success.php"
-    session_start();
-    $_SESSION['username'] = $myusername;
-    $_SESSION['password'] = $mypassword;
-    header("location:login_success.php");
-}
-else {
-    echo "Wrong Username or Password";
-}
-*/
 
