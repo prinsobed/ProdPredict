@@ -47,9 +47,9 @@ session_start();
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome </a></li>
+                <li><a href="#">Welcome  <?php $_SESSION['firstname']; ?> </a></li>
                 <li><a href="#">Settings</a></li>
-                <li><button type="button"  class="btn navbar-btn btn-circle">Log Out</button></li>
+                <li><a href="../includes/logout.php"><button type="button"  class="btn navbar-btn btn-circle">Log Out</button></a></li>
             </ul>
         </div>
       </div>
