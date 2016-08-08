@@ -218,7 +218,8 @@ session_start();
                             while($row = $result->fetch_assoc()) {
 
                                 ?>
-                                <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?></option>
+
+                                <option value=" "><?php echo $row['field_id']; ?> </option>;
                                 <?php
                             }
                         } else {?>
