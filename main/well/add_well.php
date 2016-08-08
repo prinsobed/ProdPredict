@@ -226,7 +226,6 @@ session_start();
                             <?php
                         }
                         ?>
-                        ?>
 
                     </select><br>
                     <br>
