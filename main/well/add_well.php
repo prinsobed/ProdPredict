@@ -154,7 +154,7 @@ session_start();
                     return $data;
                 }
 
-                $sql = "INSERT INTO well (well_id, well_name, field, production_start, status)
+                $sql = "INSERT INTO well (well_id, well_name, field_id, production_start, status)
                           VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
 
                 if ($conn->query($sql) === TRUE) {
