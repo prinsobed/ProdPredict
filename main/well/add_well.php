@@ -210,30 +210,22 @@ session_start();
                     <label for = "well_field">Field: <span class="required">*</span></label>
                     <select name="well_field" required>
                         <?php
-                        $sel = "SELECT * field_id FROM field";
+                        $sel = "SELECT * FROM field";
                         $result = $conn->query($sel);
 
-//                        if ($result->num_rows > 0) {
-//                            // output data of each row
-//                            while($row = $result->fetch_assoc()) {
-//                                $items = $row["field_id"];
-//                                ?>
-<!--                                <option value=" ">--><?php //echo $items; ?><!-- </br></option>;-->
-<!--                        --><?php
-//                            }
-//                        } else {?>
-<!--                                <option value=" ">--><?php //echo  "No Fields Found"; ?><!-- </br></option>;-->
-<!--                        --><?php
-//                        }
-//                        ?>
-<!---->
-<!--                        --><?php
-                        while($row = mysqli_fetch_assoc($result))
-                        {
-                            ?>
-                            <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?></option>
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+
+                                ?>
+                                <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?></option>
+                                <?php
+                            }
+                        } else {?>
+                            <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
                             <?php
                         }
+                        ?>
                         ?>
 
                     </select><br>
