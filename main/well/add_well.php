@@ -184,7 +184,7 @@ session_start();
                     </script>
                     <?php
                 }
-                $conn->close();
+
                 ?>
 
 
@@ -269,3 +269,8 @@ session_start();
 </body>
 <!-- End of Page Body -->
 </html>
+
+
+<?php
+$conn->close();
+?>
