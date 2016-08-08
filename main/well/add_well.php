@@ -213,17 +213,26 @@ session_start();
                         $sel = "SELECT * field_id FROM field";
                         $result = $conn->query($sel);
 
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while($row = $result->fetch_assoc()) {
-                                $items = $row["field_id"];
-                                ?>
-                                <option value=" "><?php echo $items; ?> </br></option>;
-                        <?php
-                            }
-                        } else {?>
-                                <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
-                        <?php
+//                        if ($result->num_rows > 0) {
+//                            // output data of each row
+//                            while($row = $result->fetch_assoc()) {
+//                                $items = $row["field_id"];
+//                                ?>
+<!--                                <option value=" ">--><?php //echo $items; ?><!-- </br></option>;-->
+<!--                        --><?php
+//                            }
+//                        } else {?>
+<!--                                <option value=" ">--><?php //echo  "No Fields Found"; ?><!-- </br></option>;-->
+<!--                        --><?php
+//                        }
+//                        ?>
+<!---->
+<!--                        --><?php
+                        while($row = mysqli_fetch_assoc($result))
+                        {
+                            ?>
+                            <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?></option>
+                            <?php
                         }
                         ?>
 

@@ -209,9 +209,9 @@ session_start();
                         if ($result->num_rows > 0) {
                             // output data of each row
                             while($row = $result->fetch_assoc()) {
-                                $items = $row["well_id"];
+
                                 ?>
-                                <option value=" "><?php echo $items; ?> </br></option>;
+                                <option value=" "><?php echo $row['well_id']; ?> </br></option>;
                                 <?php
                             }
                         } else {?>
