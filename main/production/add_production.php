@@ -212,7 +212,7 @@ session_start();
 
                                 ?>
 
-                                <option value="<?php echo $row['well_id']; ?>" </option>;
+                                <option value="<?php echo $row['well_id']; ?>" ></option>;
                                 <?php
                             }
                         } else {?>
