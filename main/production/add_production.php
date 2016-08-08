@@ -203,7 +203,7 @@ session_start();
                     <label for = "prod_well">Well: <span class="required">*</span></label>
                     <select name="prod_well" required>
                         <?php
-                        $sel = "SELECT * FROM well WHERE well_id=GHW099";
+                        $sel = "SELECT * FROM well";
                         $result = $conn->query($sel);
 
                         if ($result->num_rows > 0) {
@@ -215,7 +215,7 @@ session_start();
                                 <?php
                             }
                         } else {?>
-                            <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                            <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                             <?php
                         }
                         ?>
