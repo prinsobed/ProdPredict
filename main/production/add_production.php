@@ -217,6 +217,7 @@ session_start();
                             }
                         } else {?>
                             <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                            <?php echo $i;?>
                             <?php
                         }
                         ?>

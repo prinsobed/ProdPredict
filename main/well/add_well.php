@@ -219,7 +219,7 @@ session_start();
 
                                 ?>
 
-                                <option value="<?php echo $row['field_id']; ?>" </option>;
+                                <option value=" "><?php echo $row['field_id']; ?>" </option>;
                                 <?php
                             }
                         } else {?>
