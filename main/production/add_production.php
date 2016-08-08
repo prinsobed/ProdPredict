@@ -211,11 +211,12 @@ session_start();
                             while($row = $result->fetch_assoc()) {
 
                                 ?>
-                                <option value=" "><?php echo $row['well_id']; ?> </option>;
+
+                                <option value="<?php echo $row['well_id']; ?>" </option>;
                                 <?php
                             }
                         } else {?>
-                            <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
+                            <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
                             <?php
                         }
                         ?>
