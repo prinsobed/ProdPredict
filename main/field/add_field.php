@@ -489,7 +489,7 @@ session_start();
 
 
                     <li>
-                    <label for = "status">Status: <span class="required"><*/span></label>
+                    <label for = "status">Status: <span class="required">*</span></label>
                     <input type="radio" name="status" value="Production" accesskey="10" checked> Production
                     <input type="radio" name="status" value="Abandonment"> Abandonment<br><br><br>
                     </li>
