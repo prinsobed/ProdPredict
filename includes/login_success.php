@@ -13,7 +13,7 @@ session_start();
 $myusername = $_SESSION['username'];
 
 if(isset($myusername)){
-    if ($_SESSION['user_type'] = "user"){
+    if ($_SESSION['user_type'] = 'user'){
         header("location: ../main/home.php");
     }else {
         header("location: ../admin/admin_home.php");
