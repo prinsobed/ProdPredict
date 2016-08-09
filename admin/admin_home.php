@@ -197,6 +197,7 @@ session_start();
                             </div>  
             </div>
 			</div>
+			</div>
 
             <div class="panel panel-default">
     				<div class="panel-heading">Data</div>
@@ -207,7 +208,7 @@ session_start();
                             <div class="row2">
   							<div class="col-sm-12">
     						<a href="#" class="thumbnail">
-      						<img src="../assets/images/saved.png" alt="Uploads">
+      						<img src="../assets/images/main_saved.png" alt="Uploads">
                             <div class="caption">
         					Uploaded Files
                             </div>
@@ -225,7 +226,7 @@ session_start();
                             <div class="row2">
   							<div class="col-sm-12">
     						<a href="#" class="thumbnail">
-      						<img src="../assets/images/edited.png" alt="Edited">
+      						<img src="../assets/images/main_edited.png" alt="Edited">
                             <div class="caption">
         					Saved File Edits
                             </div>
@@ -243,7 +244,7 @@ session_start();
                             <div class="row2">
   							<div class="col-sm-12">
     						<a href="#" class="thumbnail">
-      						<img src="../assets/images/main-forecast-med.png" alt="Reports">
+      						<img src="../assets/images/main_report.png" alt="Reports">
                             <div class="caption">
         					Saved Reports
                             </div>
@@ -257,6 +258,8 @@ session_start();
                             </div>
             </div>
 			</div>
+			</div>
+
 			</div>
     		</section>
             
