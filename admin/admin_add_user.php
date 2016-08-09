@@ -134,28 +134,12 @@ session_start();
                 if ($conn->query($sql) === TRUE) {
                     //    echo "New record created successfully";
                     ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Success",
-                                "contents":"User Added"
-                            });
-                        });
-                    </script>
+                    <div class="alert alert-success" role="alert">User Add Successful</div>
                 <?php
                 }
                 else{
                 ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Failure",
-                                "contents":"No User Added"
-                            });
-                        });
-                    </script>
+                    <div class="alert alert-warning" role="alert">User Add Failed</div>
                     <?php
                 }
                 $conn->close();
