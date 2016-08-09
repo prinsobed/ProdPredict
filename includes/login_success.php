@@ -13,7 +13,11 @@ session_start();
 $myusername = $_SESSION['username'];
 
 if(isset($myusername)){
-    header("location: ../main/home.php");
+    if ($_SESSION['user_type'] == "user"){
+        header("location: ../main/home.php");
+    }else {
+        header("location: ../admin/admin_home.php");
+    }
 }else {
     print "<h2>Could not log you in, Sorry.</h2>";
     exit();

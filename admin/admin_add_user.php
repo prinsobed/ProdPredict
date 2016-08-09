@@ -194,8 +194,8 @@ session_start();
                     <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password" required/><br><br>
 
                     <label for = "type">Type: <span class="required">*</span></label>
-                    <input type="radio" name="type" value="User" accesskey="6" checked> User
-                    <input type="radio" name="type" value="Admin"> Admin</input><br><br>
+                    <input type="radio" name="type" value="user" accesskey="6" checked> User
+                    <input type="radio" name="type" value="admin"> Admin</input><br><br>
                     <br>
 
                     <input type="submit" name="clear" value="Clear" accesskey="7">
