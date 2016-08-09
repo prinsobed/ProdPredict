@@ -11,12 +11,13 @@
 // A check to verify if session is registered.
 session_start();
 $myusername = $_SESSION['username'];
+$myusertype = $_SESSION['user_type'];
 
 if(isset($myusername)){
-    if ($_SESSION['user_type'] = 'user'){
-        header("location: ../main/home.php");
-    }else {
+    if ($myusertype == 2){
         header("location: ../admin/admin_home.php");
+    }else {
+        header("location: ../main/home.php");
     }
 }else {
     print "<h2>Could not log you in, Sorry.</h2>";
