@@ -17,7 +17,9 @@ if(isset($myusername)){
     if ($myusertype == 2){
         header("location: ../admin/admin_home.php");
     }else {
-        header("location: ../main/home.php");
+        if ($myusertype == 1) {
+            header("location: ../main/home.php");
+        }
     }
 }else {
     print "<h2>Could not log you in, Sorry.</h2>";
