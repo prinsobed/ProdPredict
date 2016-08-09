@@ -52,7 +52,7 @@ session_start();
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
                 <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
+                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../includes/logout.php">Log Out</a></button></li>
             </ul>
         </div>
       </div>
@@ -133,14 +133,10 @@ session_start();
 
                 if ($conn->query($sql) === TRUE) {
                     //    echo "New record created successfully";
-                    ?>
-                    <div class="alert alert-success" role="alert">User Add Successful</div>
-                <?php
-                }
-                else{
-                ?>
-                    <div class="alert alert-warning" role="alert">User Add Failed</div>
-                    <?php
+                    echo "<div class='alert alert-success' role='alert'>User Add Successful</div>";
+                    }
+                    else{
+                    echo "<div class='alert alert-warning' role='alert'>User Add Failed</div>";
                 }
                 $conn->close();
                 ?>
