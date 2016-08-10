@@ -136,8 +136,34 @@ session_start();
                         $uploadOk = 0;
                     }
                 }
+                // Check if file already exists
+                if (file_exists($target_file)) {
+                    echo "Sorry, file already exists.";
+                    $uploadOk = 0;
+                }
+                // Check file size
+                if ($_FILES["fileToUpload"]["size"] > 500000) {
+                    echo "Sorry, your file is too large.";
+                    $uploadOk = 0;
+                }
+                // Allow certain file formats
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                    && $imageFileType != "gif" ) {
+                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $uploadOk = 0;
+                }
+                // Check if $uploadOk is set to 0 by an error
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                // if everything is ok, try to upload file
+                } else {
+                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                    } else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                }
                 ?>
-
 
             <div class="col-sm-9">
             	
@@ -148,22 +174,27 @@ session_start();
                         <!-- History -->
   							<article>
         <div id="add_user">
-            
-            <form id="upload" action="" method="POST" enctype="multipart/form-data">
-            <fieldset>
-                <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
-                <div>
-	                <label for="fileselect">Files to upload:</label>
-	                <input type="file" id="fileToUpload" name="fileToUpload" />
-	            <div id="filedrag">or drop files here</div>
-                </div>
-
-                <div>
-                    <input type="reset" value="Clear">
-                    <input type="submit" value="Upload File">
-                </div>
-            </fieldset>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
             </form>
+            
+<!--            <form id="upload" action="--><?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?><!--" method="POST" enctype="multipart/form-data">-->
+<!--            <fieldset>-->
+<!--                <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />-->
+<!--                <div>-->
+<!--	                <label for="fileselect">Files to upload:</label>-->
+<!--	                <input type="file" id="fileToUpload" name="fileToUpload" />-->
+<!--	            <div id="filedrag">or drop files here</div>-->
+<!--                </div>-->
+<!---->
+<!--                <div>-->
+<!--                    <input type="reset" value="Clear">-->
+<!--                    <input type="submit" value="Upload File">-->
+<!--                </div>-->
+<!--            </fieldset>-->
+<!--            </form>-->
 
 <div id="messages">
 <p>Status Messages</p>
