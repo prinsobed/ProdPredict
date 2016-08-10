@@ -202,6 +202,7 @@ session_start();
 
                     <label for = "prod_well">Well: <span class="required">*</span></label>
                     <select name="prod_well" required>
+                        <option value=" ">Please Select</br></option>;
                         <?php
                         $sel = "SELECT * FROM well";
                         $result = $conn->query($sel);
