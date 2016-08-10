@@ -133,10 +133,10 @@ session_start();
 
                 if ($conn->query($sql) === TRUE) {
                     //    echo "New record created successfully";
-                    echo "<div class='alert alert-success' role='alert'>User Add Successful</div>";
+                    echo "<div class='alert alert-success' role='alert'>Success: User Added</div>";
                     }
                     else{
-                    echo "<div class='alert alert-warning' role='alert'>User Add Failed</div>";
+                    echo "<div class='alert alert-warning' role='alert'>Failure: No User Added</div>";
                 }
                 $conn->close();
                 ?>

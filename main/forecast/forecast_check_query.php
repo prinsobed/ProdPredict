@@ -154,17 +154,10 @@ if ($conn->connect_error) {
                                         <form>
                                             <ul class="form-style-1">
 
-                                                <label for = "num_wells">Number of Wells: <span class="required">*</span></label>
-                                                <select name="num_wells" required accesskey="1">
-                                                    <option value="1">1</option>;
-                                                    <option value="2">2</option>;
-                                                    <option value="3">3</option>;
-                                                </select><br>
-                                                <br>
 
-                                                <label for = "Wells">Forecast Wells </label>
-                                                <label for = "well_1">Well 1: <span class="required">*</span></label>
-                                                <select name="well_1" required accesskey="2">
+                                                <label for = "well_1">Forecast Well: <span class="required">*</span></label>
+                                                <select name="well_1" required accesskey="1" required>
+                                                    <option value="" accesskey="2">Please Select</option>
                                                     <?php
                                                     $sel = "SELECT * FROM well";
                                                     $result = $conn->query($sel);
@@ -174,51 +167,7 @@ if ($conn->connect_error) {
                                                         while($row = $result->fetch_assoc()) {
                                                             $items = $row["well_id"];
                                                             ?>
-                                                            <option value=" "><?php echo $items; ?> </br></option>;
-                                                            <?php
-                                                        }
-                                                    } else {?>
-                                                        <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select><br>
-                                                <br>
-
-                                                <label for = "well_2">Well 2: </label>
-                                                <select name="well_2" accesskey="3">
-                                                    <?php
-                                                    $sel = "SELECT * FROM well ";
-                                                    $result = $conn->query($sel);
-
-                                                    if ($result->num_rows > 0) {
-                                                        // output data of each row
-                                                        while($row = $result->fetch_assoc()) {
-                                                            $items = $row["well_id"];
-                                                            ?>
-                                                            <option value=" "><?php echo $items; ?> </br></option>;
-                                                            <?php
-                                                        }
-                                                    } else {?>
-                                                        <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                </select><br>
-                                                <br>
-
-                                                <label for = "well_3">Well 3: </label>
-                                                <select name="well_3" accesskey="4">
-                                                    <?php
-                                                    $sel = "SELECT * FROM well ";
-                                                    $result = $conn->query($sel);
-
-                                                    if ($result->num_rows > 0) {
-                                                        // output data of each row
-                                                        while($row = $result->fetch_assoc()) {
-                                                            $items = $row["well_id"];
-                                                            ?>
-                                                            <option value=" "><?php echo $items; ?> </br></option>;
+                                                            <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
                                                             <?php
                                                         }
                                                     } else {?>
@@ -231,16 +180,16 @@ if ($conn->connect_error) {
 
                                                 <label for = "period">Forecast Period </label>
                                                 <label for = "start_date">From (Forecast Start): <span class="required">*</span></label>
-                                                <input type="date" name="start_date" accesskey="5"/><br>
+                                                <input type="date" name="start_date" accesskey="3"/><br>
                                                 <br>
 
                                                 <label for = "end_date">To (Forecast End): <span class="required">*</span></label>
-                                                <input type="date" name="end_date" accesskey="6"/><br>
+                                                <input type="date" name="end_date" accesskey="4"/><br>
                                                 <br>
 
                                                 <li>
                                                     <label for = "hydrocarbon">Hydrocarbon: <span class="required">*</span></label>
-                                                    <input type="radio" name="hydrocarbon" value="All" checked accesskey="4"> All<br>
+                                                    <input type="radio" name="hydrocarbon" value="All" checked accesskey="5"> All<br>
                                                     <input type="radio" name="hydrocarbon" value="Oil"> Oil
                                                     <input type="radio" name="hydrocarbon" value="Gas"> Gas
                                                     <input type="radio" name="hydrocarbon" value="Water"> Water
@@ -249,7 +198,7 @@ if ($conn->connect_error) {
 
                                                 <li>
                                                     <label for = "dca_type">DCA Type: <span class="required">*</span></label>
-                                                    <input type="radio" name="dca_type" value="All" checked accesskey="4"> All
+                                                    <input type="radio" name="dca_type" value="All" checked accesskey="6"> All<br>
                                                     <input type="radio" name="dca_type" value="exponential"> Exponential
                                                     <input type="radio" name="dca_type" value="hyperbolic"> Hyperbolic
                                                     <input type="radio" name="dca_type" value="harmonic"> Harmonic
@@ -258,12 +207,12 @@ if ($conn->connect_error) {
 
                                                 <li>
                                                     <label for = "report_type">Report Type: <span class="required">*</span></label>
-                                                    <input type="radio" name="report_type" value="Graph" checked accesskey="5"> Graph
+                                                    <input type="radio" name="report_type" value="Graph" checked accesskey="7"> Graph
                                                     <input type="radio" name="report_type" value="Data"> Data
                                                 </li><br><br>
 
-                                                <input type="submit" value="Clear" accesskey="6">
-                                                <input type="submit" value="Save" accesskey="7">
+                                                <input type="submit" value="Clear" accesskey="8">
+                                                <input type="submit" value="Generate Report" accesskey="9">
 
                                             </ul>
                                         </form>

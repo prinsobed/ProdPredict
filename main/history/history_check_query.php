@@ -154,8 +154,9 @@ if ($conn->connect_error) {
                                         <form>
                                             <ul class="form-style-1">
 
-                                                <label for = "hist_well">Well: <span class="required">*</span></label>
-                                                <select name="hist_well" required accesskey="1">
+                                                <label for = "hist_well">History Well:<span class="required">*</span></label>
+                                                <select name="hist_well" required accesskey="1" required>
+                                                    <option value="" accesskey="2">Please Select</option>
                                                     <?php
                                                     $sel = "SELECT * FROM well";
                                                     $result = $conn->query($sel);
@@ -165,7 +166,7 @@ if ($conn->connect_error) {
                                                         while($row = $result->fetch_assoc()) {
                                                             $items = $row["well_id"];
                                                             ?>
-                                                            <option value=" "><?php echo $items; ?> </br></option>;
+                                                            <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
                                                             <?php
                                                         }
                                                     } else {?>
@@ -187,7 +188,7 @@ if ($conn->connect_error) {
 
                                                 <li>
                                                     <label for = "hydrocarbon">Hydrocarbon: <span class="required">*</span></label>
-                                                    <input type="radio" name="hydrocarbon" value="All" checked accesskey="4"> All
+                                                    <input type="radio" name="hydrocarbon" value="All" checked accesskey="4"> All<br>
                                                     <input type="radio" name="hydrocarbon" value="Oil"> Oil
                                                     <input type="radio" name="hydrocarbon" value="Gas"> Gas
                                                     <input type="radio" name="hydrocarbon" value="Water"> Water
@@ -201,7 +202,7 @@ if ($conn->connect_error) {
                                                 </li><br><br>
 
                                                 <input type="submit" value="Clear" accesskey="6">
-                                                <input type="submit" value="Save" accesskey="7">
+                                                <input type="submit" value="Generate Report" accesskey="7">
 
                                             </ul>
                                         </form>
