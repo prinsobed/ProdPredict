@@ -135,34 +135,6 @@ session_start();
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                // define variables and set to empty values
-                $well_id = $well_name = $well_field = $well_prod_start = $well_status =   "";
-
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                    $well_id = test_input($_POST["well_id"]);
-                    $well_name = test_input($_POST["well_name"]);
-                    $well_field = test_input($_POST["well_field"]);
-                    $well_prod_start = test_input($_POST["well_prod_start"]);
-                    $well_status = test_input($_POST["well_status"]);
-                }
-
-                function test_input($data) {
-                    $data = trim($data);
-                    $data = stripslashes($data);
-                    $data = htmlspecialchars($data);
-                    return $data;
-                }
-
-                $sql = "INSERT INTO well (well_id, well_name, field_id, production_start, status)
-                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
-
-                if ($conn->query($sql) === TRUE) {
-                    ?><script>alert('Success: New Well Added');</script><?php
-                }
-                else{
-                    ?><script>alert('Failure: No Well Added');</script><?php
-                }
 
                 ?>
 
@@ -224,6 +196,40 @@ session_start();
 
                 </ul>
             </form>
+
+                <?php
+
+                // define variables and set to empty values
+                $well_id = $well_name = $well_field = $well_prod_start = $well_status =   "";
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                    $well_id = test_input($_POST["well_id"]);
+                    $well_name = test_input($_POST["well_name"]);
+                    $well_field = test_input($_POST["well_field"]);
+                    $well_prod_start = test_input($_POST["well_prod_start"]);
+                    $well_status = test_input($_POST["well_status"]);
+                }
+
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+
+                $sql = "INSERT INTO well (well_id, well_name, field_id, production_start, status)
+                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
+
+                if ($conn->query($sql) === TRUE) {
+                    ?><script>alert('Success: New Well Added');</script><?php
+                }
+                else{
+                    ?><script>alert('Failure: No Well Added');</script><?php
+                }
+
+
+                ?>
         </div>
     </article>
                             
