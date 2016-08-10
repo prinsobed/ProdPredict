@@ -120,6 +120,25 @@ session_start();
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
+                <?php
+                $target_dir = "../main/uploads/";
+                $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+                $uploadOk = 1;
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                // Check if image file is a actual image or fake image
+                if(isset($_POST["submit"])) {
+                    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+                    if($check !== false) {
+                        echo "File is an image - " . $check["mime"] . ".";
+                        $uploadOk = 1;
+                    } else {
+                        echo "File is not an image.";
+                        $uploadOk = 0;
+                    }
+                }
+                ?>
+
+
             <div class="col-sm-9">
             	
   					<div class="panel panel-default">
@@ -130,23 +149,21 @@ session_start();
   							<article>
         <div id="add_user">
             
-            <form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
+            <form id="upload" action="" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
                 <div>
 	                <label for="fileselect">Files to upload:</label>
-	                <input type="file" id="fileselect" name="fileselect[]" multiple />
+	                <input type="file" id="fileToUpload" name="fileToUpload" />
 	            <div id="filedrag">or drop files here</div>
                 </div>
 
-        <div>
+                <div>
                     <input type="reset" value="Clear">
                     <input type="submit" value="Upload File">
-        </div>
-
-</fieldset>
-
-</form>
+                </div>
+            </fieldset>
+            </form>
 
 <div id="messages">
 <p>Status Messages</p>
