@@ -146,7 +146,7 @@ session_start();
   							<div class="col-sm-4">
                             <div class="row2">
   							<div class="col-sm-12">
-    						<a href="#" class="thumbnail">
+    						<a href="../main/home.php" class="thumbnail">
       						<img src="../assets/images/main-history-med.png" alt="History">
                             <div class="caption">
         					History
@@ -164,7 +164,7 @@ session_start();
   							<div class="col-sm-4">
                             <div class="row2">
   							<div class="col-sm-12">
-    						<a href="#" class="thumbnail">
+    						<a href="../main/home.php" class="thumbnail">
       						<img src="../assets/images/main-performance-med.png" alt="Performance">
                             <div class="caption">
         					Performance
@@ -182,7 +182,7 @@ session_start();
   							<div class="col-sm-4">
                             <div class="row2">
   							<div class="col-sm-12">
-    						<a href="#" class="thumbnail">
+    						<a href="../main/home.php" class="thumbnail">
       						<img src="../assets/images/main-forecast-med.png" alt="Forecast">
                             <div class="caption">
         					Forecast
