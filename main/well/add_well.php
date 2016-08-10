@@ -158,31 +158,10 @@ session_start();
                           VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
 
                 if ($conn->query($sql) === TRUE) {
-                    //    echo "New record created successfully";
-                    ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Success",
-                                "contents":"User Added"
-                            });
-                        });
-                    </script>
-                <?php
+                    ?><script>alert('Success: New Well Added');</script><?php
                 }
                 else{
-                ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Failure",
-                                "contents":"No User Added"
-                            });
-                        });
-                    </script>
-                    <?php
+                    ?><script>alert('Failure: No Well Added');</script><?php
                 }
 
                 ?>

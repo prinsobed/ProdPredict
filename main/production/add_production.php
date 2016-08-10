@@ -167,21 +167,10 @@ session_start();
                           VALUES ('$prod_well','$prod_date', '$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
 
                 if ($conn->query($sql) === TRUE) {
-                      echo "New record created successfully";
-
+                    ?><script>alert('Success: New Production Added');</script><?php
                 }
                 else{
-                ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Failure",
-                                "contents":"No User Added"
-                            });
-                        });
-                    </script>
-                    <?php
+                    ?><script>alert('Failure: No Production Added');</script><?php
                 }
 
                 ?>

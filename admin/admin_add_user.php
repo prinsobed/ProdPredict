@@ -132,8 +132,7 @@ session_start();
                           VALUES ('$fname','$lname', '$company','$email', '$password', '$type')";
 
                 if ($conn->query($sql) === TRUE) {
-                    //    echo "New record created successfully";
-                    ?><script>alert('Success: User Added');</script><?php
+                    ?><script>alert('Success: New User Added');</script><?php
                     }
                     else{
                         ?><script>alert('Failure: No User Added');</script><?php

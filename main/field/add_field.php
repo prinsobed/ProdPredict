@@ -160,31 +160,10 @@ session_start();
                           VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status')";
 
                 if ($conn->query($sql) === TRUE) {
-                    //    echo "New record created successfully";
-                    ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Success",
-                                "contents":"User Added"
-                            });
-                        });
-                    </script>
-                <?php
+                    ?><script>alert('Success: New Field Added');</script><?php
                 }
                 else{
-                ?>
-                    <script type="text/javascript">
-                        $("myElement").addEvent("click", function(){
-                            var SM = new SimpleModal({"btn_ok":"Close"});
-                            SM.show({
-                                "title":"Failure",
-                                "contents":"No User Added"
-                            });
-                        });
-                    </script>
-                    <?php
+                    ?><script>alert('Failure: No Field Added');</script><?php
                 }
                 $conn->close();
                 ?>
