@@ -93,6 +93,19 @@ textarea, select{
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
 }
+
+.form-style-1 input[type=reset], .form-style-1 input[type=button]{
+    background: grey;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.form-style-1 input[type=reset]:hover, .form-style-1 input[type=button]:hover{
+    background: grey;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
 .form-style-1 .required{
     color:red;
 }
