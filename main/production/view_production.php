@@ -130,7 +130,7 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="main_feature">
             
             
             <!-- Code Here -->

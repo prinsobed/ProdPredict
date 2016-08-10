@@ -130,9 +130,9 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="main_feature">
             
-            <form action="../imported" class="dropzone">
+            <form action="" class="dropzone">
   			<div class="fallback">
     		<input name="file" type="file" multiple /> <br><br>
             
