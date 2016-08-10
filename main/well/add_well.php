@@ -228,13 +228,9 @@ session_start();
                 else{
                     ?><script>alert('Failure: No Well Added');</script><?php
                 }
-
-
                 ?>
-        </div>
-    </article>
-                            
-                            
+            </div>
+            </article>
                   
             </div>
 			</div>
