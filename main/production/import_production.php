@@ -120,7 +120,7 @@ session_start();
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <section>
-                //Try 1 - w3
+
 <!--                --><?php
 //                $target_dir = "../main/uploads/";
 //                $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -166,7 +166,7 @@ session_start();
 //                }
 //                ?>
 
-                //Yry 2
+
                 <?php
                 if(isset($_POST['btn-upload']))
                 {
