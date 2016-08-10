@@ -131,22 +131,18 @@ session_start();
         <div id="add_user">
             
             <form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+                <div>
+	                <label for="fileselect">Files to upload:</label>
+	                <input type="file" id="fileselect" name="fileselect[]" multiple />
+	            <div id="filedrag">or drop files here</div>
+                </div>
 
-<fieldset>
-
-
-<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
-
-<div>
-	<label for="fileselect">Files to upload:</label>
-	<input type="file" id="fileselect" name="fileselect[]" multiple />
-	<div id="filedrag">or drop files here</div>
-</div>
-
-<div>
-                    <input type="submit" value="Clear">
+        <div>
+                    <input type="reset" value="Clear">
                     <input type="submit" value="Upload File">
-</div>
+        </div>
 
 </fieldset>
 

@@ -494,7 +494,7 @@ session_start();
                     <input type="radio" name="status" value="Abandonment"> Abandonment<br><br><br>
                     </li>
 
-                    <input type="submit" value="Clear" accesskey="11">
+                    <input type="reset" value="Clear" accesskey="11">
                     <input type="submit" value="Save" accesskey="12">
 
                 </ul>

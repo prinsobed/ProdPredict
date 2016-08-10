@@ -178,7 +178,7 @@ session_start();
                     <input type="radio" name="type" value="2"> Admin</input><br><br>
                     <br>
 
-                    <input type="submit" name="clear" value="Clear" accesskey="7">
+                    <input type="reset" name="clear" value="Clear" accesskey="7">
                     <input type="submit" name="submit" value="Save" accesskey="8">
 
                 </ul>

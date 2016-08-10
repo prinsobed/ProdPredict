@@ -211,7 +211,7 @@ if ($conn->connect_error) {
                                                     <input type="radio" name="report_type" value="Data"> Data
                                                 </li><br><br>
 
-                                                <input type="submit" value="Clear" accesskey="8">
+                                                <input type="reset" value="Clear" accesskey="8">
                                                 <input type="submit" value="Generate Report" accesskey="9">
 
                                             </ul>

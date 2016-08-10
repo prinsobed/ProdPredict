@@ -264,7 +264,7 @@ session_start();
                     <input type="text" name="a_p_i" class="field-text" value="47.7"  accesskey="12" disabled/><br>
                     <br><br>
 
-                    <input type="submit" value="Clear" accesskey="13">
+                    <input type="reset" value="Clear" accesskey="13">
                     <input type="submit" value="Save" accesskey="14">
 
                 </ul>
