@@ -160,6 +160,7 @@ session_start();
 
                     <label for = "well_field">Field: <span class="required">*</span></label>
                     <select name="well_field" required>
+                        <option value="">Please Select </option>;
                         <?php
                         $sel = "SELECT * FROM field";
                         $result = $conn->query($sel);
