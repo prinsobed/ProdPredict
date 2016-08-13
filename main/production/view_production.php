@@ -24,6 +24,7 @@ session_start();
     <script src="../../assets/js/bootstrap.js"></script>
 	<script src="../../assets/js/npm.js"></script>
     <script src="../../assets/js/dropzone.js"></script>
+    <script src="papaparse.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -157,6 +158,15 @@ session_start();
     </footer>
     <!-- End of Footer -->
 </div>
+<script>
+    Papa.parse("http://example.com/file.csv", {
+        download: true,
+        complete: function(results) {
+            console.log(results);
+        }
+    });
+
+</script>
 </body>
 <!-- End of Page Body -->
 </html>
