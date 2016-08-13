@@ -43,9 +43,11 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        header("location: view_production.php");
+        ?><script>alert('Success: Field Added');</script><?php
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        header("location: ../main/home.php");
+        ?><script>alert('Failure: No Field Added');</script><?php
     }
 }
 ?>
