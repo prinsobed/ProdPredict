@@ -6,7 +6,6 @@
  * Time: 6:30 AM
  */
 
-<?php
                 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
                 $username="bed8c15b456030"; // Mysql username
                 $password="58380471"; // Mysql password
