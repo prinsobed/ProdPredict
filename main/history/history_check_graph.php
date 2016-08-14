@@ -29,6 +29,7 @@ session_start();
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
 	<script src="../../assets/js/npm.js"></script>
+    <script src="sc.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -126,17 +127,6 @@ session_start();
             </div>
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
-            <script>
-                var chart = c3.generate({
-                    bindto: 'chart',
-                    data: {
-                        columns: [
-                            ['data1', 30, 200, 100, 400, 150, 250],
-                            ['data2', 50, 20, 10, 40, 15, 25]
-                        ]
-                    }
-                });
-            </script>
 
             <section>
             <div class="col-sm-9">
@@ -148,17 +138,7 @@ session_start();
                         <!-- History -->
   							<article>
 
-                                <script>
-                                    var chart = c3.generate({
-                                        bindto: 'chart',
-                                        data: {
-                                            columns: [
-                                                ['data1', 30, 200, 100, 400, 150, 250],
-                                                ['data2', 50, 20, 10, 40, 15, 25]
-                                            ]
-                                        }
-                                    });
-                                </script>
+
             <!-- Code Here -->
 
             
