@@ -149,7 +149,7 @@ session_start();
                         <!-- History -->
   							<article>
         <div id="main_feature">
-            <form>
+            <form action="p_includes/add_p.php" method="post">
                 <ul class="form-style-1">
 
                     <label for = "prod_well">Well: <span class="required">*</span></label>

@@ -24,7 +24,7 @@ session_start();
     <script src="../../assets/js/bootstrap.js"></script>
 	<script src="../../assets/js/npm.js"></script>
     <script src="../../assets/js/dropzone.js"></script>
-    <script src="papaparse.js"></script>
+    <script src="p_includes/papaparse.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -135,6 +135,70 @@ session_start();
             
             
             <!-- Code Here -->
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Well</th>
+                    <th>Production Date</th>
+                    <th>Oil(BOPD)</th>
+                    <th>Gas(MMCFD)</th>
+                    <th>Water(BBLS)</th>
+                    <th>GOR(SCF/B)</th>
+                    <th>BSW(%)</th>
+                    <th>Bean(1/16")</th>
+                    <th>THP(PSI)</th>
+                    <th>BHP(PSGI)</th>
+                    <th>API</th>
+                </tr>
+                </thead>
+                <?php
+
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+
+                $sql = "SELECT prod_id, production_date, well, oil, gas, water, gor, bsw, bean, thp, bhp, api FROM production";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '
+
+                <tbody>
+                <tr class="odd">
+                    <td id="w_id" contenteditable="false">' .$row["well"].'</td>
+                    <td id="prod_date" contenteditable="false">' .$row["production_date"].'</td>
+                    <td id="oil" contenteditable="true">' .$row["oil"].'</td>
+                    <td id="gas" contenteditable="true">' .$row["gas"].'</td>
+                    <td id="water" contenteditable="true">' .$row["water"].'</td>
+                    <td id="gor" contenteditable="true">' .$row["gor"].'</td>
+                    <td id="bsw" contenteditable="true">' .$row["bsw"].'</td>
+                    <td id="bean" contenteditable="true">' .$row["bean"].'</td>
+                    <td id="thp" contenteditable="true">' .$row["thp"].'</td>
+                    <td id="bhp" contenteditable="true">' .$row["bhp"].'</td>
+                    <td id="api" contenteditable="true">' .$row["api"].'</td>
+                </tr>
+
+                </tbody>
+            ';
+                    }
+                } else {
+                    echo "No Production Records";
+                }
+                $conn->close();
+                ?>
+            </table>
    
             
         </div>
