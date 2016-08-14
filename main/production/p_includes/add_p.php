@@ -19,11 +19,11 @@
                 }
 
                 // define variables and set to empty values
-                $prod_date = $prod_well = $oil_prod = $gas_prod = $water_prod = $gas_oil_ratio = $basic_sed_water = $bean = $tubing_hang_press = $bottom_hole_pressure = $a_p_i =  "";
+                $prod_well = $prod_date = $oil_prod = $gas_prod = $water_prod = $gas_oil_ratio = $basic_sed_water = $bean = $tubing_hang_press = $bottom_hole_pressure = $a_p_i =  "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $prod_date = test_input($_POST["prod_date"]);
                     $prod_well = test_input($_POST["prod_well"]);
+                    $prod_date = test_input($_POST["prod_date"]);
                     $oil_prod = test_input($_POST["oil_prod"]);
                     $gas_prod = test_input($_POST["gas_prod"]);
                     $water_prod = test_input($_POST["water_prod"]);
@@ -42,8 +42,8 @@
                     return $data;
                 }
 
-                $sql = "INSERT INTO production ( production_date, well,oil, gas, water, gor, bsw, bean, thp, bhp, api)
-                          VALUES ('$prod_date','$prod_well','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
+                $sql = "INSERT INTO production ( well, production_date,oil, gas, water, gor, bsw, bean, thp, bhp, api)
+                          VALUES ('$prod_well','$prod_date','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: view_production.php");
