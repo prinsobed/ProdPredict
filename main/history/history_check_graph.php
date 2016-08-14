@@ -127,7 +127,6 @@ session_start();
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <script>
                 var chart = c3.generate({
-                    bindto: '#c3-bar',
                     data: {
                         columns: [
                             ['data1', 30, 200, 100, 400, 150, 250],
@@ -135,6 +134,28 @@ session_start();
                         ]
                     }
                 });
+
+                setTimeout(function () {
+                    chart.load({
+                        columns: [
+                            ['data1', 230, 190, 300, 500, 300, 400]
+                        ]
+                    });
+                }, 1000);
+
+                setTimeout(function () {
+                    chart.load({
+                        columns: [
+                            ['data3', 130, 150, 200, 300, 200, 100]
+                        ]
+                    });
+                }, 1500);
+
+                setTimeout(function () {
+                    chart.unload({
+                        ids: 'data1'
+                    });
+                }, 2000);
             </script>
 
             <section>
@@ -143,7 +164,7 @@ session_start();
   					<div class="panel panel-default">
     				<div class="panel-heading">Well Production History Graph</div>
     				<div class="panel-body">
-                    	<div class="c3-bar">
+                    	<div id="chart">
                         <!-- History -->
   							<article>
 
