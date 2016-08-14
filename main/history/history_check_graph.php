@@ -19,6 +19,12 @@ session_start();
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Load c3.css -->
+    <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="../../assets/js/d3.min.js" charset="utf-8"></script>
+    <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
 	<script src="../../assets/js/npm.js"></script>
@@ -128,10 +134,20 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="chart">
             
             <!-- Code Here -->
-            
+            <script>
+            var chart = c3.generate({
+            bindto: '#chart',
+            data: {
+            columns: [
+            ['data1', 30, 200, 100, 400, 150, 250],
+            ['data2', 50, 20, 10, 40, 15, 25]
+            ]
+            }
+            });
+            </script>
             
         </div>
     </article>
