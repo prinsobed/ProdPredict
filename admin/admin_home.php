@@ -79,7 +79,7 @@ session_start();
                         	<a class="btn btn-default" href="admin_add_user.php" role="button">Add New</a>
                             </ul>
                             <ul>
-              				<a class="btn btn-default" href="admin_edit_user.php" role="button">View Existing</a>
+              				<a class="btn btn-default" href="admin_view_users.php" role="button">View Existing</a>
             				</ul>	
 						</div>
                     </div>
