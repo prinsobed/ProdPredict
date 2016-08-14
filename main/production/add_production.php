@@ -182,7 +182,7 @@ session_start();
                     <br>
 
                     <label for = "oil_prod">Oil Produced (BOPD): <span class="required">*</span></label>
-                    <input type="text" name="oil_prod" class="field-text" value=""  accesskey="4" placeholder="Oil Produced"/><br>
+                    <input type="text" name="oil_prod" class="field-text" value=""  accesskey="4" placeholder="Oil Produced" required/><br>
                     <br>
 
                     <label for = "gas_prod">Gas Produced (MMCFD): <span class="required">*</span></label>
@@ -214,7 +214,7 @@ session_start();
                     <br>
 
                     <label for = "a_p_i">API: <span class="required">*</span></label>
-                    <input type="text" name="a_p_i" class="field-text" value="47.7"  accesskey="12" disabled/><br>
+                    <input type="text" name="a_p_i" class="field-text" value='47.7'  accesskey="12" disabled/><br>
                     <br><br>
 
                     <input type="reset" value="Clear" accesskey="13">
