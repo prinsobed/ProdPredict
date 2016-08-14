@@ -127,7 +127,7 @@ session_start();
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <script>
                 var chart = c3.generate({
-                    bindto: '#chart',
+                    bindto: '.chart',
                     data: {
                         columns: [
                             ['data1', 30, 200, 100, 400, 150, 250],
@@ -142,7 +142,7 @@ session_start();
             	
   					<div class="panel panel-default">
     				<div class="panel-heading">Well Production History Graph</div>
-    				<div class="panel-body">
+    				<div class="chart">
                     	<div id="chart">
                         <!-- History -->
   							<article>
