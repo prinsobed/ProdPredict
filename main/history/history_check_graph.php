@@ -23,6 +23,7 @@ session_start();
     <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css">
 
     <!-- Load d3.js and c3.js -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="../../assets/js/d3.min.js" charset="utf-8"></script>
     <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
@@ -64,11 +65,11 @@ session_start();
     </header> 
     <!-- End of Navigation or Header Bar -->
     
-   	<!-- Start of Breadcrum or Address Bar -->
+   	<!-- Start of Breadcrumb or Address Bar -->
     <ol class="breadcrumb">
         <li><a href="../home.php">Home</a> / Well Production History / Check History / Graph</li>
 	</ol>
-	<!-- End of Breadcrum or Address Bar -->
+	<!-- End of Breadcrumb or Address Bar -->
     
     <!-- Main Page starts here -->
   	  	<main>
@@ -127,7 +128,7 @@ session_start();
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
             <script>
                 var chart = c3.generate({
-                    bindto: '.chart',
+                    bindto: 'chart',
                     data: {
                         columns: [
                             ['data1', 30, 200, 100, 400, 150, 250],
@@ -147,7 +148,17 @@ session_start();
                         <!-- History -->
   							<article>
 
-            
+                                <script>
+                                    var chart = c3.generate({
+                                        bindto: 'chart',
+                                        data: {
+                                            columns: [
+                                                ['data1', 30, 200, 100, 400, 150, 250],
+                                                ['data2', 50, 20, 10, 40, 15, 25]
+                                            ]
+                                        }
+                                    });
+                                </script>
             <!-- Code Here -->
 
             

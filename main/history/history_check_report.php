@@ -136,6 +136,7 @@ session_start();
             include("../../includes/fusioncharts.php");
             // Create the chart - Pie 3D Chart with data given in constructor parameter
             // Syntax for the constructor - new FusionCharts("type of chart", "unique chart id", "width of chart", "height of chart", "div id to render the chart", "type of data", "actual data")
+
             $mscombi2dChart = new FusionCharts("mscombi2d", "ex3", "100%", 400, "chart-1", "json", '{
     "chart": {
         "caption": "Actual Revenues, Targeted Revenues & Profits",
