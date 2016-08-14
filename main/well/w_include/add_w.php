@@ -42,10 +42,7 @@
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_wells.php");
-                    ?><script>alert('Success: New Well Added');</script><?php
                 }
                 else{
-                    header("location: ../add_wells.php");
-                    ?><script>alert('Failure: No Well Added');</script><?php
+                    header("location: ../add_well.php");
                 }
-                ?>

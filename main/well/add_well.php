@@ -148,7 +148,7 @@ session_start();
                         <!-- History -->
   							<article>
             <div id="main_feature">
-            <form action="" method="post">
+            <form action="w_include/add_w.php" method="POST">
                 <ul class="form-style-1">
                     <label for = "well_id">Well ID: <span class="required">*</span></label>
                     <input type="text" name="well_id" class="field-text" value=""  accesskey="1" placeholder="Well Identification No." required/><br>

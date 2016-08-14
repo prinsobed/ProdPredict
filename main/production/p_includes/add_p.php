@@ -47,11 +47,9 @@
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_production.php");
-                    ?><script>alert('Success: New Production Added');</script><?php
                 }
                 else{
                     header("location: ../add_production.php");
-                    ?><script>alert('Failure: No Production Added');</script><?php
                 }
 
                 ?>
