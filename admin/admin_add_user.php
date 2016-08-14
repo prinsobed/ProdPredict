@@ -153,7 +153,7 @@ session_start();
                         <!-- History -->
   							<article>
         <div id="main_feature">
-            <form action = "add.php" method = "POST">
+            <form action = "a_include/add_u.php" method = "POST">
                 <ul class="form-style-1">
 
                     <label for = "firstname">First Name: <span class="required">*</span></label>

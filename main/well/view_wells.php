@@ -128,7 +128,60 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="main_feature">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Well ID</th>
+                    <th>Well Name</th>
+                    <th>Field</th>
+                    <th>Production Start</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <?php
+
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+
+                $sql = "SELECT well_id, well_name, field_id, production_start, status FROM well";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '
+
+                <tbody>
+                <tr class="odd">
+                    <td id="w_id" contenteditable="false">' .$row["well_id"].'</td>
+                    <td id="w_name" contenteditable="true">' .$row["well_name"].'</td>
+                    <td id="l_name" contenteditable="true">' .$row["field_id"].'</td>
+                    <td id="company" contenteditable="true">' .$row["production_start"].'</td>
+                    <td id="email" contenteditable="true">' .$row["status"].'</td>
+                </tr>
+
+                </tbody>
+            ';
+                    }
+                } else {
+                    echo "No Well Records";
+                }
+                $conn->close();
+                ?>
+            </table>
             
             
             

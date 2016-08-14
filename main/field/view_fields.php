@@ -128,7 +128,64 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="main_feature">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Field ID</th>
+                    <th>Name</th>
+                    <th>Situated</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Water Depth(m)</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <?php
+
+                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                $username="bed8c15b456030"; // Mysql username
+                $password="58380471"; // Mysql password
+                $dbname="db_prodpredict"; // Database name
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+
+                $sql = "SELECT field_id, field_name, situated_off_on, location, field_type, water_depth, status FROM field";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '
+
+                <tbody>
+                <tr class="odd">
+                    <td id="field_id" contenteditable="false">' .$row["field_id"].'</td>
+                    <td id="field_name" contenteditable="true">' .$row["field_name"].'</td>
+                    <td id="situated" contenteditable="true">' .$row["situated_off_on"].'</td>
+                    <td id="location" contenteditable="true">' .$row["location"].'</td>
+                    <td id="field_type" contenteditable="true">' .$row["field_type"].'</td>
+                    <td id="water_depth" contenteditable="true">' .$row["water_depth"].'</td>
+                    <td id="status" contenteditable="true">' .$row["status"].'</td>
+                </tr>
+
+                </tbody>
+            ';
+                    }
+                } else {
+                    echo "No Field Records";
+                }
+                $conn->close();
+                ?>
+            </table>
             
             
             

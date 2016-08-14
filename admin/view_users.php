@@ -104,7 +104,7 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="main_feature">
 
             <table class="table">
                 <thead>
@@ -119,7 +119,6 @@ session_start();
                 </tr>
                 </thead>
             <?php
-            include "../includes/ajax.php";
 
             $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
             $username="bed8c15b456030"; // Mysql username
@@ -158,7 +157,7 @@ session_start();
             ';
                 }
             } else {
-                echo "0 results";
+                echo "No User Records";
             }
             $conn->close();
             ?>
