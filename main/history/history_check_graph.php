@@ -134,7 +134,7 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="chart">
+        <div id="chart"> </div>
             
             <!-- Code Here -->
             <script>
@@ -149,7 +149,7 @@ session_start();
             });
             </script>
             
-        </div>
+
     </article>
                             
                             
