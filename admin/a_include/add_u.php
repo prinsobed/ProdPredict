@@ -42,9 +42,9 @@
                           VALUES ('$fname','$lname', '$company','$email', '$password', '$type')";
 
                 if ($conn->query($sql) === TRUE) {
-                    header("location: admin_view_users.php");
+                    header("location: ../admin_view_users.php");
                 }
                 else{
-                    header("location: admin_add_user.php");
+                    header("location: ../admin_add_user.php");
                 }
                 $conn->close();

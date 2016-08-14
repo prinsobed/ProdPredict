@@ -44,11 +44,11 @@
                           VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status')";
 
                 if ($conn->query($sql) === TRUE) {
-                    header("location: view_fields.php");
+                    header("location: ../view_fields.php");
                     ?><script>alert('Success: New Field Added');</script><?php
                 }
                 else{
-                    header("location: add_field.php");
+                    header("location: ../add_field.php");
                     ?><script>alert('Failure: No Field Added');</script><?php
                 }
                 $conn->close();
