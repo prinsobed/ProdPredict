@@ -142,7 +142,7 @@ session_start();
             	
   					<div class="panel panel-default">
     				<div class="panel-heading">Well Production History Graph</div>
-    				<div class="chart">
+    				<div class="panel-body">
                     	<div id="chart">
                         <!-- History -->
   							<article>
