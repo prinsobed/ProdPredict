@@ -46,11 +46,11 @@
                           VALUES ('$prod_well','$prod_date','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
 
                 if ($conn->query($sql) === TRUE) {
-                    header("location: view_production.php");
+                    header("location: ../view_production.php");
                     ?><script>alert('Success: New Production Added');</script><?php
                 }
                 else{
-                    header("location: add_production.php");
+                    header("location: ../add_production.php");
                     ?><script>alert('Failure: No Production Added');</script><?php
                 }
 
