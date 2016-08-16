@@ -24,7 +24,6 @@ session_start();
 
     <!-- Load d3.js and c3.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
-    <script src="../../assets/js/d3.min.js" charset="utf-8"></script>
     <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
