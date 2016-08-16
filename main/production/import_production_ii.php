@@ -163,7 +163,7 @@ if ($conn->connect_error) {
                                         //insert
 
                                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                                    $import="INSERT into production( well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('well1', '2016-09-09', 210, 290, 34, 5, 34, 5, 454, 345, 234, 42, 11)";
+                                    $import="INSERT into production( well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('well1', '2016-09-09', 210, 34, 5, 34, 5, 454, 345, 234, 42, 11)";
 
                                     mysqli_query($conn, $import) or die(mysqli_error($conn));
                                     }
