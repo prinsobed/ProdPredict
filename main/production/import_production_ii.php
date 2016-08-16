@@ -163,13 +163,10 @@ if ($conn->connect_error) {
                                         //insert
 
                                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-
-                                        echo '$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10];
-
-}
                                     $import="INSERT into production(production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],11)";
 
                                     mysqli_query($conn, $import) or die(mysqli_error($conn));
+                                    }
 
                                     fclose($handle);
 
@@ -224,3 +221,5 @@ if ($conn->connect_error) {
 </body>
 <!-- End of Page Body -->
 </html>
+
+
