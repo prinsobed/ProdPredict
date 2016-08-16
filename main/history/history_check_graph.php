@@ -23,6 +23,7 @@ session_start();
     <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css">
 
     <!-- Load d3.js and c3.js -->
+    https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js
     <script src="../../assets/js/d3.min.js" charset="utf-8"></script>
     <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
@@ -132,21 +133,11 @@ session_start();
   					<div class="panel panel-default">
     				<div class="panel-heading">Well Production History Graph</div>
     				<div class="panel-body">
-                    	<div id="chart">
+                    	<div id="chart"></div>
                         <!-- History -->
   							<article>
 
-                                <script>
-                                    var chart = c3.generate({
-                                        bindto: '#chart',
-                                        data: {
-                                            columns: [
-                                                ['data1', 30, 200, 100, 400, 150, 250],
-                                                ['data2', 50, 20, 10, 40, 15, 25]
-                                            ]
-                                        }
-                                    });
-                                </script>
+
             <!-- Code Here -->
 
             
@@ -155,7 +146,7 @@ session_start();
                             
                             
                   
-            </div>
+
 			</div>
             </div></div>
     		</section>
@@ -176,3 +167,14 @@ session_start();
 </html>
 
 
+<script>
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            columns: [
+                ['data1', 30, 200, 100, 400, 150, 250],
+                ['data2', 50, 20, 10, 40, 15, 25]
+            ]
+        }
+    });
+</script>
