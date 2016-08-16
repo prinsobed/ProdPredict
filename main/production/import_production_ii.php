@@ -162,7 +162,7 @@ if ($conn->connect_error) {
                                     $handle = fopen($_FILES['filename']['tmp_name'], "r");
 
                                     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                                    $import="INSERT into production( well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('$data[0]','$data[1]','$data[2]','$data[3]','$data[4]','$data[5]','$data[6]','$data[7]','$data[8]','$data[9]','$data[10]',\"{$_SESSION['id']}\")";
+                                    $import="INSERT into production( well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('$data[0]','$data[1]','$data[2]','$data[3]','$data[4]','$data[5]','$data[6]','$data[7]','$data[8]','$data[9]','$data[10]','{$_SESSION['id']}')";
 
                                     mysqli_query($conn, $import) or die(mysqli_error($conn));
                                     }
