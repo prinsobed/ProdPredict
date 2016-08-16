@@ -12,6 +12,7 @@
 session_start();
 $myusername = $_SESSION['username'];
 $myusertype = $_SESSION['user_type'];
+$thisUserID = $_SESSION['id'];
 
 if(isset($myusername)){
     if ($myusertype == 2){

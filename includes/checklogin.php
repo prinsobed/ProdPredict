@@ -42,6 +42,8 @@ while($returnedResult = mysqli_fetch_array($result)){
     $_SESSION['username'] = $myusername;
     $_SESSION['firstname'] = $returnedResult["firstname"];
     $_SESSION['user_type'] = $returnedResult["user_type"];
+    $_SESSION['id'] = $returnedResult["id"];
+
     }
     header("location:login_success.php");
 }
