@@ -6,6 +6,8 @@
  * Time: 7:06 AM
  */
 
+session_start();
+
                 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
                 $username="bed8c15b456030"; // Mysql username
                 $password="58380471"; // Mysql password
@@ -37,8 +39,8 @@
                     return $data;
                 }
 
-                $sql = "INSERT INTO well (well_id, well_name, field_id, production_start, status)
-                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status')";
+                $sql = "INSERT INTO well (well_id, well_name, field_id, production_start, status, ent_user)
+                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status', {$_SESSION['id']})";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_wells.php");
