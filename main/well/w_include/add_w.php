@@ -21,7 +21,7 @@ session_start();
                 }
 
                 // define variables and set to empty values
-                $well_id = $well_name = $well_field = $well_prod_start = $well_status = $ent_name =   "";
+                $well_id = $well_name = $well_field = $well_prod_start = $well_status = $ent_user =   "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

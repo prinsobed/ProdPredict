@@ -6,6 +6,8 @@
  * Time: 7:56 AM
  */
 
+session_start();
+
                 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
                 $username="bed8c15b456030"; // Mysql username
                 $password="58380471"; // Mysql password
@@ -19,7 +21,7 @@
                 }
 
                 // define variables and set to empty values
-                $prod_well = $prod_date = $oil_prod = $gas_prod = $water_prod = $gas_oil_ratio = $basic_sed_water = $bean = $tubing_hang_press = $bottom_hole_pressure = $a_p_i =  "";
+                $prod_well = $prod_date = $oil_prod = $gas_prod = $water_prod = $gas_oil_ratio = $basic_sed_water = $bean = $tubing_hang_press = $bottom_hole_pressure = $a_p_i = $ent_user = "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $prod_well = test_input($_POST["prod_well"]);
@@ -33,6 +35,7 @@
                     $tubing_hang_press = test_input($_POST["tubing_hang_press"]);
                     $bottom_hole_pressure = test_input($_POST["bottom_hole_pressure"]);
                     $a_p_i= test_input($_POST["a_p_i"]);
+                    $ent_user = test_input($_SESSION['id']);
                 }
 
                 function test_input($data) {
@@ -42,8 +45,8 @@
                     return $data;
                 }
 
-                $sql = "INSERT INTO production ( well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api)
-                          VALUES ('$prod_well','$prod_date','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
+                $sql = "INSERT INTO production ( production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
+                          VALUES ('$prod_date','$prod_well','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_production.php");

@@ -22,7 +22,7 @@ session_start();
                 }
 
                 // define variables and set to empty values
-                $field_id = $name = $situated = $location = $field_type = $water_depth= $status =   "";
+                $field_id = $name = $situated = $location = $field_type = $water_depth= $status = $ent_user =  "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -33,6 +33,7 @@ session_start();
                     $field_type = test_input($_POST["field_type"]);
                     $water_depth = test_input($_POST["water_depth"]);
                     $status = test_input($_POST["status"]);
+                    $ent_user = test_input($_SESSION['id']);
                 }
 
                 function test_input($data) {
@@ -43,7 +44,7 @@ session_start();
                 }
 
                 $sql = "INSERT INTO field (field_id, field_name, situated_off_on, location, field_type, water_depth, status, ent_user)
-                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status',{$_SESSION['id']})\";
+                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status','$ent_user')";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_fields.php");
