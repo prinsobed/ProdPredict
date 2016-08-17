@@ -182,8 +182,8 @@ if ($conn->connect_error) {
 
 $ent_user = test_input($_SESSION['id']);
 
-//$deleterecords = "TRUNCATE TABLE tablename"; //empty the table of its current records
-//mysqli_query($conn, $deleterecords);
+$deleterecords = "TRUNCATE TABLE tablename"; //empty the table of its current records
+mysqli_query($conn, $deleterecords);
 
 //Upload File
 if (isset($_POST['submit'])) {
@@ -198,8 +198,7 @@ if (isset($_POST['submit'])) {
     //insert
 
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        $import="INSERT into production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
-                                              values('$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],$ent_user)";
+        $import="INSERT into production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],$ent_user)";
 
         mysqli_query($conn, $import) or die(mysqli_error($conn));
     }
