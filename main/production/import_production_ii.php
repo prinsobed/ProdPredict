@@ -144,54 +144,6 @@ if ($conn->connect_error) {
                         <!-- History -->
   							<article>
                                 <div id="main_feature">
-
-                                    <?php
-
-                                    $ent_user = test_input($_SESSION['id']);
-
-                                    $deleterecords = "TRUNCATE TABLE tablename"; //empty the table of its current records
-                                    mysqli_query($conn, $deleterecords);
-
-                                    //Upload File
-                                    if (isset($_POST['submit'])) {
-                                    if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
-                                    echo "<h1>" . "File ". $_FILES['filename']['name'] ." Uploaded successfully." . "</h1>";
-                                    echo "<h2>Displaying contents:</h2>";
-                                    readfile($_FILES['filename']['tmp_name']);
-                                    }
-
-                                    //Import uploaded file to Database
-                                    $handle = fopen($_FILES['filename']['tmp_name'], "r");
-                                        //insert
-
-                                    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                                    $import="INSERT into production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
-                                              values('$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],$ent_user)";
-
-                                    mysqli_query($conn, $import) or die(mysqli_error($conn));
-                                    }
-
-                                    fclose($handle);
-
-                                    print "Import done";
-
-                                    //view upload form
-                                    }else {
-
-                                    print "Upload new csv by browsing to file and clicking on Upload<br />\n";
-
-//                                    print "<form enctype='multipart/form-data' action='upload.php' method='post'>";
-//
-//                                        print "File name to import:<br />\n";
-//
-//                                        print "<input size='50' type='file' name='filename'><br />\n";
-//
-//                                        print "<input type='submit' name='submit' value='Upload'></form>";
-
-                                    }
-
-                                    ?>
-
                                     <form action="" method="post" enctype="multipart/form-data">
                                         Select image to upload:
                                         <input type="file" name="filename" id="fileToUpload">
@@ -226,3 +178,49 @@ if ($conn->connect_error) {
 </html>
 
 
+<?php
+
+$ent_user = test_input($_SESSION['id']);
+
+//$deleterecords = "TRUNCATE TABLE tablename"; //empty the table of its current records
+//mysqli_query($conn, $deleterecords);
+
+//Upload File
+if (isset($_POST['submit'])) {
+    if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
+        echo "<h1>" . "File ". $_FILES['filename']['name'] ." Uploaded successfully." . "</h1>";
+        echo "<h2>Displaying contents:</h2>";
+        readfile($_FILES['filename']['tmp_name']);
+    }
+
+    //Import uploaded file to Database
+    $handle = fopen($_FILES['filename']['tmp_name'], "r");
+    //insert
+
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $import="INSERT into production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
+                                              values('$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],$ent_user)";
+
+        mysqli_query($conn, $import) or die(mysqli_error($conn));
+    }
+
+    fclose($handle);
+
+    print "Import done";
+
+    //view upload form
+}else {
+
+    print "Upload new csv by browsing to file and clicking on Upload<br />\n";
+
+//                                    print "<form enctype='multipart/form-data' action='upload.php' method='post'>";
+//
+//                                        print "File name to import:<br />\n";
+//
+//                                        print "<input size='50' type='file' name='filename'><br />\n";
+//
+//                                        print "<input type='submit' name='submit' value='Upload'></form>";
+
+}
+
+?>

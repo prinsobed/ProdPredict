@@ -45,8 +45,8 @@ session_start();
                     return $data;
                 }
 
-                $sql = "INSERT INTO production ( production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
-                          VALUES ('$prod_date','$prod_well','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i')";
+                $sql = "INSERT INTO production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
+                          VALUES ('$prod_well','$prod_date','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i','$ent_user')";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_production.php");
