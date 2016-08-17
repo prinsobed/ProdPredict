@@ -95,7 +95,7 @@ if ($conn->connect_error) {
 
             print "Upload new csv by browsing to file and clicking on Upload<br />\n";
 
-            print "<form enctype='multipart/form-data' action='upload.php' method='post'>";
+            print "<form enctype='multipart/form-data' action='' method='post'>";
 
             print "File name to import:<br />\n";
 
