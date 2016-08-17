@@ -21,7 +21,7 @@ session_start();
                 }
 
                 // define variables and set to empty values
-                $well_id = $well_name = $well_field = $well_prod_start = $well_status =   "";
+                $well_id = $well_name = $well_field = $well_prod_start = $well_status = $ent_name =   "";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -30,6 +30,8 @@ session_start();
                     $well_field = test_input($_POST["well_field"]);
                     $well_prod_start = test_input($_POST["well_prod_start"]);
                     $well_status = test_input($_POST["well_status"]);
+                    $ent_user = test_input($_SESSION['id']);
+
                 }
 
                 function test_input($data) {
@@ -40,7 +42,7 @@ session_start();
                 }
 
                 $sql = "INSERT INTO well (well_id, well_name, field_id, production_start, status, ent_user)
-                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status', {$_SESSION['id']})";
+                          VALUES ('$well_id','$well_name', '$well_field','$well_prod_start', '$well_status','$ent_user' )";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_wells.php");

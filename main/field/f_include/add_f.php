@@ -6,6 +6,8 @@
  * Time: 6:48 AM
  */
 
+session_start();
+
 
                 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
                 $username="bed8c15b456030"; // Mysql username
@@ -40,8 +42,8 @@
                     return $data;
                 }
 
-                $sql = "INSERT INTO field (field_id, field_name, situated_off_on, location, field_type, water_depth, status)
-                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status')";
+                $sql = "INSERT INTO field (field_id, field_name, situated_off_on, location, field_type, water_depth, status, ent_user)
+                          VALUES ('$field_id','$name', '$situated','$location', '$field_type', '$water_depth','$status',{$_SESSION['id']})\";
 
                 if ($conn->query($sql) === TRUE) {
                     header("location: ../view_fields.php");
