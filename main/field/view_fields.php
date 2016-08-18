@@ -80,36 +80,8 @@ session_start();
                                 <ul>
                                     <a class="btn btn-default" href="view_fields.php" role="button">View Existing</a>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Wells</div>
-                        <div class="panel-body">
-                            <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
-                                </ul>
-                                <ul>
-                                    <a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Production</div>
-                        <div class="panel-body">
-                            <div class="row2">
-                                <ul>
-                                    <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
-                                </ul>
-                                <ul>
-                                    <a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
-                                </ul>
-                                <ul>
-                                    <a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
+                                    <a class="btn btn-default" href="edit_fields.php" role="button">Edit Field</a>
                                 </ul>
                             </div>
                         </div>
