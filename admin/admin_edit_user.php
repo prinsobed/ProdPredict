@@ -105,7 +105,7 @@ if ($conn->connect_error) {
         </div>
         <?php
 
-        $query = mysqli_query("SELECT * FROM user") or             die(mysqli_error());
+        $query = mysqli_query($conn, "SELECT * FROM user");
 
         $id = $firstname = $lastname = $company = $email = $password = $user_type = "";
 
