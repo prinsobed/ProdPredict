@@ -8,6 +8,18 @@
  */
 
 session_start();
+
+$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+$username="bed8c15b456030"; // Mysql username
+$password="58380471"; // Mysql password
+$dbname="db_prodpredict"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -80,36 +92,8 @@ session_start();
                                 <ul>
                                     <a class="btn btn-default" href="view_wells.php" role="button">View Existing</a>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Fields</div>
-                        <div class="panel-body">
-                            <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
-                                </ul>
-                                <ul>
-                                    <a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Production</div>
-                        <div class="panel-body">
-                            <div class="row2">
-                                <ul>
-                                    <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
-                                </ul>
-                                <ul>
-                                    <a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
-                                </ul>
-                                <ul>
-                                    <a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
+                                    <a class="btn btn-default" href="edit_wells.php" role="button">Edit Well</a>
                                 </ul>
                             </div>
                         </div>
@@ -128,15 +112,56 @@ session_start();
                         <div class="row2">
                             <!-- History -->
                             <article>
-                                <div id="add_user">
+                                <div id="main_feature">
+                                    <form action="w_include/add_w.php" method="POST">
+                                        <ul class="form-style-1">
+                                            <label for = "well_id">Well ID: <span class="required">*</span></label>
+                                            <input type="text" name="well_id" class="field-text" value=""  accesskey="1" placeholder="Well Identification No." required/><br>
+                                            <br>
 
+                                            <label for = "well_name">Name: </label>
+                                            <input type="text" name="well_name" class="field-text" value=""  accesskey="2" placeholder="Well Name"/><br>
+                                            <br>
 
+                                            <label for = "well_field">Field: <span class="required">*</span></label>
+                                            <select name="well_field" required>
+                                                <option value="">Please Select </option>;
+                                                <?php
+                                                $sel = "SELECT * FROM field";
+                                                $result = $conn->query($sel);
 
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
 
-                                    <!-- Code Here -->
+                                                        ?>
 
+                                                        <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?> </option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <?php
+                                                }
+                                                ?>
 
+                                            </select><br>
+                                            <br>
 
+                                            <label for = "well_prod_start">Productions Start Date: <span class="required">*</span></label>
+                                            <input type="date" name="well_prod_start" accesskey="4" required/><br>
+                                            <br>
+
+                                            <label for = "well_status">Status: <span class="required"></span></label>
+                                            <input type="radio" name="well_status" value="Production" accesskey="5" checked> Production
+                                            <input type="radio" name="well_status" value="Abandonment"> Abandonment<br>
+                                            <br><br>
+
+                                            <input type="submit" value="Clear" accesskey="6">
+                                            <input type="submit" value="Save" accesskey="7">
+
+                                        </ul>
+                                    </form>
                                 </div>
                             </article>
 

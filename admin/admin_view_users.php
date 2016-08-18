@@ -81,6 +81,9 @@ session_start();
                                 <ul>
                                     <a class="btn btn-default" href="admin_view_users.php" role="button">View Existing</a>
                                 </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="admin_edit_user.php" role="button">Edit User</a>
+                                </ul>
                             </div>
                         </div>
                     </div>
