@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/index_only.css">
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/npm.js"></script>
