@@ -8,6 +8,9 @@
  */
 
 session_start();
+if(!$_SESSION['username']){
+    header("Location: ../../index.php");
+}
 
 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
 $username="bed8c15b456030"; // Mysql username
