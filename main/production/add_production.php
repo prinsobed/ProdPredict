@@ -8,9 +8,6 @@
  */
 
 session_start();
-if ($_SESSION['firstname'] = ""){
-    header("location: ../../index.php");
-};
 ?>
 
 <!DOCTYPE html>
