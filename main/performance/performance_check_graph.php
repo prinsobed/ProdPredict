@@ -19,6 +19,12 @@ session_start();
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Load c3.css -->
+    <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
 	<script src="../../assets/js/npm.js"></script>
@@ -128,7 +134,7 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
+        <div id="chart">
             
             <!-- Code Here -->
             
@@ -159,3 +165,34 @@ session_start();
 </html>
 
 
+<script>
+    var chart = c3.generate({
+        data: {
+            x: 'x',
+//        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+            columns: [
+                ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                ['data1', 30, 200, 100, 400, 150, 250],
+                ['data2', 130, 340, 200, 500, 250, 350]
+            ]
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: '%Y-%m-%d'
+                }
+            }
+        }
+    });
+
+    setTimeout(function () {
+        chart.load({
+            columns: [
+                ['data3', 400, 500, 450, 700, 600, 500]
+            ]
+        });
+    }, 1000);
+
+</script>
