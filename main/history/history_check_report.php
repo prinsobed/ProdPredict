@@ -21,7 +21,7 @@ session_start();
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
-	<script src="../../assets/js/npm.js"></script>
+    <script src="../../assets/js/npm.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -30,114 +30,114 @@ session_start();
 <!-- Start of Navigation or Header Bar -->
 <div class="container">
     <header>
-    <div class="navbar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
-        </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
-                <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-	</div>	
-    </header> 
-    <!-- End of Navigation or Header Bar -->
-    
-   	<!-- Start of Breadcrum or Address Bar -->
-    <ol class="breadcrumb">
-  		<li><a href="../home.php">Home</a> / Well Production History / Check History / Report</li>
-	</ol>
-	<!-- End of Breadcrum or Address Bar -->
-    
-    <!-- Main Page starts here -->
-  	  	<main>
-    	<div class="row2">
-  			<div class="col-sm-3">
-            <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
-                	<div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                            <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
+        <div class="navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
                     </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Wells</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                        	<a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <ul>
-                            <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
-                            </ul>
-  							<ul>
-                        	<a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-        		</nav>
-            </div>
-            </div>
-            
-            <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
-            <section>
-            <div class="col-sm-9">
-            	
-  					<div class="panel panel-default">
-    				<div class="panel-heading">Well Production History Report</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <!-- History -->
-  							<article>
-        <div id="main_feature">
-            <?php
-            // This is a simple example on how to draw a chart using FusionCharts and PHP.
-            // We have included includes/fusioncharts.php, which contains functions
-            // to help us easily embed the charts.
-            include("../../includes/fusioncharts.php");
-            // Create the chart - Pie 3D Chart with data given in constructor parameter
-            // Syntax for the constructor - new FusionCharts("type of chart", "unique chart id", "width of chart", "height of chart", "div id to render the chart", "type of data", "actual data")
 
-            $mscombi2dChart = new FusionCharts("mscombi2d", "ex3", "100%", 400, "chart-1", "json", '{
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- End of Navigation or Header Bar -->
+
+    <!-- Start of Breadcrum or Address Bar -->
+    <ol class="breadcrumb">
+        <li><a href="../home.php">Home</a> / Well Production History / Check History / Report</li>
+    </ol>
+    <!-- End of Breadcrum or Address Bar -->
+
+    <!-- Main Page starts here -->
+    <main>
+        <div class="row2">
+            <div class="col-sm-3">
+                <!-- Side Navigation for Fields, Wells and Production -->
+                <nav>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Fields</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Wells</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Production</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+        <section>
+            <div class="col-sm-9">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Well Production History Report</div>
+                    <div class="panel-body">
+                        <div class="row2">
+                            <!-- History -->
+                            <article>
+                                <div id="main_feature">
+                                    <?php
+                                    // This is a simple example on how to draw a chart using FusionCharts and PHP.
+                                    // We have included includes/fusioncharts.php, which contains functions
+                                    // to help us easily embed the charts.
+                                    include("../../includes/fusioncharts.php");
+                                    // Create the chart - Pie 3D Chart with data given in constructor parameter
+                                    // Syntax for the constructor - new FusionCharts("type of chart", "unique chart id", "width of chart", "height of chart", "div id to render the chart", "type of data", "actual data")
+
+                                    $mscombi2dChart = new FusionCharts("mscombi2d", "ex3", "100%", 400, "chart-1", "json", '{
     "chart": {
         "caption": "Actual Revenues, Targeted Revenues & Profits",
         "subcaption": "Last year",
@@ -318,31 +318,31 @@ session_start();
         }
     ]
 }');
-            // Render the chart
-            $mscombi2dChart->render();
-            ?>
+                                    // Render the chart
+                                    $mscombi2dChart->render();
+                                    ?>
 
-            <!-- Code Here -->
-            
-            
-        </div>
-    </article>
-                            
-                            
-                  
-            </div>
-			</div>
-            </div></div>
-    		</section>
-            
+                                    <!-- Code Here -->
+
+
+                                </div>
+                            </article>
+
+
+
+                        </div>
+                    </div>
+                </div></div>
+        </section>
+
     </main>
     <!-- End of Main of Page -->
-    
+
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-  			<div class="col-sm-12">Designed by Obed, Kraine Boachie, ©2016.</div>
-		</div>
+            <div class="col-sm-12">Designed by Obed, Kraine Boachie, ©2016.</div>
+        </div>
     </footer>
     <!-- End of Footer -->
 </div>

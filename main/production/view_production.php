@@ -22,7 +22,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../../assets/css/dropzone.css">
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
-	<script src="../../assets/js/npm.js"></script>
+    <script src="../../assets/js/npm.js"></script>
     <script src="../../assets/js/dropzone.js"></script>
     <script src="p_includes/papaparse.js"></script>
 </head>
@@ -33,147 +33,147 @@ session_start();
 <!-- Start of Navigation or Header Bar -->
 <div class="container">
     <header>
-    <div class="navbar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+        <div class="navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
-                <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-	</div>	
-    </header> 
+    </header>
     <!-- End of Navigation or Header Bar -->
-    
-   	<!-- Start of Breadcrum or Address Bar -->
+
+    <!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="../home.php">Home</a> / Production Data</li>
-	</ol>
-	<!-- End of Breadcrum or Address Bar -->
-    
+        <li><a href="../home.php">Home</a> / Production Data</li>
+    </ol>
+    <!-- End of Breadcrum or Address Bar -->
+
     <!-- Main Page starts here -->
-  	  	<main>
-    	<div class="row2">
-  			<div class="col-sm-3">
-            <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
-                	<div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                       	  <ul>
-                            <a class="btn btn-default" href="import_production.php" role="button">Import File</a>
-                            </ul>
-  							<ul>
-                        	<a class="btn btn-default" href="add_production.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="view_production.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-                    
+    <main>
+        <div class="row2">
+            <div class="col-sm-3">
+                <!-- Side Navigation for Fields, Wells and Production -->
+                <nav>
                     <div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                            <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
+                        <div class="panel-heading">Production</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="import_production.php" role="button">Import File</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="add_production.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="view_production.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    
+
                     <div class="panel panel-default">
-    				<div class="panel-heading">Well</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                        	<a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
+                        <div class="panel-heading">Fields</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Well</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-        		</nav>
+                </nav>
             </div>
-            </div>
-            
-            <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
-            <section>
+        </div>
+
+        <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+        <section>
             <div class="col-sm-9">
-            	
-  					<div class="panel panel-default">
-    				<div class="panel-heading">Production Data</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <!-- History -->
-  							<article>
-        <div id="main_feature">
-            
-            
-            <!-- Code Here -->
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Well</th>
-                    <th>Production Date</th>
-                    <th>Oil(BOPD)</th>
-                    <th>Gas(MMCFD)</th>
-                    <th>Water(BBLS)</th>
-                    <th>GOR(SCF/B)</th>
-                    <th>BSW(%)</th>
-                    <th>Bean(1/16")</th>
-                    <th>THP(PSI)</th>
-                    <th>BHP(PSGI)</th>
-                    <th>API</th>
-                </tr>
-                </thead>
-                <?php
 
-                $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-                $username="bed8c15b456030"; // Mysql username
-                $password="58380471"; // Mysql password
-                $dbname="db_prodpredict"; // Database name
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+                <div class="panel panel-default">
+                    <div class="panel-heading">Production Data</div>
+                    <div class="panel-body">
+                        <div class="row2">
+                            <!-- History -->
+                            <article>
+                                <div id="main_feature">
 
 
-                $sql = "SELECT prod_id, production_date, well, oil, gas, water, gor, bsw, bean, thp, bhp, api FROM production";
+                                    <!-- Code Here -->
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Well</th>
+                                            <th>Production Date</th>
+                                            <th>Oil(BOPD)</th>
+                                            <th>Gas(MMCFD)</th>
+                                            <th>Water(BBLS)</th>
+                                            <th>GOR(SCF/B)</th>
+                                            <th>BSW(%)</th>
+                                            <th>Bean(1/16")</th>
+                                            <th>THP(PSI)</th>
+                                            <th>BHP(PSGI)</th>
+                                            <th>API</th>
+                                        </tr>
+                                        </thead>
+                                        <?php
 
-                $result = $conn->query($sql);
+                                        $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+                                        $username="bed8c15b456030"; // Mysql username
+                                        $password="58380471"; // Mysql password
+                                        $dbname="db_prodpredict"; // Database name
 
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo '
+                                        // Create connection
+                                        $conn = new mysqli($servername, $username, $password, $dbname);
+                                        // Check connection
+                                        if ($conn->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
+
+
+                                        $sql = "SELECT prod_id, production_date, well, oil, gas, water, gor, bsw, bean, thp, bhp, api FROM production";
+
+                                        $result = $conn->query($sql);
+
+                                        if ($result->num_rows > 0) {
+                                            // output data of each row
+                                            while($row = $result->fetch_assoc()) {
+                                                echo '
 
                 <tbody>
                 <tr class="odd">
@@ -192,33 +192,33 @@ session_start();
 
                 </tbody>
             ';
-                    }
-                } else {
-                    echo "No Production Records";
-                }
-                $conn->close();
-                ?>
-            </table>
-   
-            
-        </div>
-    </article>
-                            
-                            
-                  
-            </div>
-			</div>
-            </div></div>
-    		</section>
-            
+                                            }
+                                        } else {
+                                            echo "No Production Records";
+                                        }
+                                        $conn->close();
+                                        ?>
+                                    </table>
+
+
+                                </div>
+                            </article>
+
+
+
+                        </div>
+                    </div>
+                </div></div>
+        </section>
+
     </main>
     <!-- End of Main of Page -->
-    
+
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-  			<div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
-		</div>
+            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
+        </div>
     </footer>
     <!-- End of Footer -->
 </div>

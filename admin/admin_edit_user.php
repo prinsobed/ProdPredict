@@ -43,79 +43,79 @@ if ($conn->connect_error) {
 <!-- Start of Navigation or Header Bar -->
 <div class="container">
     <header>
-    <div class="navbar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+        <div class="navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><button type="button" class="btn navbar-btn btn-circle"><a href="../includes/logout.php">Log Out</a></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
-                <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../includes/logout.php">Log Out</a></button></li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-	</div>	
-    </header> 
+    </header>
     <!-- End of Navigation or Header Bar -->
-    
-   	<!-- Start of Breadcrum or Address Bar -->
+
+    <!-- Start of Breadcrum or Address Bar -->
     <ol class="breadcrumb">
-  		<li><a href="admin_home.php">Admin Home</a> / User Data / Edit</li>
-	</ol>
-	<!-- End of Breadcrum or Address Bar -->
-    
+        <li><a href="admin_home.php">Admin Home</a> / User Data / Edit</li>
+    </ol>
+    <!-- End of Breadcrum or Address Bar -->
+
     <!-- Main Page starts here -->
-  	<main>
-    	<div class="row2">
-  			<div class="col-sm-3">
-            <!-- Side Navigation for Fields, Wells and Production -->
-           	  <nav>
-                	<div class="panel panel-default">
-    				<div class="panel-heading">Users</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                            <ul>
-                                <a class="btn btn-default" href="admin_add_user.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-                                <a class="btn btn-default" href="admin_view_users.php" role="button">View Existing</a>
-                            </ul>
-						</div>
+    <main>
+        <div class="row2">
+            <div class="col-sm-3">
+                <!-- Side Navigation for Fields, Wells and Production -->
+                <nav>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Users</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="admin_add_user.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="admin_view_users.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-              </nav>
+                </nav>
 
             </div>
-            </div>
-            
-            <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
-        <?php
-        $sql = "SELECT FROM users (id, firstname, lastname, company, email, password, user_type)";
-        ?>
+        </div>
+
+        <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+        <!--        --><?php
+        //        $sql = "SELECT FROM users (id, firstname, lastname, company, email, password, user_type)";
+        //        ?>
 
 
-            <section>
+        <section>
             <div class="col-sm-9">
-            	
-  					<div class="panel panel-default">
-    				<div class="panel-heading">Edit User</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <!-- History -->
-  							<article>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Edit User</div>
+                    <div class="panel-body">
+                        <div class="row2">
+                            <!-- History -->
+                            <article>
                                 <div id="main_feature">
                                     <form action = "a_include/edit_u.php" method = "POST">
                                         <ul class="form-style-1">
@@ -124,7 +124,7 @@ if ($conn->connect_error) {
                                             <select name="user_id" required>
                                                 <option value="">Please Select </option>;
                                                 <?php
-                                                $sel = "SELECT * FROM field";
+                                                $sel = "SELECT * FROM user";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
@@ -133,11 +133,11 @@ if ($conn->connect_error) {
 
                                                         ?>
 
-                                                        <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?> </option>;
+                                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['id']; ?> </option>;
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Users Found"; ?> </br></option>;
                                                     <?php
                                                 }
                                                 ?>
@@ -172,21 +172,21 @@ if ($conn->connect_error) {
                                     </form>
                                 </div>
                             </article>
-                            
-                            
-                  
-            </div>
-			</div>
-    		</section>
-            
+
+
+
+                        </div>
+                    </div>
+        </section>
+
     </main>
     <!-- End of Main of Page -->
-    
+
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-  			<div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
-		</div>
+            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
+        </div>
     </footer>
     <!-- End of Footer -->
 </div>

@@ -27,7 +27,7 @@ session_start();
     <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
-	<script src="../../assets/js/npm.js"></script>
+    <script src="../../assets/js/npm.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -36,128 +36,128 @@ session_start();
 <!-- Start of Navigation or Header Bar -->
 <div class="container">
     <header>
-    <div class="navbar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+        <div class="navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navigation">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
-                <li><a href="#">Settings</a></li>
-                <li><button type="button" class="btn navbar-btn btn-circle"><a href="../../includes/logout.php">Log Out</a></button></li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-	</div>	
-    </header> 
+    </header>
     <!-- End of Navigation or Header Bar -->
-    
-   	<!-- Start of Breadcrumb or Address Bar -->
+
+    <!-- Start of Breadcrumb or Address Bar -->
     <ol class="breadcrumb">
         <li><a href="../home.php">Home</a> / Well Production History / Check History / Graph</li>
-	</ol>
-	<!-- End of Breadcrumb or Address Bar -->
-    
+    </ol>
+    <!-- End of Breadcrumb or Address Bar -->
+
     <!-- Main Page starts here -->
-  	  	<main>
-    	<div class="row2">
-  			<div class="col-sm-3">
-            <!-- Side Navigation for Fields, Wells and Production -->
-            	<nav>
-                	<div class="panel panel-default">
-    				<div class="panel-heading">Fields</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                            <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-                    
+    <main>
+        <div class="row2">
+            <div class="col-sm-3">
+                <!-- Side Navigation for Fields, Wells and Production -->
+                <nav>
                     <div class="panel panel-default">
-    				<div class="panel-heading">Wells</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-  							<ul>
-                        	<a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
+                        <div class="panel-heading">Fields</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    
-                    <div class="panel panel-default">
-    				<div class="panel-heading">Production</div>
-    				<div class="panel-body">
-                    	<div class="row2">
-                        <ul>
-                            <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
-                            </ul>
-  							<ul>
-                        	<a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
-                            </ul>
-                            <ul>
-              				<a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
-            				</ul>	
-						</div>
-                    </div>
-                    </div>
-        		</nav>
-            </div>
-            </div>
-            
-            <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
 
-            <section>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Wells</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Production</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+
+        <section>
             <div class="col-sm-9">
-            	
-  					<div class="panel panel-default">
-    				<div class="panel-heading">Well Production History Graph</div>
-    				<div class="panel-body">
-                    	<div id="chart"></div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Well Production History Graph</div>
+                    <div class="panel-body">
+                        <div id="chart"></div>
                         <!-- History -->
-  							<article>
+                        <article>
 
 
-            <!-- Code Here -->
+                            <!-- Code Here -->
 
-            
 
-    </article>
-                            
-                            
-                  
 
-			</div>
-            </div></div>
-    		</section>
-            
+                        </article>
+
+
+
+
+                    </div>
+                </div></div>
+        </section>
+
     </main>
     <!-- End of Main of Page -->
-    
+
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-  			<div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
-		</div>
+            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
+        </div>
     </footer>
     <!-- End of Footer -->
 </div>
