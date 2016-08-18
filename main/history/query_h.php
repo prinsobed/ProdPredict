@@ -26,7 +26,7 @@ $dataArray = array(); // make a new array to hold all your data
 
 
 $index = 0;
-while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+while($row = mysqli_fetch_array($result)){ // loop to store the data in an associative array.
     $dataArray[$index] = $row;
     $index++;
 }
