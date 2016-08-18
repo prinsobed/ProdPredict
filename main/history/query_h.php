@@ -31,8 +31,9 @@ while($row = mysqli_fetch_array($result)){ // loop to store the data in an assoc
     $index++;
 }
 
-echo $dataArray[0];
-
+for($i =0; $i<sizeof($dataArray); $i++){
+    echo $dataArray[$i];
+}
 
 $conn->close();
 ?>
