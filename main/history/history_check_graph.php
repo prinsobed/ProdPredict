@@ -147,6 +147,7 @@ session_start();
 
 
                     </div>
+                    <div class="panel-footer"><a class="btn btn-default" href="" role="button">Import File</a></div>
                 </div></div>
         </section>
 
@@ -156,8 +157,7 @@ session_start();
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-            <div class="panel-footer">Designed by Obed Kraine Boachie, ©2016.</div>
-<!--            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>-->
+            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
         </div>
     </footer>
     <!-- End of Footer -->
