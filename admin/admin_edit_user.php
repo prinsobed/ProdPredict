@@ -103,12 +103,23 @@ if ($conn->connect_error) {
 
             </div>
         </div>
+        <?php
 
-        <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
-        <!--        --><?php
-        //        $sql = "SELECT FROM users (id, firstname, lastname, company, email, password, user_type)";
-        //        ?>
+        $query = mysqli_query("SELECT * FROM user") or             die(mysqli_error());
 
+        $id = $firstname = $lastname = $company = $email = $password = $user_type = "";
+
+        if(mysqli_num_rows($query)>=1){
+            while($row = mysqli_fetch_array($query)) {
+                $id = $row['id'];
+                $firstname= $row['firstname'];
+                $lastname= $row['lastname'];
+                $company= $row['company'];
+                $email= $row['email'];
+                $password= $row['password'];
+                $user_type= $row['user_type'];
+            }
+        ?>
 
         <section>
             <div class="col-sm-9">
@@ -120,48 +131,50 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form action = "a_include/edit_u.php" method = "POST">
                                         <ul class="form-style-1">
 
                                             <label for = "User ID">User ID: <span class="required">*</span></label>
-                                            <select name="user_id" required>
-                                                <option value="">Please Select </option>;
-                                                <?php
-                                                $sel = "SELECT * FROM user";
-                                                $result = $conn->query($sel);
+                                            <input type="text" name="id" class="field-text" value="<?php echo $id;?>"  accesskey="1" placeholder="First Name" required/><br>
+                                            <br>
 
-                                                if ($result->num_rows > 0) {
-                                                    // output data of each row
-                                                    while($row = $result->fetch_assoc()) {
-
-                                                        ?>
-
-                                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['id']; ?> </option>;
-                                                        <?php
-                                                    }
-                                                } else {?>
-                                                    <option value=" "><?php echo  "No Users Found"; ?> </br></option>;
-                                                    <?php
-                                                }
-                                                ?>
-
-                                            </select><br>
+<!--                                            <select name="user_id" required>-->
+<!--                                                <option value="">Please Select </option>;-->
+<!--                                                --><?php
+//                                                $sel = "SELECT * FROM user";
+//                                                $result = $conn->query($sel);
+//
+//                                                if ($result->num_rows > 0) {
+//                                                    // output data of each row
+//                                                    while($row = $result->fetch_assoc()) {
+//
+//                                                        ?>
+<!---->
+<!--                                                        <option value="--><?php //echo $row['id']; ?><!--">--><?php //echo $row['id']; ?><!-- </option>;-->
+<!--                                                        --><?php
+//                                                    }
+//                                                } else {?>
+<!--                                                    <option value=" ">--><?php //echo  "No Users Found"; ?><!-- </br></option>;-->
+<!--                                                    --><?php
+//                                                }
+//                                                ?>
+<!---->
+<!--                                            </select><br>-->
 
                                             <label for = "firstname">First Name: <span class="required">*</span></label>
-                                            <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
+                                            <input type="text" name="firstname" class="field-text" value="<?php echo $firstname;?>"  accesskey="1" placeholder="First Name" required/><br>
                                             <br>
 
                                             <label for = "lastname">Last Name: <span class="required">*</span></label>
-                                            <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
+                                            <input type="text" name="lastname" class="field-text" value="<?php echo $lastname;?>"  accesskey="2" placeholder="Last Name" required/><br><br>
 
                                             <label for = "company">Company: <span class="required">*</span></label>
-                                            <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
+                                            <input type="text" name="company" class="field-text" value="<?php echo $company;?>"  accesskey="3" placeholder="Company" required/><br><br>
 
                                             <label for = "email">Email: <span class="required">*</span></label>
-                                            <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
+                                            <input type="email" name="email" class="field-text" value="<?php echo $email;?>"  accesskey="4" placeholder="Corporate Email" required/><br><br>
 
                                             <label for = "password">Password: <span class="required">*</span></label>
-                                            <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password" required/><br><br>
+                                            <input type="password" name="password" class="field-text" value="<?php echo $password;?>" accesskey="5" placeholder="Password" required/><br><br>
 
                                             <label for = "type">Type: <span class="required">*</span></label>
                                             <input type="radio" name="type" value="1" accesskey="6" checked> User
@@ -169,10 +182,15 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <input type="reset" name="clear" value="Clear" accesskey="7">
-                                            <input type="submit" name="submit" value="Save" accesskey="8">
+                                            <input type="submit" name="submit" value="Update" accesskey="8">
 
                                         </ul>
                                     </form>
+                                    <?php
+                                    }else{
+                                        echo 'No Users found. <a href="javascript:history.back()">Go back</a>';
+                                    }
+                                    ?>
                                 </div>
                             </article>
 

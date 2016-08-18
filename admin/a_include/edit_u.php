@@ -18,33 +18,25 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// define variables and set to empty values
-$fname = $lname = $company = $email = $password = $type =  "";
+$id = mysqli_real_escape_string($conn, $_POST["id"]);
+$firstname = mysqli_real_escape_string($conn, $_POST["firstname"]);
+$lastname = mysqli_real_escape_string($conn, $_POST["lastname"]);
+$company = mysqli_real_escape_string($conn, $_POST["company"]);
+$email = mysqli_real_escape_string($conn, $_POST["email"]);
+$password = mysqli_real_escape_string($conn, $_POST["password"]);
+$user_type = mysqli_real_escape_string($conn, $_POST["user_type"]);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $fname = test_input($_POST["firstname"]);
-    $lname = test_input($_POST["lastname"]);
-    $company = test_input($_POST["company"]);
-    $email = test_input($_POST["email"]);
-    $password = test_input($_POST["password"]);
-    $type = test_input($_POST["type"]);
-}
-
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-$sql = "SELECT FROM users (firstname, lastname, company, email, password, user_type)";
+$query="UPDATE user SET firstname = '.$firstname.', lastname = '.$lastname.',company = '.$company.', email = '.$email.',password = '.$password.', user_type = '.$user_type.' WHERE id='$id'";
 
 
-if ($conn->query($sql) === TRUE) {
-    header("location: ../admin_view_users.php");
-}
-else{
-    header("location: ../admin_add_user.php");
+mysqli_query($conn,$query)or die(mysqli_error());
+if(mysqli_affected_rows($conn)>=1){
+    echo "<p>($id) Record Updated<p>";
+}else{
+    echo "<p>($id) Not Updated<p>";
 }
 $conn->close();
+?>
+
+<a href="../admin_edit_user.php">Next</a>
+
