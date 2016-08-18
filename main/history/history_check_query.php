@@ -179,8 +179,28 @@ if ($conn->connect_error) {
 
                                                 <label for = "period">History Period </label>
                                                 <label for = "start_date">From (History Start): <span class="required">*</span></label>
-                                                <input type="date" name="start_date" accesskey="2" required/><br>
-                                                <br>
+                                                <select name="start_date" required accesskey="1" required>
+                                                    <option value="" accesskey="2">Please Select</option>
+                                                    <?php
+                                                    $sel = "SELECT * FROM production";
+                                                    $result = $conn->query($sel);
+
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($row = $result->fetch_assoc()) {
+                                                            $items = $row["production_date"];
+                                                            ?>
+                                                            <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
+                                                            <?php
+                                                        }
+                                                    } else {?>
+                                                        <option value=" "><?php echo  "No Dates Found"; ?></br></option>;
+                                                        <?php
+                                                    }
+                                                    ?>
+
+<!--                                                <input type="date" name="start_date" accesskey="2" required/><br>-->
+<!--                                                <br>-->
 
                                                 <label for = "end_date">To (History End): <span class="required">*</span></label>
                                                 <input type="date" name="end_date" accesskey="3" required/><br>
