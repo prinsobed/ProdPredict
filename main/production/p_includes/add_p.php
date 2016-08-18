@@ -55,3 +55,5 @@ session_start();
                     header("location: ../add_production.php");
                 }
 
+                $conn->close();
+
