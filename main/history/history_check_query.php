@@ -183,7 +183,7 @@ if ($conn->connect_error) {
                                                             $wells = $row["well_id"];
                                                             ?>
 
-                                                            <option value="<?php echo $wells; ?>"><?php echo $well; ?> </option>;
+                                                            <option value="<?php echo $wells; ?>"><?php echo $wells; ?> </option>;
                                                             <?php
                                                         }
                                                     } else {?>
@@ -292,3 +292,8 @@ if ($conn->connect_error) {
 </body>
 <!-- End of Page Body -->
 </html>
+
+
+<?php
+
+?>
