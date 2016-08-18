@@ -21,21 +21,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$strt_date = $end_date = "";
-
-$sel = "SELECT * FROM well";
-$result = $conn->query($sel);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $strt_date = $row["production_date"];
-        $end_date = $row["production_date"];
-    }
-} else {?>
-    <?php echo  "No Dates Found"; ?>;
-    <?php
-}
+//$strt_date = $end_date = "";
+//
+//$sel = "SELECT * FROM well";
+//$result = $conn->query($sel);
+//
+//if ($result->num_rows > 0) {
+//    // output data of each row
+//    while($row = $result->fetch_assoc()) {
+//        $strt_date = $row["production_date"];
+//        $end_date = $row["production_date"];
+//    }
+//} else {?>
+<!--    --><?php //echo  "No Dates Found"; ?><!--;-->
+<!--    --><?php
+//}
 ?>
 
 <!DOCTYPE html>
@@ -180,27 +180,26 @@ if ($result->num_rows > 0) {
                                                 <label for = "period">History Period </label>
                                                 <label for = "start_date">From (History Start): <span class="required">*</span></label>
                                                 <select name="start_date" required accesskey="2" required>
-                                                    <option value="" accesskey="2">Please Select</option>
-                                                    <?php
-                                                    $sel = "SELECT * FROM production";
-                                                    $result = $conn->query($sel);
+                                                        <option value="" accesskey="">Please Select</option>
+                                                        <?php
+                                                        $sel = "SELECT * FROM production";
+                                                        $result = $conn->query($sel);
 
-                                                    if ($result->num_rows > 0) {
-                                                        // output data of each row
-                                                        while($row = $result->fetch_assoc()) {
-                                                            $items = $row["production_date"];
-                                                            ?>
-                                                            <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
+                                                        if ($result->num_rows > 0) {
+                                                            // output data of each row
+                                                            while($row = $result->fetch_assoc()) {
+                                                                $items = $row["production_date"];
+                                                                ?>
+                                                                <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
+                                                                <?php
+                                                            }
+                                                        } else {?>
+                                                            <option value=" "><?php echo  "No Dates Found"; ?></br></option>;
                                                             <?php
                                                         }
-                                                    } else {?>
-                                                        <option value=" "><?php echo  "No Dates Found"; ?></br></option><br>;
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                        ?>
+                                                    <br>
 
-<!--                                                <input type="date" name="start_date" accesskey="2" required/><br>-->
-<!--                                                <br>-->
 
                                                 <label for = "end_date">To (History End): <span class="required">*</span></label>
                                                     <select name="end_date" required accesskey="3" required>
@@ -270,19 +269,19 @@ if ($result->num_rows > 0) {
 <!-- End of Page Body -->
 </html>
 
-
+<!---->
 <?php
-$sel = "SELECT * FROM well";
-$result = $conn->query($sel);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $strt_date = $row["production_date"];
-        $end_date = $row["production_date"];
-    }
-} else {?>
-    <?php echo  "No Dates Found"; ?>;
-    <?php
-}
-?>
+//$sel = "SELECT * FROM well";
+//$result = $conn->query($sel);
+//
+//if ($result->num_rows > 0) {
+//    // output data of each row
+//    while($row = $result->fetch_assoc()) {
+//        $strt_date = $row["production_date"];
+//        $end_date = $row["production_date"];
+//    }
+//} else {?>
+<!--    --><?php //echo  "No Dates Found"; ?><!--;-->
+<!--    --><?php
+//}
+//?>
