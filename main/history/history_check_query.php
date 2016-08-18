@@ -174,13 +174,13 @@ if ($conn->connect_error) {
                                                 <select name="hist_well" required accesskey="1" required>
                                                     <option value="">Please Select</option>
                                                     <?php
-                                                    $sel = "SELECT * FROM well";
+                                                    $sel = "SELECT * FROM production";
                                                     $result = $conn->query($sel);
 
                                                     if ($result->num_rows > 0) {
                                                         // output data of each row
                                                         while($row = $result->fetch_assoc()) {
-                                                            $wells = $row["well_id"];
+                                                            $wells = $row["well"];
                                                             ?>
 
                                                             <option value="<?php echo $wells; ?>"><?php echo $wells; ?> </option>;
@@ -201,7 +201,7 @@ if ($conn->connect_error) {
                                                 <select name="start_date" required accesskey="2" required>
                                                         <option value="">Please Select</option>
                                                     <?php
-                                                    $sel1 = "SELECT * FROM production";
+                                                    $sel1 = "SELECT * FROM production WHERE well_id ='$wells'";
                                                     $result1 = $conn->query($sel1);
 
                                                     if ($result1->num_rows > 0) {
@@ -227,7 +227,7 @@ if ($conn->connect_error) {
                                                     <select name="end_date" required accesskey="3" required>
                                                         <option value="">Please Select</option>
                                                         <?php
-                                                        $sel2 = "SELECT * FROM production";
+                                                        $sel2 = "SELECT * FROM production WHERE well_id ='$wells'";
                                                         $result2 = $conn->query($sel2);
 
                                                         if ($result2->num_rows > 0) {
