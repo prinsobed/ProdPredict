@@ -8,6 +8,18 @@
  */
 
 session_start();
+
+$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+$username="bed8c15b456030"; // Mysql username
+$password="58380471"; // Mysql password
+$dbname="db_prodpredict"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -90,6 +102,11 @@ session_start();
             </div>
             
             <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+        <?php
+        $sql = "SELECT FROM users (id, firstname, lastname, company, email, password, user_type)";
+        ?>
+
+
             <section>
             <div class="col-sm-9">
             	
@@ -99,12 +116,62 @@ session_start();
                     	<div class="row2">
                         <!-- History -->
   							<article>
-        <div id="add_user">
-            
-            
-            <!-- Code Here -->
-        </div>
-    </article>
+                                <div id="main_feature">
+                                    <form action = "a_include/edit_u.php" method = "POST">
+                                        <ul class="form-style-1">
+
+                                            <label for = "User ID">User ID: <span class="required">*</span></label>
+                                            <select name="user_id" required>
+                                                <option value="">Please Select </option>;
+                                                <?php
+                                                $sel = "SELECT * FROM field";
+                                                $result = $conn->query($sel);
+
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
+
+                                                        ?>
+
+                                                        <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?> </option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </select><br>
+
+                                            <label for = "firstname">First Name: <span class="required">*</span></label>
+                                            <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
+                                            <br>
+
+                                            <label for = "lastname">Last Name: <span class="required">*</span></label>
+                                            <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
+
+                                            <label for = "company">Company: <span class="required">*</span></label>
+                                            <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
+
+                                            <label for = "email">Email: <span class="required">*</span></label>
+                                            <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
+
+                                            <label for = "password">Password: <span class="required">*</span></label>
+                                            <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password" required/><br><br>
+
+                                            <label for = "type">Type: <span class="required">*</span></label>
+                                            <input type="radio" name="type" value="1" accesskey="6" checked> User
+                                            <input type="radio" name="type" value="2"> Admin</input><br><br>
+                                            <br>
+
+                                            <input type="reset" name="clear" value="Clear" accesskey="7">
+                                            <input type="submit" name="submit" value="Save" accesskey="8">
+
+                                        </ul>
+                                    </form>
+                                </div>
+                            </article>
                             
                             
                   
