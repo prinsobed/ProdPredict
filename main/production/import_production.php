@@ -8,6 +8,19 @@
  */
 
 session_start();
+
+$servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+$username="bed8c15b456030"; // Mysql username
+$password="58380471"; // Mysql password
+$dbname="db_prodpredict"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -131,12 +144,54 @@ session_start();
                         <!-- History -->
   							<article>
                                 <div id="main_feature">
+                                    <?
 
-                                    <form action="upload.php" method="post" enctype="multipart/form-data">
-                                        Select image to upload:
-                                        <input type="file" name="fileToUpload" id="fileToUpload">
-                                        <input type="submit" value="Upload File" name="submit">
-                                    </form>
+                                    //empty the table of its current records
+                                    $deleterecords = "TRUNCATE TABLE tablename";
+                                    mysqli_query($conn, $deleterecords);
+
+                                    //Upload File
+                                    if (isset($_POST['submit'])) {
+                                        if (is_uploaded_file($_FILES['filename']['tmp_name'])) {
+                                            echo "<h2>" . "File ". $_FILES['filename']['name'] ." uploaded successfully." . "</h2>";
+                                            echo "<h3>Displaying contents:</h3>";
+                                            readfile($_FILES['filename']['tmp_name']);
+                                        }
+
+                                        //Import uploaded file to Database
+                                        $handle = fopen($_FILES['filename']['tmp_name'], "r");
+
+                                        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                                            $import="INSERT into production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user) values('$data[0]','$data[1]',$data[2],$data[3],$data[4],$data[5],$data[6],$data[7],$data[8],$data[9],$data[10],11)";
+                                            mysqli_query($conn, $import) or die(mysqli_error($conn));
+                                        }
+
+                                        fclose($handle);
+
+                                        print "Import done";
+
+                                        //view upload form
+                                    }else {
+
+                                        print "Please Import Data by browsing to .CSV file and clicking on Upload<br />\n";
+
+                                        print "<form enctype='multipart/form-data' class='form-style-1' action='' method='post'>";
+
+                                        print "File name to import:<br />\n";
+
+                                        print "<input class='form-style-1' type='file' name='filename'><br />\n";
+
+                                        print "<input class='form-style-1' type='submit' name='submit' value='Upload'></form>";
+
+                                    }
+
+                                    ?>
+
+<!--                                    <form action="upload.php" method="post" enctype="multipart/form-data">-->
+<!--                                        Select image to upload:-->
+<!--                                        <input type="file" name="fileToUpload" id="fileToUpload">-->
+<!--                                        <input type="submit" value="Upload File" name="submit">-->
+<!--                                    </form>-->
 
 
                                 </div>
