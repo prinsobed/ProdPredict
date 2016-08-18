@@ -128,16 +128,16 @@ session_start();
                         <div class="row2">
                             <!-- History -->
                             <article>
-                                <div id="add_user">
+                                <div id="main_feature">
 
                                     <!-- Code Here -->
 
 
                                 </div>
                             </article>
-
-
-
+                        </div>
+                        <div class="panel-footer">
+                            <a class="btn btn-default" href="" role="button">Export to File</a>
                         </div>
                     </div>
                 </div></div>
