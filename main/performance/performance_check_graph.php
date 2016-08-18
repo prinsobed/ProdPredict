@@ -151,12 +151,10 @@ session_start();
 
                                 </div>
                             </article>
-
-
                         </div>
-                        <div class="panel-footer">
-                            <a class="btn btn-default" href="" role="button">Export to File</a>
-                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a class="btn btn-default" href="" role="button">Export to File</a>
                     </div>
                 </div>
             </div>
