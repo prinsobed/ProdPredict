@@ -31,7 +31,7 @@ while($row = mysqli_fetch_array($result)){ // loop to store the data in an assoc
     $index++;
 }
 
-echo $row[production_date][oil];
+echo $dataArray[0];
 
 
 $conn->close();
