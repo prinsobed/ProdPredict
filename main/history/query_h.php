@@ -34,17 +34,8 @@ while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an assoc
 echo $row[production_date][oil];
 
 
-
-
-
-
-
-
-
-
-
 $conn->close();
 ?>
 
-<a href="../admin_edit_user.php">Next</a>
+
 

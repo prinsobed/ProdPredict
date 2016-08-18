@@ -156,7 +156,8 @@ session_start();
     <!-- Footer starts here -->
     <footer>
         <div class="row">
-            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
+            <div class="panel-footer">Designed by Obed Kraine Boachie, ©2016.</div>
+<!--            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>-->
         </div>
     </footer>
     <!-- End of Footer -->
