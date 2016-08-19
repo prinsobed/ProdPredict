@@ -19,24 +19,40 @@ if ($conn->connect_error) {
 }
 
 
-$SQLCommand = "SELECT production_date, oil FROM production";
+$SQLCommand = "SELECT * FROM production";
 $result = mysqli_query($conn, $SQLCommand); // This line executes the MySQL query that you typed above
 
-$dataArray = array(); // make a new array to hold all your data
+//$dataArray = array(); // make a new array to hold all your data
+//
+//
+//$index = 0;
+//while($row = mysqli_fetch_array($result)){ // loop to store the data in an associative array.
+//    $dataArray[$index] = $row;
+//    $index++;
+//}
+//
+//for($i =0; $i<sizeof($dataArray); $i++){
+//    echo $dataArray[$i][$i];
+//}
+//
+//$conn->close();
+//
 
-
-$index = 0;
-while($row = mysqli_fetch_array($result)){ // loop to store the data in an associative array.
-    $dataArray[$index] = $row;
-    $index++;
+while ($row = mysqli_fetch_array($result)) {
+    extract ($row);
+   $production_date *= 1000; // convert from Unix timestamp to JavaScript time
+   $data[] = "[$production_date, $value]";
 }
-
-for($i =0; $i<sizeof($dataArray); $i++){
-    echo $dataArray[$i][$i];
-}
-
-$conn->close();
 ?>
+
+var chart = new Highcharts.Chart({
+chart: {
+renderTo: 'container'
+},
+series: [{
+data: [<?php echo join($data, ',') ?>]
+}]
+});
 
 
 
