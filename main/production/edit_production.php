@@ -39,6 +39,7 @@ if ($conn->connect_error) {
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/npm.js"></script>
     <script src="../../assets/js/dropzone.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -254,3 +255,54 @@ if ($conn->connect_error) {
 </html>
 
 
+<script type="application/javascript">
+    function getSelected(value){
+        console.log(value)
+        //get values using ajax
+
+        $.ajax({
+            type: 'post', //uses the post method asynchronously
+            url:  'getEdit.php', //php page that does the actual query
+            data: {
+                val: value //the get value passed to the php page: its the wellid in this case.
+            },
+            success:function(response){ //call back
+                /**
+                 * Get the response call back and split into an array using the next line delimeter
+                 * @type {Array}
+                 */
+                var splitResponse = response.split("\n");
+                var productionDate = splitResponse[0];
+                var oil            = splitResponse[1];
+                var gas            = splitResponse[2];
+                var water          = splitResponse[3];
+                var gor            = splitResponse[4];
+                var bsw            = splitResponse[5];
+                var bean           = splitResponse[6];
+                var thp            = splitResponse[7];
+                var bhp            = splitResponse[8];
+                var api            = splitResponse[9];
+
+
+                /**
+                 * pass the values retrieved dynamically into the corresponding input element by using their id
+                 */
+                document.getElementById("prod_date").value = productionDate;
+                document.getElementById("oil_prod").value = oil;
+                document.getElementById("gas_prod").value = gas;
+                document.getElementById("water_prod").value = water;
+                document.getElementById("gas_oil_ratio").value = gor;
+                document.getElementById("basic_sed_water").value = bsw;
+                document.getElementById("bean").value = bean;
+                document.getElementById("tubing_hang_press").value = thp;
+                document.getElementById("bottom_hole_pressure").value = bhp;
+                document.getElementById("a_p_i").value = api;
+
+            },
+            error: function(err){ //error call back
+                console.log(err);
+            }
+        });
+    }
+
+</script>
