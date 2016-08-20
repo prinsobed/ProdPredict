@@ -95,7 +95,7 @@ if(!$_SESSION['username']){
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default custom" href="../well/add_well.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
+                                    <a class="btn btn-default custom text-left" href="../well/add_well.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
                                 </ul>
                                 <ul>
                                     <a class="btn btn-default custom" href="../well/view_wells.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
