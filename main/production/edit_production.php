@@ -163,7 +163,7 @@ if ($conn->connect_error) {
                                             <select name="prod_well" required>
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
-                                                $sel = "SELECT * FROM well";
+                                                $sel = "SELECT * FROM production";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
@@ -172,11 +172,11 @@ if ($conn->connect_error) {
 
                                                         ?>
 
-                                                        <option value="<?php echo $row['well_id']; ?>" ><?php echo $row['well_id']; ?></option>;
+                                                        <option value="<?php echo $row['well']; ?>" ><?php echo $row['well']; ?></option>;
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Production Found"; ?> </br></option>;
                                                     <?php echo $i;?>
                                                     <?php
                                                 }
@@ -262,7 +262,7 @@ if ($conn->connect_error) {
 
         $.ajax({
             type: 'post', //uses the post method asynchronously
-            url:  'getEdit.php', //php page that does the actual query
+            url:  'p_includes/edit_p.php', //php page that does the actual query
             data: {
                 val: value //the get value passed to the php page: its the wellid in this case.
             },

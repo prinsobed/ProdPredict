@@ -156,18 +156,10 @@ if ($conn->connect_error) {
                                     <form action="w_include/add_w.php" method="POST">
                                         <ul class="form-style-1">
                                             <label for = "well_id">Well ID: <span class="required">*</span></label>
-                                            <input type="text" name="well_id" class="field-text" value=""  accesskey="1" placeholder="Well Identification No." required/><br>
-                                            <br>
-
-                                            <label for = "well_name">Name: </label>
-                                            <input type="text" name="well_name" class="field-text" value=""  accesskey="2" placeholder="Well Name"/><br>
-                                            <br>
-
-                                            <label for = "well_field">Field: <span class="required">*</span></label>
-                                            <select name="well_field" required>
+                                            <select name="well_id" required>
                                                 <option value="">Please Select </option>;
                                                 <?php
-                                                $sel = "SELECT * FROM field";
+                                                $sel = "SELECT * FROM well";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
@@ -176,16 +168,24 @@ if ($conn->connect_error) {
 
                                                         ?>
 
-                                                        <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?> </option>;
+                                                        <option value="<?php echo $row['well_id']; ?>"><?php echo $row['well_id']; ?> </option>;
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                                                     <?php
                                                 }
                                                 ?>
 
                                             </select><br>
+                                            <br>
+
+                                            <label for = "well_name">Name: </label>
+                                            <input type="text" name="well_name" class="field-text" value=""  accesskey="2" placeholder="Well Name"/><br>
+                                            <br>
+
+                                            <label for = "well_field">Field: <span class="required">*</span></label>
+                                            <input type="text" name="well_field" class="field-text" value=""  accesskey="2" placeholder="Field"/><br>
                                             <br>
 
                                             <label for = "well_prod_start">Productions Start Date: <span class="required">*</span></label>
@@ -226,5 +226,45 @@ if ($conn->connect_error) {
 </body>
 <!-- End of Page Body -->
 </html>
+
+<script type="application/javascript">
+    function getSelected(value){
+        console.log(value)
+        //get values using ajax
+
+        $.ajax({
+            type: 'post', //uses the post method asynchronously
+            url:  'w_include/edit_w.php', //php page that does the actual query
+            data: {
+                val: value //the get value passed to the php page: its the wellid in this case.
+            },
+            success:function(response){ //call back
+                /**
+                 * Get the response call back and split into an array using the next line delimeter
+                 * @type {Array}
+                 */
+                var splitResponse = response.split("\n");
+                var well_name            = splitResponse[0];
+                var well_field           = splitResponse[1];
+                var well_prod_start      = splitResponse[2];
+                var well_status          = splitResponse[3];
+
+
+                /**
+                 * pass the values retrieved dynamically into the corresponding input element by using their id
+                 */
+                document.getElementById("well_name").value = well_name;
+                document.getElementById("well_field").value = well_field;
+                document.getElementById("well_prod_start").value = well_prod_start;
+                document.getElementById("well_status").value = well_status;
+
+            },
+            error: function(err){ //error call back
+                console.log(err);
+            }
+        });
+    }
+
+</script>
 
 

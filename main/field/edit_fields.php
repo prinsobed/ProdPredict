@@ -157,7 +157,28 @@ if ($conn->connect_error) {
                                         <ul class="form-style-1">
                                             <li>
                                                 <label for = "field_id">Field ID: <span class="required">*</span></label>
-                                                <input type="text" name="field_id" class="field-text" value=""  accesskey="1" placeholder="Field Identification No." required/><br>
+                                                <select name="field_id" required>
+                                                    <option value="">Please Select </option>;
+                                                    <?php
+                                                    $sel = "SELECT * FROM field";
+                                                    $result = $conn->query($sel);
+
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($row = $result->fetch_assoc()) {
+
+                                                            ?>
+
+                                                            <option value="<?php echo $row['field_id']; ?>"><?php echo $row['field_id']; ?> </option>;
+                                                            <?php
+                                                        }
+                                                    } else {?>
+                                                        <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                        <?php
+                                                    }
+                                                    ?>
+
+                                                </select><br>
                                             </li>
 
                                             <li>
@@ -473,5 +494,48 @@ if ($conn->connect_error) {
 </body>
 <!-- End of Page Body -->
 </html>
+
+<script type="application/javascript">
+    function getSelected(value){
+        console.log(value)
+        //get values using ajax
+
+        $.ajax({
+            type: 'post', //uses the post method asynchronously
+            url:  'f_include/edit_f.php', //php page that does the actual query
+            data: {
+                val: value //the get value passed to the php page: its the field id in this case.
+            },
+            success:function(response){ //call back
+                /**
+                 * Get the response call back and split into an array using the next line delimeter
+                 * @type {Array}
+                 */
+                var splitResponse = response.split("\n");
+                var name            = splitResponse[0];
+                var situated        = splitResponse[1];
+                var location        = splitResponse[2];
+                var field_type      = splitResponse[3];
+                var water_depth     = splitResponse[4];
+                var status          = splitResponse[5];
+
+                /**
+                 * pass the values retrieved dynamically into the corresponding input element by using their id
+                 */
+                document.getElementById("name").value = name;
+                document.getElementById("situated").value = situated;
+                document.getElementById("location").value = location;
+                document.getElementById("field_type").value = field_type;
+                document.getElementById("water_depth").value = water_depth;
+                document.getElementById("status").value = status;
+
+            },
+            error: function(err){ //error call back
+                console.log(err);
+            }
+        });
+    }
+
+</script>
 
 

@@ -161,25 +161,6 @@ if ($conn->connect_error) {
             </div>
         </div>
 
-
-        <?php
-
-        $query = mysqli_query($conn, "SELECT * FROM user");
-
-        $id = $firstname = $lastname = $company = $email = $password = $user_type = "";
-
-        if(mysqli_num_rows($query)>=1){
-            while($row = mysqli_fetch_array($query)) {
-                $id = $row['id'];
-                $firstname= $row['firstname'];
-                $lastname= $row['lastname'];
-                $company= $row['company'];
-                $email= $row['email'];
-                $password= $row['password'];
-                $user_type= $row['user_type'];
-            }
-        ?>
-
         <section>
             <div class="col-sm-9">
 
@@ -193,47 +174,44 @@ if ($conn->connect_error) {
                                         <ul class="form-style-1">
 
                                             <label for = "User ID">User ID: <span class="required">*</span></label>
-                                            <input type="text" name="id" class="field-text" value="<?php echo $id;?>"  accesskey="1" placeholder="First Name" required/><br>
-                                            <br>
+                                            <select name="user_id" required>
+                                                <option value="">Please Select </option>;
+                                                <?php
+                                                $sel = "SELECT * FROM users";
+                                                $result = $conn->query($sel);
 
-<!--                                            <select name="user_id" required>-->
-<!--                                                <option value="">Please Select </option>;-->
-<!--                                                --><?php
-//                                                $sel = "SELECT * FROM user";
-//                                                $result = $conn->query($sel);
-//
-//                                                if ($result->num_rows > 0) {
-//                                                    // output data of each row
-//                                                    while($row = $result->fetch_assoc()) {
-//
-//                                                        ?>
-<!---->
-<!--                                                        <option value="--><?php //echo $row['id']; ?><!--">--><?php //echo $row['id']; ?><!-- </option>;-->
-<!--                                                        --><?php
-//                                                    }
-//                                                } else {?>
-<!--                                                    <option value=" ">--><?php //echo  "No Users Found"; ?><!-- </br></option>;-->
-<!--                                                    --><?php
-//                                                }
-//                                                ?>
-<!---->
-<!--                                            </select><br>-->
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
+
+                                                        ?>
+
+                                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['id']; ?> </option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No Users Found"; ?> </br></option>;
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </select><br>
 
                                             <label for = "firstname">First Name: <span class="required">*</span></label>
-                                            <input type="text" name="firstname" class="field-text" value="<?php echo $firstname;?>"  accesskey="1" placeholder="First Name" required/><br>
+                                            <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
                                             <br>
 
                                             <label for = "lastname">Last Name: <span class="required">*</span></label>
-                                            <input type="text" name="lastname" class="field-text" value="<?php echo $lastname;?>"  accesskey="2" placeholder="Last Name" required/><br><br>
+                                            <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
 
                                             <label for = "company">Company: <span class="required">*</span></label>
-                                            <input type="text" name="company" class="field-text" value="<?php echo $company;?>"  accesskey="3" placeholder="Company" required/><br><br>
+                                            <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
 
                                             <label for = "email">Email: <span class="required">*</span></label>
-                                            <input type="email" name="email" class="field-text" value="<?php echo $email;?>"  accesskey="4" placeholder="Corporate Email" required/><br><br>
+                                            <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
 
                                             <label for = "password">Password: <span class="required">*</span></label>
-                                            <input type="password" name="password" class="field-text" value="<?php echo $password;?>" accesskey="5" placeholder="Password" required/><br><br>
+                                            <input type="password" name="password" class="field-text" value="" accesskey="5" placeholder="Password" required/><br><br>
 
                                             <label for = "type">Type: <span class="required">*</span></label>
                                             <input type="radio" name="type" value="1" accesskey="6" checked> User
@@ -245,11 +223,6 @@ if ($conn->connect_error) {
 
                                         </ul>
                                     </form>
-                                    <?php
-                                    }else{
-                                        echo 'No Users found. <a href="javascript:history.back()">Go back</a>';
-                                    }
-                                    ?>
                                 </div>
                             </article>
 
@@ -273,5 +246,50 @@ if ($conn->connect_error) {
 </body>
 <!-- End of Page Body -->
 </html>
+
+<script type="application/javascript">
+    function getSelected(value){
+        console.log(value)
+        //get values using ajax
+
+        $.ajax({
+            type: 'post', //uses the post method asynchronously
+            url:  'a_include/edit_u.php', //php page that does the actual query
+            data: {
+                val: value //the get value passed to the php page: its the user id in this case.
+            },
+            success:function(response){ //call back
+                /**
+                 * Get the response call back and split into an array using the next line delimeter
+                 * @type {Array}
+                 */
+                var splitResponse   = response.split("\n");
+                var firstname       = splitResponse[0];
+                var lastname        = splitResponse[1];
+                var company         = splitResponse[2];
+                var email           = splitResponse[3];
+                var password        = splitResponse[4];
+                var user_type       = splitResponse[5];
+
+
+
+                /**
+                 * pass the values retrieved dynamically into the corresponding input element by using their id
+                 */
+                document.getElementById("firstname").value    = firstname;
+                document.getElementById("lastname").value     = lastname;
+                document.getElementById("company").value      = company;
+                document.getElementById("email").value        = email;
+                document.getElementById("password").value     = password;
+                document.getElementById("type").value    = user_type;
+
+            },
+            error: function(err){ //error call back
+                console.log(err);
+            }
+        });
+    }
+
+</script>
 
 
