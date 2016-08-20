@@ -77,25 +77,77 @@ if(!$_SESSION['username']){
                 <!-- Side Navigation for Fields, Wells and Production -->
                 <nav>
                     <div class="panel panel-default">
-                        <div class="panel-heading">Users</div>
+                        <div class="panel-heading">Fields</div>
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default custom" href="admin_add_user.php" role="button">Add New</a>
+                                    <a class="btn btn-default custom" href="../main/field/add_field.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
                                 </ul>
                                 <ul>
-                                    <a class="btn btn-default custom" href="admin_view_users.php" role="button">View Existing</a>
+                                    <a class="btn btn-default custom" href="../main/field/view_fields.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
                                 </ul>
                                 <ul>
-                                    <a class="btn btn-default custom" href="admin_edit_user.php" role="button">Edit User</a>
+                                    <a class="btn btn-default custom" href="../main/field/edit_fields.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit Field</a>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Wells</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default custom text-left" href="../main/well/add_well.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../main/well/view_wells.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../main/well/edit_wells.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit Well</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Production</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default custom" href="../main/production/import_production.php" role="button"><span class="glyphicon glyphicon-cloud-upload">&nbsp;</span>Import File</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../main/production/add_production.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../main/production/view_production.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../main/production/edit_production.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit Production</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Users</div>
+                        <div class="panel-body">
+                            <div class="row2">
+                                <ul>
+                                    <a class="btn btn-default" href="admin_add_user.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="admin_view_users.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default" href="admin_edit_user.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit User</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
+
             </div>
         </div>
 
