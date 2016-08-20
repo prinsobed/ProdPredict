@@ -151,6 +151,8 @@ textarea, select{
 .custom {
     width: 130px !important;
     text-align: left;
+    text-align-all: left;
+    alignment: left;
 }
 
 /*END OF CSS*/
