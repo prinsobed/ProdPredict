@@ -87,10 +87,13 @@ if(!$_SESSION['username']){
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default" href="../field/add_field.php" role="button">Add New</a>
+                                    <a class="btn btn-default custom" href="../field/add_field.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
                                 </ul>
                                 <ul>
-                                    <a class="btn btn-default" href="../field/view_fields.php" role="button">View Existing</a>
+                                    <a class="btn btn-default custom" href="../field/view_fields.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../field/edit_fields.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit Field</a>
                                 </ul>
                             </div>
                         </div>
@@ -101,10 +104,13 @@ if(!$_SESSION['username']){
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default" href="../well/add_well.php" role="button">Add New</a>
+                                    <a class="btn btn-default custom" href="../well/add_well.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
                                 </ul>
                                 <ul>
-                                    <a class="btn btn-default" href="../well/view_wells.php" role="button">View Existing</a>
+                                    <a class="btn btn-default custom" href="../well/view_wells.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../well/edit_wells.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit Well</a>
                                 </ul>
                             </div>
                         </div>
@@ -115,13 +121,16 @@ if(!$_SESSION['username']){
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
-                                    <a class="btn btn-default" href="../production/import_production.php" role="button">Import File</a>
+                                    <a class="btn btn-default custom" href="../production/import_production.php" role="button"><span class="glyphicon glyphicon-cloud-upload">&nbsp;</span>Import File</a>
                                 </ul>
                                 <ul>
-                                    <a class="btn btn-default" href="../production/add_production.php" role="button">Add New</a>
+                                    <a class="btn btn-default custom" href="../production/add_production.php" role="button"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Add New</a>
                                 </ul>
                                 <ul>
-                                    <a class="btn btn-default" href="../production/view_production.php" role="button">View Existing</a>
+                                    <a class="btn btn-default custom" href="../production/view_production.php" role="button"><span class="glyphicon glyphicon-list-alt">&nbsp;</span>View Existing</a>
+                                </ul>
+                                <ul>
+                                    <a class="btn btn-default custom" href="../production/edit_production.php" role="button"><span class="glyphicon glyphicon-edit">&nbsp;</span>Edit Production</a>
                                 </ul>
                             </div>
                         </div>
