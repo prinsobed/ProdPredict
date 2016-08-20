@@ -173,7 +173,7 @@ if ($conn->connect_error) {
                                                         $dateSelect = $row['well'];
                                                         ?>
 
-                                                        <option value="<?php echo $wellSelect; ?>" ><?php echo $row['well']; ?></option>;
+                                                        <option value="<?php echo $wellSelect; ?>" ><?php echo $wellSelect; ?></option>;
                                                         <?php
                                                     }
                                                 } else {?>
