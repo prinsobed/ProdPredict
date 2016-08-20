@@ -149,10 +149,7 @@ textarea, select{
 
 /*Additional Custom for Bootstrap Buttons*/
 .custom {
-    width: 150px !important;
-    align-content: left;
-    text-align:left;
-    padding-left:4px
+
 }
 
 /*END OF CSS*/
