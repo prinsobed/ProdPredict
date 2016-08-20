@@ -164,7 +164,7 @@ if ($conn->connect_error) {
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
                                                 $wellSelect = "";
-                                                $sel_w = "SELECT UNIQUE FROM production";
+                                                $sel_w = "SELECT DISTINCT well FROM production";
                                                 $result = $conn->query($sel_w);
 
                                                 if ($result->num_rows > 0) {
