@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 $getValue = $_POST['val'];
 
 //checking if the variable is set
-if(isset($getValue)){
+if(isset($getValue)) {
 
 //Select all from production well where well is the value passed through ajax
     $sql = "SELECT * FROM production WHERE well = '$getValue'";
@@ -35,22 +35,32 @@ if(isset($getValue)){
 
     if ($result->num_rows > 0) {
         // output data of each row
-        while($row = $result->fetch_array()) {
+        while ($row = $result->fetch_array()) {
             /*The next line is important as this will be the delimeter used in seperating the values*/
-            
-            echo $row["production_date"] . "\n"
-                 .$row["oil"]   . "\n"
-                 .$row["gas"]   . "\n"
-                 .$row["water"] . "\n"
-                 .$row["gor"]   . "\n"
-                 .$row["bsw"]   . "\n"
-                 .$row["bean"]  . "\n"
-                 .$row["thp"]   . "\n"
-                 .$row["bhp"]   . "\n"
-                 .$row["api"]   . "\n";
+            $sql = "SELECT * FROM production WHERE production_date = '$getValue'";
+
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while ($row = $result->fetch_array()) {
+
+                    echo
+                        $row["oil"] . "\n"
+                        . $row["gas"] . "\n"
+                        . $row["water"] . "\n"
+                        . $row["gor"] . "\n"
+                        . $row["bsw"] . "\n"
+                        . $row["bean"] . "\n"
+                        . $row["thp"] . "\n"
+                        . $row["bhp"] . "\n"
+                        . $row["api"] . "\n";
+
+                }
+            }
+
         }
     }
-
 }
 
 

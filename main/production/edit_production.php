@@ -156,27 +156,28 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form action="p_includes/add_p.php" method="POST">
+                                    <form action="p_includes/edit_p.php" method="POST">
                                         <ul class="form-style-1">
 
                                             <label for = "prod_well">Well: <span class="required">*</span></label>
                                             <select name="prod_well" required>
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
-                                                $sel = "SELECT * FROM production";
+                                                $wellSelect = "";
+                                                $sel = "SELECT UNIQUE FROM production";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($row = $result->fetch_assoc()) {
-
+                                                        $dateSelect = $row['well'];
                                                         ?>
 
-                                                        <option value="<?php echo $row['well']; ?>" ><?php echo $row['well']; ?></option>;
+                                                        <option value="<?php echo $wellSelect; ?>" ><?php echo $wellSelect; ?></option>;
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Production Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                                                     <?php echo $i;?>
                                                     <?php
                                                 }
@@ -185,7 +186,29 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <label for = "prod_date">Production Date: <span class="required">*</span></label>
-                                            <input type="date" name="prod_date" accesskey="3" value="<?php echo date('Y-m-d'); ?>" required/><br>
+                                            <select name="prod_well" required>
+                                                <option value=" ">Please Select</br></option>;
+                                                <?php
+                                                $dateSelect = "";
+                                                $sel = "SELECT * FROM production WHERE well = $wellSelect";
+                                                $result = $conn->query($sel);
+
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
+                                                        $dateSelect = $row['production_date'];
+                                                        ?>
+
+                                                        <option value="<?php echo $row['production_date']; ?>" ><?php echo $row['production_date']; ?></option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No Dates Found"; ?> </br></option>;
+                                                    <?php echo $i;?>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select><br>
                                             <br>
 
                                             <label for = "oil_prod">Oil Produced (BOPD): <span class="required">*</span></label>
@@ -264,7 +287,7 @@ if ($conn->connect_error) {
             type: 'post', //uses the post method asynchronously
             url:  'p_includes/edit_p.php', //php page that does the actual query
             data: {
-                val: value //the get value passed to the php page: its the wellid in this case.
+                val: value, seldate //the get value passed to the php page: its the wellid in this case.
             },
             success:function(response){ //call back
                 /**
@@ -306,3 +329,10 @@ if ($conn->connect_error) {
     }
 
 </script>
+
+<?php
+//UPDATE production
+//                    SET oil=oil, gas=gas, water=water, gor=gor, bsw=bsw, bean=bean, thp=thp, bhp=bhp
+//                    WHERE well = $wellSelect AND production_date = $dateSelect;
+//
+//?>
