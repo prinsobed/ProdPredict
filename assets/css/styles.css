@@ -147,6 +147,10 @@ textarea, select{
 /*}*/
 /*#status { padding:10px; background:#88C4FF; color:#000; font-weight:bold; font-size:12px; margin-bottom:10px; display:none; width:90%; }*/
 
+/*Additional Custom for Bootstrap Buttons*/
+.custom {
+    width: 80px !important;
+}
 
 /*END OF CSS*/
 

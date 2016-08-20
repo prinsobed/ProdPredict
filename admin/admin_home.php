@@ -79,10 +79,13 @@ if(!$_SESSION['username']){
 						<div class="panel-body">
 							<div class="row2">
 								<ul>
-									<a class="btn btn-default" href="admin_add_user.php" role="button">Add New</a>
+									<a class="btn btn-default custom" href="admin_add_user.php" role="button">Add New</a>
 								</ul>
 								<ul>
-									<a class="btn btn-default" href="admin_view_users.php" role="button">View Existing</a>
+									<a class="btn btn-default custom" href="admin_view_users.php" role="button">View Existing</a>
+								</ul>
+								<ul>
+									<a class="btn btn-default custom" href="admin_edit_user.php" role="button">Edit User</a>
 								</ul>
 							</div>
 						</div>
@@ -94,10 +97,13 @@ if(!$_SESSION['username']){
 						<div class="panel-body">
 							<div class="row2">
 								<ul>
-									<a class="btn btn-default" href="../main/field/add_field.php" role="button">Add New</a>
+									<a class="btn btn-default custom" href="../main/field/add_field.php" role="button">Add New</a>
 								</ul>
 								<ul>
-									<a class="btn btn-default" href="../main/field/view_fields.php" role="button">View Existing</a>
+									<a class="btn btn-default custom" href="../main/field/view_fields.php" role="button">View Existing</a>
+								</ul>
+								<ul>
+									<a class="btn btn-default custom" href="../main/field/edit_fields.php" role="button">Edit Field</a>
 								</ul>
 							</div>
 						</div>
@@ -108,10 +114,13 @@ if(!$_SESSION['username']){
 						<div class="panel-body">
 							<div class="row2">
 								<ul>
-									<a class="btn btn-default" href="../main/well/add_well.php" role="button">Add New</a>
+									<a class="btn btn-default custom" href="../main/well/add_well.php" role="button">Add New</a>
 								</ul>
 								<ul>
-									<a class="btn btn-default" href="../main/well/view_wells.php" role="button">View Existing</a>
+									<a class="btn btn-default custom" href="../main/well/view_wells.php" role="button">View Existing</a>
+								</ul>
+								<ul>
+									<a class="btn btn-default custom" href="../main/well/edit_wells.php" role="button">Edit Well</a>
 								</ul>
 							</div>
 						</div>
@@ -122,13 +131,16 @@ if(!$_SESSION['username']){
 						<div class="panel-body">
 							<div class="row2">
 								<ul>
-									<a class="btn btn-default" href="../main/production/import_production.php" role="button">Import File</a>
+									<a class="btn btn-default custom" href="../main/production/import_production.php" role="button">Import File</a>
 								</ul>
 								<ul>
-									<a class="btn btn-default" href="../main/production/add_production.php" role="button">Add New</a>
+									<a class="btn btn-default custom" href="../main/production/add_production.php" role="button">Add New</a>
 								</ul>
 								<ul>
-									<a class="btn btn-default" href="../main/production/view_production.php" role="button">View Existing</a>
+									<a class="btn btn-default custom" href="../main/production/view_production.php" role="button">View Existing</a>
+								</ul>
+								<ul>
+									<a class="btn btn-default custom" href="../main/production/edit_production.php" role="button">Edit Production</a>
 								</ul>
 							</div>
 						</div>
