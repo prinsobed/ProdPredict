@@ -164,8 +164,8 @@ if ($conn->connect_error) {
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
                                                 $wellSelect = "";
-                                                $sel = "SELECT UNIQUE FROM production";
-                                                $result = $conn->query($sel);
+                                                $sel_w = "SELECT UNIQUE FROM production";
+                                                $result = $conn->query($sel_w);
 
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
@@ -173,7 +173,7 @@ if ($conn->connect_error) {
                                                         $dateSelect = $row['well'];
                                                         ?>
 
-                                                        <option value="<?php echo $wellSelect; ?>" ><?php echo $wellSelect; ?></option>;
+                                                        <option value="<?php echo $wellSelect; ?>" ><?php echo $row['well']; ?></option>;
                                                         <?php
                                                     }
                                                 } else {?>
