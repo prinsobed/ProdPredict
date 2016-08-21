@@ -46,8 +46,7 @@ $result=mysqli_query($conn, $sql) or die ("");
 
 // if successfully updated.
 if($result){
-//    header("location: ../view_production.php");
-    echo $oil." - ".$gas ." - ". $water ." - ". $gor ." - ". $bsw ." - ". $thp ." - ". $bhp ." - ". $well." - ". $production_date;
+    header("location: ../view_production.php");
 }
 else {
     header("location: ../edit_production.php");

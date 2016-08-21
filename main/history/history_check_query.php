@@ -219,9 +219,6 @@ if ($conn->connect_error) {
                                                 </select><br>
                                                 <br>
 
-                                                </select><br>
-                                                <br>
-
 
                                                 <label for = "end_date">To (History End): <span class="required">*</span></label>
                                                 <select name="start_date" required onchange="dateSelected(this.value)">
