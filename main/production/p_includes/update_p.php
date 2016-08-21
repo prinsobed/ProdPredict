@@ -41,7 +41,7 @@ $well = $_POST['prod_well'];
 $production_date = $_POST['prod_date'];
 
 
-$sql = "UPDATE production SET oil= '$oil' , gas='$gas', water='$water', gor='$gor', bsw='$bsw' , bean='$bean', thp ='$thp', bhp='$bhp', well='$well', production_date = '$production_date'";
+$sql = "UPDATE production SET oil= '$oil' , gas='$gas', water='$water', gor='$gor', bsw='$bsw' , bean='$bean', thp ='$thp', bhp='$bhp' WHERE well='$well' AND production_date = '$production_date'";
 $result=mysqli_query($conn, $sql) or die ("");
 
 // if successfully updated.
