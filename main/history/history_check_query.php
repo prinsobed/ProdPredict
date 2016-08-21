@@ -221,7 +221,7 @@ if ($conn->connect_error) {
 
 
                                                 <label for = "end_date">To (History End): <span class="required">*</span></label>
-                                                <select name="start_date" required onchange="dateSelected(this.value)">
+                                                <select name="end_date" required onchange="dateSelected(this.value)">
                                                     <option value=" ">Please Select</br></option>;
                                                     <?php
                                                     //                                                    $dateSelect = "";

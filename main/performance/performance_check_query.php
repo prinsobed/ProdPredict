@@ -171,19 +171,19 @@ if ($conn->connect_error) {
                                             <select name="well_1" required accesskey="1" required>
                                                 <option value="" accesskey="2">Please Select</option>
                                                 <?php
-                                                $sel = "SELECT * FROM well";
-                                                $result = $conn->query($sel);
+                                                $sel_w1 = "SELECT DISTINCT well FROM production";
+                                                $result = $conn->query($sel_w1);
 
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($row = $result->fetch_assoc()) {
-                                                        $items = $row["well_id"];
+//                                                        $items = $row["well"];
                                                         ?>
-                                                        <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
+                                                        <option value="<?php echo $row["well"]; ?>"><?php echo $row["well"]; ?> </br></option>;
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                                                     <?php
                                                 }
                                                 ?>
@@ -194,19 +194,19 @@ if ($conn->connect_error) {
                                             <select name="well_2" accesskey="3">
                                                 <option value="" accesskey="2">Please Select</option>
                                                 <?php
-                                                $sel = "SELECT * FROM well ";
-                                                $result = $conn->query($sel);
+                                                $sel_w2 = "SELECT DISTINCT well FROM production ";
+                                                $result = $conn->query($sel_w2);
 
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($row = $result->fetch_assoc()) {
-                                                        $items = $row["well_id"];
+//                                                        $items = $row["well_id"];
                                                         ?>
-                                                        <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
+                                                        <option value="<?php echo $row["well"]; ?>"><?php echo $row["well"];  ?> </br></option>;
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                                                     <?php
                                                 }
                                                 ?>
@@ -216,12 +216,59 @@ if ($conn->connect_error) {
 
                                             <label for = "period">Performance Period </label>
                                             <label for = "start_date">From (Performance Start): <span class="required">*</span></label>
-                                            <input type="date" name="start_date" accesskey="5" required/><br>
+                                            <select name="start_date" required onchange="dateSelected(this.value)">
+                                                <option value=" ">Please Select</br></option>;
+                                                <?php
+                                                //                                                    $dateSelect = "";
+                                                $sel_sd = "SELECT * FROM production";
+                                                $result = $conn->query($sel_sd);
+
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
+//                                                            $dateSelect = $row['production_date'];
+                                                        ?>
+
+                                                        <option value="<?php echo $row['production_date']; ?>" ><?php echo $row['production_date']; ?></option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No Dates Found"; ?> </br></option>;
+                                                    <?php echo $i;?>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select><br>
                                             <br>
 
+
                                             <label for = "end_date">To (Performance End): <span class="required">*</span></label>
-                                            <input type="date" name="end_date" accesskey="6" required/><br>
+                                            <select name="end_date" required onchange="dateSelected(this.value)">
+                                                <option value=" ">Please Select</br></option>;
+                                                <?php
+                                                //                                                    $dateSelect = "";
+                                                $sel_ed = "SELECT * FROM production";
+                                                $result = $conn->query($sel_ed);
+
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
+//                                                            $dateSelect = $row['production_date'];
+                                                        ?>
+
+                                                        <option value="<?php echo $row['production_date']; ?>" ><?php echo $row['production_date']; ?></option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No Dates Found"; ?> </br></option>;
+                                                    <?php echo $i;?>
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </select><br>
                                             <br>
+
 
                                             <li>
                                                 <label for = "hydrocarbon">Hydrocarbon: <span class="required">*</span></label>
