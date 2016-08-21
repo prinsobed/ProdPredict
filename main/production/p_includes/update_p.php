@@ -30,15 +30,15 @@ if ($conn->connect_error) {
 }
 ///**********************************************/
 $oil = $_POST["oil_prod"];
-$gas = $_POST['gas_prod'];
-$water = $_POST['water_prod'];
-$gor = $_POST['gas_oil_ratio'];
-$bsw = $_POST['basic_sed_water'];
-$bean = $_POST['bean'];
-$thp = $_POST['tubing_hang_press'];
-$bhp = $_POST['bottom_hole_pressure'];
-$well = $_POST['prod_well'];
-$production_date = $_POST['prod_date'];
+$gas = $_POST["gas_prod"];
+$water = $_POST["water_prod"];
+$gor = $_POST["gas_oil_ratio"];
+$bsw = $_POST["basic_sed_water"];
+$bean = $_POST["bean"];
+$thp = $_POST["tubing_hang_press"];
+$bhp = $_POST["bottom_hole_pressure"];
+$well = $_POST["prod_well"];
+$production_date = $_POST["prod_date"];
 
 
 $sql = "UPDATE production SET oil= '$oil' , gas='$gas', water='$water', gor='$gor', bsw='$bsw' , bean='$bean', thp ='$thp', bhp='$bhp' WHERE well='$well' AND production_date='$production_date'";
