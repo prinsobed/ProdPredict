@@ -196,8 +196,8 @@ if ($conn->connect_error) {
                                                     <?php
                                                 }
                                                 ?>
-
                                             </select><br>
+                                            <br>
 
                                             <label for = "firstname">First Name: <span class="required">*</span></label>
                                             <input type="text" name="firstname" id="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
@@ -215,9 +215,8 @@ if ($conn->connect_error) {
                                             <label for = "password">Password: <span class="required">*</span></label>
                                             <input type="password" name="password" id="password" class="field-text" value="" accesskey="5" placeholder="Password" required/><br><br>
 
-                                            <label for = "type">Type: <span class="required">*</span></label>
-                                            <input type="radio" name="type" id="type" value="1" accesskey="6" checked> User
-                                            <input type="radio" name="type" id="type" value="2"> Admin</input><br><br>
+                                            <label for = "user_type">Type: <span class="required">*</span></label>
+                                            <input type="text" name="user_type" id="user_type" class="field-text" value="" accesskey="5" placeholder="Type" required/><br><br>
                                             <br>
 
                                             <input type="reset" name="clear" value="Clear" accesskey="7">
@@ -283,7 +282,7 @@ if ($conn->connect_error) {
                 document.getElementById("company").value      = company;
                 document.getElementById("email").value        = email;
                 document.getElementById("password").value     = password;
-                document.getElementById("type").value         = user_type;
+                document.getElementById("user_type").value         = user_type;
 
             },
             error: function(err){ //error call back
