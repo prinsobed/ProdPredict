@@ -24,13 +24,13 @@ if ($conn->connect_error) {
 
 //POST value retrieved from ajax
 $getWValue = $_POST['val'];
-$getDValue = $_POST['val'];
+$getDValue = $_POST['val2'];
 
 //checking if the variable is set
-if(isset($getValue)) {
+if(isset($getDValue)) {
 
 //Select all from production well where well is the value passed through ajax
-    $sql = "SELECT * FROM production WHERE well = '$getWValue' AND production_date = $getDValue";
+    $sql = "SELECT * FROM production WHERE well = '$getWValue' AND production_date = '$getDValue'";
 
     $result = $conn->query($sql);
 
