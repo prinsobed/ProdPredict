@@ -168,7 +168,7 @@ if(!$_SESSION['username']){
                                             <select name="prod_well" required>
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
-                                                $sel = "SELECT * FROM well";
+                                                $sel = "SELECT DISTINCT well_id FROM well";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
@@ -177,7 +177,7 @@ if(!$_SESSION['username']){
 
                                                         ?>
 
-                                                        <option value="<?php echo $row['well_id']; ?>" ><?php echo $row['well_id']; ?></option>;
+                                                        <option value="<?php echo $row['well_id']; ?>"><?php echo $row['well_id']; ?></option>;
                                                         <?php
                                                     }
                                                 } else {?>

@@ -163,7 +163,7 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form>
+                                    <form action="fo_includes/analysis_f.php" method="POST">
                                         <ul class="form-style-1">
 
 
@@ -171,7 +171,7 @@ if ($conn->connect_error) {
                                             <select name="well_1" required accesskey="1" required>
                                                 <option value="" accesskey="2">Please Select</option>
                                                 <?php
-                                                $sel = "SELECT * FROM well";
+                                                $sel = "SELECT DISTINCT well FROM production";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
@@ -183,7 +183,7 @@ if ($conn->connect_error) {
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                                                     <?php
                                                 }
                                                 ?>

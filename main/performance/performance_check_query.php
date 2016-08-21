@@ -163,7 +163,7 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form>
+                                    <form action="pe_includes/analysis_p.php" method="POST">
                                         <ul class="form-style-1">
 
                                             <label for = "Wells">Performance Wells </label>
