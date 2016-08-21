@@ -37,50 +37,59 @@ $rep_type = $_POST['report_type'];
 // Form the SQL query that returns the top 10 most populous countries
 $strQuery = "SELECT * FROM production WHERE well = $h_well AND production_date BETWEEN $h_start AND $h_end ORDER BY production_date ASC";
 
-// Execute the query, or else return the error message.
-$result = $dbhandle->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}");
+$result = mysqli_query($conn, $strQuery);
+while($row = mysqli_fetch_array($result)) {
+    print_r($row);
 
-// If the query returns a valid response, prepare the JSON string
-if ($result) {
-    // The `$arrData` array holds the chart attributes and data
-    $arrData = array(
-        "chart" => array(
-            "caption" => "Well History",
-            "paletteColors" => "#0075c2",
-            "bgColor" => "#ffffff",
-            "borderAlpha"=> "20",
-            "canvasBorderAlpha"=> "0",
-            "usePlotGradientColor"=> "0",
-            "plotBorderAlpha"=> "10",
-            "showXAxisLine"=> "1",
-            "xAxisLineColor" => "#999999",
-            "showValues" => "0",
-            "divlineColor" => "#999999",
-            "divLineIsDashed" => "1",
-            "showAlternateHGridColor" => "0"
+//
+//// Execute the query, or else return the error message.
+//$result = $dbhandle->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}");
+//
+//// If the query returns a valid response, prepare the JSON string
+//if ($result) {
+//    // The `$arrData` array holds the chart attributes and data
+//    $arrData = array(
+//        "chart" => array(
+//            "caption" => "Well History",
+//            "paletteColors" => "#0075c2",
+//            "bgColor" => "#ffffff",
+//            "borderAlpha"=> "20",
+//            "canvasBorderAlpha"=> "0",
+//            "usePlotGradientColor"=> "0",
+//            "plotBorderAlpha"=> "10",
+//            "showXAxisLine"=> "1",
+//            "xAxisLineColor" => "#999999",
+//            "showValues" => "0",
+//            "divlineColor" => "#999999",
+//            "divLineIsDashed" => "1",
+//            "showAlternateHGridColor" => "0"
+//
+//
+//        )
+//    );
+//
+//    $arrData["data"] = array();
+//
+//    // Push the data into the array
+//    while($row = mysqli_fetch_array($result)) {
+//        array_push($arrData["data"], array(
+//                "label" => $row["Date"],
+//                "value" => $row["Production"]
+//            )
+//        );
+//    }
+//
+//    /*JSON Encode the data to retrieve the string containing the JSON representation of the data in the array. */
+//
+//    $jsonData = json_encode($arrData);
+//
+//    foreach($jsonData as $key => $value){
+//        print "$key => $value \n";
+//    }
 
 
-        )
-    );
 
-    $arrData["data"] = array();
 
-    // Push the data into the array
-    while($row = mysqli_fetch_array($result)) {
-        array_push($arrData["data"], array(
-                "label" => $row["Date"],
-                "value" => $row["Production"]
-            )
-        );
-    }
-
-    /*JSON Encode the data to retrieve the string containing the JSON representation of the data in the array. */
-
-    $jsonData = json_encode($arrData);
-
-    foreach($jsonData as $key => $value){
-        print "$key => $value \n";
-    }
 //    /*Create an object for the column chart using the FusionCharts PHP class constructor.
 //    Syntax for the constructor is ` FusionCharts("type of chart", "unique chart id", width of the chart, height of the chart,
 //    "div id to render the chart", "data format", "data source")`. Because we are using JSON data to render the chart,
