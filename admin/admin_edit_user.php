@@ -175,7 +175,7 @@ if ($conn->connect_error) {
                                         <ul class="form-style-1">
 
                                             <label for = "User ID">User ID: <span class="required">*</span></label>
-                                            <select name="user_id" required>
+                                            <select name="user_id" required onchange="userSelected(this.value)>
                                                 <option value="">Please Select </option>;
                                                 <?php
                                                 $sel = "SELECT * FROM users";
@@ -249,7 +249,7 @@ if ($conn->connect_error) {
 </html>
 
 <script type="application/javascript">
-    function getSelected(value){
+    function userSelected(value){
         console.log(value)
         //get values using ajax
 
