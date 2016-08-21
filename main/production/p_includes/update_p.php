@@ -1,5 +1,8 @@
 <?php
 echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]), ($_POST["gas_prod"]). '!';
+
+$water = $_POST["gas_prod"];
+echo $water;
 ?>
 
 <!---->
@@ -27,7 +30,7 @@ echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]), ($_POST["gas_prod"]). '!
 //}
 /////**********************************************/
 //
-//$sql = "UPDATE production SET oil='".$_POST['oil_prod']."', gas='".$_POST['gas_prod']."', water='".$_POST['water_prod']."', gor='".$_POST['gas_oil_ratio']."', bsw='".$_POST['basic_sed_water']."', bean='".$_POST['bean']."', thp='".$_POST['tubing_hang_press']."', bhp='".$_POST['bottom_hole_pressure']."' WHERE well ='".$_POST['prod_well']."'  AND production_date = '".$_POST['prod_date']."'";
+//$sql = "UPDATE production SET oil="$_POST['gas_prod']", gas='".$_POST['gas_prod']."', water='".$_POST['water_prod']."', gor='".$_POST['gas_oil_ratio']."', bsw='".$_POST['basic_sed_water']."', bean='".$_POST['bean']."', thp='".$_POST['tubing_hang_press']."', bhp='".$_POST['bottom_hole_pressure']."' WHERE well ='".$_POST['prod_well']."'  AND production_date = '".$_POST['prod_date']."'";
 //$result=mysqli_query($conn, $sql) or die ("");
 //
 //
@@ -41,4 +44,4 @@ echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]), ($_POST["gas_prod"]). '!
 //}
 //
 //?>
-
+<!---->
