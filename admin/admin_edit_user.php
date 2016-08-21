@@ -219,7 +219,7 @@ if ($conn->connect_error) {
                                             <input type="password" name="password" id="password" class="field-text" value="" accesskey="5" placeholder="Password" required/><br><br>
 
                                             <label for = "user_type">Type: <span class="required">*</span></label>
-                                            <input type="text" name="user_type" id="user_type" class="field-text" value="" accesskey="5" placeholder="Type" required/><br><br>
+                                            <input type="text" name="user_type" id="user_type" class="field-text" value="" accesskey="5" placeholder="Type" required disabled/><br><br>
                                             <br>
 
                                             <input type="reset" name="clear" value="Clear" accesskey="7">
