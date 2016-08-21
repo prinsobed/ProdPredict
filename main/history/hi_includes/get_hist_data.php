@@ -39,6 +39,7 @@ $strQuery = "SELECT * FROM production WHERE well = $h_well AND production_date B
 
 $result = mysqli_query($conn, $strQuery);
 while($row = mysqli_fetch_array($result)) {
+    echo $row['well'];
     print_r($row);
 
 //
