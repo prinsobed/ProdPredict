@@ -34,9 +34,12 @@ if ($conn->connect_error) {
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/dropzone.css">
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/npm.js"></script>
+    <script src="../../assets/js/dropzone.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -153,10 +156,10 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form action="w_include/add_w.php" method="POST">
+                                    <form action="w_include/update_w.php" method="POST">
                                         <ul class="form-style-1">
                                             <label for = "well_id">Well ID: <span class="required">*</span></label>
-                                            <select name="well_id" required>
+                                            <select name="well_id" required onchange="wellSelected(this.value)" accesskey="1">
                                                 <option value="">Please Select </option>;
                                                 <?php
                                                 $sel = "SELECT * FROM well";
@@ -165,9 +168,7 @@ if ($conn->connect_error) {
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($row = $result->fetch_assoc()) {
-
                                                         ?>
-
                                                         <option value="<?php echo $row['well_id']; ?>"><?php echo $row['well_id']; ?> </option>;
                                                         <?php
                                                     }
@@ -181,32 +182,30 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <label for = "well_name">Name: </label>
-                                            <input type="text" name="well_name" class="field-text" value=""  accesskey="2" placeholder="Well Name"/><br>
+                                            <input type="text" name="well_name" id="well_name" class="field-text" value=""  accesskey="2" placeholder="Well Name"/><br>
                                             <br>
 
                                             <label for = "well_field">Field: <span class="required">*</span></label>
-                                            <input type="text" name="well_field" class="field-text" value=""  accesskey="2" placeholder="Field"/><br>
+                                            <input type="text" name="well_field" id="well_field" class="field-text" value=""  accesskey="3" placeholder="Field" disabled/><br>
                                             <br>
 
                                             <label for = "well_prod_start">Productions Start Date: <span class="required">*</span></label>
-                                            <input type="date" name="well_prod_start" accesskey="4" required/><br>
+                                            <input type="text" name="well_prod_start" id="well_prod_start" accesskey="4" disabled/><br>
                                             <br>
 
                                             <label for = "well_status">Status: <span class="required"></span></label>
-                                            <input type="radio" name="well_status" value="Production" accesskey="5" checked> Production
-                                            <input type="radio" name="well_status" value="Abandonment"> Abandonment<br>
+                                            <input type="text" name="well_status" id="well_status" accesskey="5" required/><br>
+                                            <input type="radio" name="well_status_new" value="Production" accesskey="6" checked> Production
+                                            <input type="radio" name="well_status_new" value="Abandonment"> Abandonment<br>
                                             <br><br>
 
-                                            <input type="submit" value="Clear" accesskey="6">
-                                            <input type="submit" value="Save" accesskey="7">
+                                            <input type="submit" value="Clear" accesskey="7">
+                                            <input type="submit" value="Save" accesskey="8">
 
                                         </ul>
                                     </form>
                                 </div>
                             </article>
-
-
-
                         </div>
                     </div>
                 </div></div>
@@ -228,7 +227,7 @@ if ($conn->connect_error) {
 </html>
 
 <script type="application/javascript">
-    function getSelected(value){
+    function wellSelected(value){
         console.log(value)
         //get values using ajax
 

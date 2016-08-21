@@ -221,7 +221,7 @@ if ($conn->connect_error) {
                                             </li>
 
                                             <input type="reset" value="Clear" accesskey="11">
-                                            <input type="submit" value="Save" accesskey="12">
+                                            <input type="submit" value="Update" accesskey="12">
 
                                         </ul>
                                     </form>
