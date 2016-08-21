@@ -175,8 +175,8 @@ if ($conn->connect_error) {
                                     <form action="a_include/update_u.php" method="POST">
                                         <ul class="form-style-1">
 
-                                            <label for = "User ID">User ID: <span class="required">*</span></label>
-                                            <select name="user_id" required onchange="userSelected(this.value)>
+                                            <label for = "user_id">User ID: <span class="required">*</span></label>
+                                            <select name="user_id" id="user_id" required onchange="userSelected(this.value)">
                                                 <option value="">Please Select </option>;
                                                 <?php
                                                 $sel = "SELECT * FROM users";
