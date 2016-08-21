@@ -212,39 +212,39 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <label for = "oil_prod">Oil Produced (BOPD): <span class="required">*</span></label>
-                                            <input type="text" name="oil_prod" class="field-text" value=""  accesskey="4" placeholder="Oil Produced" required/><br>
+                                            <input type="text" name="oil_prod" id="oil_prod" class="field-text" value=""  accesskey="4" placeholder="Oil Produced" required/><br>
                                             <br>
 
                                             <label for = "gas_prod">Gas Produced (MMCFD): <span class="required">*</span></label>
-                                            <input type="text" name="gas_prod" class="field-text" value=""  accesskey="5" placeholder="Gas Produced" required/><br>
+                                            <input type="text" name="gas_prod" id="gas_prod" class="field-text" value=""  accesskey="5" placeholder="Gas Produced" required/><br>
                                             <br>
 
                                             <label for = "water_prod">Water Produced (BBLS): <span class="required">*</span></label>
-                                            <input type="text" name="water_prod" class="field-text" value=""  accesskey="6" placeholder="Water Produced" required/><br>
+                                            <input type="text" name="water_prod" id="water_prod" class="field-text" value=""  accesskey="6" placeholder="Water Produced" required/><br>
                                             <br>
 
                                             <label for = "gas_oil_ratio">Gas Oil Ratio (SCF/B): <span class="required">*</span></label>
-                                            <input type="text" name="gas_oil_ratio" class="field-text" value=""  accesskey="7" placeholder="Gas Oil Ratio" required/><br>
+                                            <input type="text" name="gas_oil_ratio" id="gas_oil_ratio" class="field-text" value=""  accesskey="7" placeholder="Gas Oil Ratio" required/><br>
                                             <br>
 
                                             <label for = "basic_sed_water">Basic Sediment Water (%): <span class="required">*</span></label>
-                                            <input type="text" name="basic_sed_water" class="field-text" value=""  accesskey="8" placeholder="Basic Sediment Water" required/><br>
+                                            <input type="text" name="basic_sed_water" id="basic_sed_water" class="field-text" value=""  accesskey="8" placeholder="Basic Sediment Water" required/><br>
                                             <br>
 
                                             <label for = "bean">Bean (1/16"): <span class="required">*</span></label>
-                                            <input type="text" name="bean" class="field-text" value=""  accesskey="9" placeholder="Bean/Choke" required/><br>
+                                            <input type="text" name="bean" id="bean" class="field-text" value=""  accesskey="9" placeholder="Bean/Choke" required/><br>
                                             <br>
 
                                             <label for = "tubing_hang_press">Tubing Hang Pressure (PSI): <span class="required">*</span></label>
-                                            <input type="text" name="tubing_hang_press" class="field-text" value=""  accesskey="10" placeholder="Tubing Hanger Press" required/><br>
+                                            <input type="text" name="tubing_hang_press" id="tubing_hang_press" class="field-text" value=""  accesskey="10" placeholder="Tubing Hanger Press" required/><br>
                                             <br>
 
                                             <label for = "bottom_hole_pressure">Bottom Hole Pressure (PSGI): <span class="required">*</span></label>
-                                            <input type="text" name="bottom_hole_pressure" class="field-text" value=""  accesskey="11" placeholder="Bottom Hole Pressure" required/><br>
+                                            <input type="text" name="bottom_hole_pressure" id="bottom_hole_pressure" class="field-text" value=""  accesskey="11" placeholder="Bottom Hole Pressure" required/><br>
                                             <br>
 
                                             <label for = "a_p_i">API: <span class="required">*</span></label>
-                                            <input type="text" name="a_p_i" class="field-text" value='47.7'  accesskey="12" disabled/><br>
+                                            <input type="text" name="a_p_i" id="a_p_i" class="field-text" value='47.7'  accesskey="12" disabled/><br>
                                             <br><br>
 
                                             <input type="reset" value="Clear" accesskey="13">
