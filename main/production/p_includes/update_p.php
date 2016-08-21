@@ -1,19 +1,9 @@
 <?php
-echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]) . '!';
+echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]) . htmlspecialchars($_POST["gas_prod"]). '!';
 ?>
-<!--.$_POST['oil_prod'];-->
-<!--.$_POST['gas_prod'];-->
-<!--.$_POST['water_prod'];-->
-<!--.$_POST['gas_oil_ratio'];-->
-<!--.$_POST['basic_sed_water'];-->
-<!--.$_POST['bean'];-->
-<!--.$_POST['tubing_hang_press'];-->
-<!--.$_POST['bottom_hole_pressure'];-->
-<!--.$_POST['prod_well'];-->
-<!--.$_POST['prod_date'];-->
 
 
-
+<?php
 ///**
 // * Created by PhpStorm.
 // * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
@@ -35,11 +25,10 @@ echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]) . '!';
 //if ($conn->connect_error) {
 //    die("Connection failed: " . $conn->connect_error);
 //}
-///**********************************************/
+/////**********************************************/
 //
 //$sql = "UPDATE production SET oil='".$_POST['oil_prod']."', gas='".$_POST['gas_prod']."', water='".$_POST['water_prod']."', gor='".$_POST['gas_oil_ratio']."', bsw='".$_POST['basic_sed_water']."', bean='".$_POST['bean']."', thp='".$_POST['tubing_hang_press']."', bhp='".$_POST['bottom_hole_pressure']."' WHERE well ='".$_POST['prod_well']."'  AND production_date = '".$_POST['prod_date']."'";
 //$result=mysqli_query($conn, $sql) or die ("");
-//
 //
 //// if successfully updated.
 //if($result){
@@ -48,6 +37,6 @@ echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]) . '!';
 //else {
 //    header("location: ../edit_production.php");
 //}
-
-?>
-
+//
+//?>
+<!---->
