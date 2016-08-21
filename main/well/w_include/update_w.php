@@ -31,11 +31,11 @@ if ($conn->connect_error) {
 ///**********************************************/
 $well_id = $_POST['well_id'];
 $well_name = $_POST['well_name'];
-$well_field = $_POST['well_field'];
-$well_prod_start = $_POST['well_prod_start'];
+//$well_field = $_POST['well_field'];
+//$well_prod_start = $_POST['well_prod_start'];
 $well_status = $_POST['well_status_new'];
 
-$sql = "UPDATE well SET well_name = '$well_name' ,  well_field='$well_field', well_prod_start='$well_prod_start' , well_status='$well_status' WHERE well_id ='$well_id'";
+$sql = "UPDATE well SET well_name = '$well_name' , well_status='$well_status' WHERE well_id ='$well_id'";
 $result=mysqli_query($conn, $sql) or die ("");
 
 // if successfully updated.

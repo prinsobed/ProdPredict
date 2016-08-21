@@ -190,17 +190,17 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <label for = "well_prod_start">Productions Start Date: <span class="required">*</span></label>
-                                            <input type="text" name="well_prod_start" id="well_prod_start" accesskey="4" disabled/><br>
+                                            <input type="text" name="well_prod_start" id="well_prod_start" accesskey="4" placeholder="Production Start Date" disabled/><br>
                                             <br>
 
                                             <label for = "well_status">Status: <span class="required"></span></label>
-                                            <input type="text" name="well_status" id="well_status" accesskey="5" required/><br>
+                                            <input type="text" name="well_status" id="well_status" accesskey="5" placeholder="Status" required/><br>
                                             <input type="radio" name="well_status_new" value="Production" accesskey="6" checked> Production
                                             <input type="radio" name="well_status_new" value="Abandonment"> Abandonment<br>
                                             <br><br>
 
                                             <input type="submit" value="Clear" accesskey="7">
-                                            <input type="submit" value="Save" accesskey="8">
+                                            <input type="submit" value="Update" accesskey="8">
 
                                         </ul>
                                     </form>
