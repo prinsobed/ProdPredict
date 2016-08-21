@@ -160,7 +160,7 @@ if ($conn->connect_error) {
                                         <ul class="form-style-1">
 
                                             <label for = "prod_well">Well: <span class="required">*</span></label>
-                                            <select name="prod_well" required onselect="wellSelected(this.value)">
+                                            <select name="prod_well" required onchange="wellSelected(this.value)">
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
                                                 $wellSelect = "";
@@ -186,7 +186,7 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <label for = "prod_date">Production Date: <span class="required">*</span></label>
-                                            <select name="prod_well" required onselect="dateSelected(this.value)">
+                                            <select name="prod_well" required onchange="dateSelected(this.value)">
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
                                                 $dateSelect = "";
