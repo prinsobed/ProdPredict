@@ -29,27 +29,24 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ///**********************************************/
-$oil = $_POST['oil_prod'];
-$gas = $_POST['gas_prod'];
-$water = $_POST['water_prod'];
-$gor = $_POST['gas_oil_ratio'];
-$bsw = $_POST['basic_sed_water'];
-$bean = $_POST['bean'];
-$thp = $_POST['tubing_hang_press'];
-$bhp = $_POST['bottom_hole_pressure'];
-$well = $_POST['prod_well'];
-$production_date = $_POST['prod_date'];
+$id = $_POST['user_id'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$company = $_POST['company'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$user_type = $_POST['user_type'];
 
 
-$sql = "UPDATE production SET oil= '$oil' , gas='$gas', water='$water', gor='$gor', bsw='$bsw' , bean='$bean', thp ='$thp', bhp='$bhp' WHERE well='$well' AND production_date='$production_date'";
+$sql = "UPDATE users SET firstname = '$firstname' , lastname='$lastname', company='$company', email='$email', password='$password' , user_type='$user_type' WHERE id ='$id'";
 $result=mysqli_query($conn, $sql) or die ("");
 
 // if successfully updated.
 if($result){
-    header("location: ../view_production.php");
+    header("location: ../admin_view_users.php");
 }
 else {
-    header("location: ../edit_production.php");
+    header("location: ../admin_edit_user.php");
 }
 
 ?>

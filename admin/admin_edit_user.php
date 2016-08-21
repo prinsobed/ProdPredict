@@ -172,6 +172,7 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
+                                    <form action="a_include/update_u.php" method="POST">
                                         <ul class="form-style-1">
 
                                             <label for = "User ID">User ID: <span class="required">*</span></label>
@@ -199,24 +200,24 @@ if ($conn->connect_error) {
                                             </select><br>
 
                                             <label for = "firstname">First Name: <span class="required">*</span></label>
-                                            <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
+                                            <input type="text" name="firstname" id="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
                                             <br>
 
                                             <label for = "lastname">Last Name: <span class="required">*</span></label>
-                                            <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
+                                            <input type="text" name="lastname" id="lastname"  class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
 
                                             <label for = "company">Company: <span class="required">*</span></label>
-                                            <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
+                                            <input type="text" name="company" id="company"  class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
 
                                             <label for = "email">Email: <span class="required">*</span></label>
-                                            <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
+                                            <input type="email" name="email" id="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
 
                                             <label for = "password">Password: <span class="required">*</span></label>
-                                            <input type="password" name="password" class="field-text" value="" accesskey="5" placeholder="Password" required/><br><br>
+                                            <input type="password" name="password" id="password" class="field-text" value="" accesskey="5" placeholder="Password" required/><br><br>
 
                                             <label for = "type">Type: <span class="required">*</span></label>
-                                            <input type="radio" name="type" value="1" accesskey="6" checked> User
-                                            <input type="radio" name="type" value="2"> Admin</input><br><br>
+                                            <input type="radio" name="type" id="type" value="1" accesskey="6" checked> User
+                                            <input type="radio" name="type" id="type" value="2"> Admin</input><br><br>
                                             <br>
 
                                             <input type="reset" name="clear" value="Clear" accesskey="7">
@@ -282,7 +283,7 @@ if ($conn->connect_error) {
                 document.getElementById("company").value      = company;
                 document.getElementById("email").value        = email;
                 document.getElementById("password").value     = password;
-                document.getElementById("type").value    = user_type;
+                document.getElementById("type").value         = user_type;
 
             },
             error: function(err){ //error call back
