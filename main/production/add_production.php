@@ -181,7 +181,7 @@ if(!$_SESSION['username']){
                                                         <?php
                                                     }
                                                 } else {?>
-                                                    <option value=" "><?php echo  "No Fields Found"; ?> </br></option>;
+                                                    <option value=" "><?php echo  "No Wells Found"; ?> </br></option>;
                                                     <?php echo $i;?>
                                                     <?php
                                                 }

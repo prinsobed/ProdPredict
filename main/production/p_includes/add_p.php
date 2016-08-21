@@ -22,38 +22,73 @@ if ($conn->connect_error) {
 
 // define variables and set to empty values
 $prod_well = $prod_date = $oil_prod = $gas_prod = $water_prod = $gas_oil_ratio = $basic_sed_water = $bean = $tubing_hang_press = $bottom_hole_pressure = $a_p_i = $ent_user = "";
+//
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//    $prod_well = test_input($_POST["prod_well"]);
+//    $prod_date = test_input($_POST["prod_date"]);
+//    $oil_prod = test_input($_POST["oil_prod"]);
+//    $gas_prod = test_input($_POST["gas_prod"]);
+//    $water_prod = test_input($_POST["water_prod"]);
+//    $gas_oil_ratio = test_input($_POST["gas_oil_ratio"]);
+//    $basic_sed_water = test_input($_POST["basic_sed_water"]);
+//    $bean = test_input($_POST["bean"]);
+//    $tubing_hang_press = test_input($_POST["tubing_hang_press"]);
+//    $bottom_hole_pressure = test_input($_POST["bottom_hole_pressure"]);
+//    $a_p_i= test_input($_POST["a_p_i"]);
+//    $ent_user = test_input($_SESSION['id']);
+//}
+//
+//function test_input($data) {
+//    $data = trim($data);
+//    $data = stripslashes($data);
+//    $data = htmlspecialchars($data);
+//    return $data;
+//}
+//
+//$sql = "INSERT INTO production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
+//                          VALUES ('$prod_well','$prod_date','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i','$ent_user')";
+//
+//if ($conn->query($sql) === TRUE) {
+//    header("location: ../view_production.php");
+//}
+//else{
+//    header("location: ../add_production.php");
+//}
+//
+//$conn->close();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $prod_well = test_input($_POST["prod_well"]);
-    $prod_date = test_input($_POST["prod_date"]);
-    $oil_prod = test_input($_POST["oil_prod"]);
-    $gas_prod = test_input($_POST["gas_prod"]);
-    $water_prod = test_input($_POST["water_prod"]);
-    $gas_oil_ratio = test_input($_POST["gas_oil_ratio"]);
-    $basic_sed_water = test_input($_POST["basic_sed_water"]);
-    $bean = test_input($_POST["bean"]);
-    $tubing_hang_press = test_input($_POST["tubing_hang_press"]);
-    $bottom_hole_pressure = test_input($_POST["bottom_hole_pressure"]);
-    $a_p_i= test_input($_POST["a_p_i"]);
-    $ent_user = test_input($_SESSION['id']);
-}
+    $prod_well = $_POST["prod_well"];
+    $prod_date = $_POST["prod_date"];
+    $oil = $_POST['oil_prod'];
+    $gas = $_POST['gas_prod'];
+    $water = $_POST['water_prod'];
+    $gor = $_POST['gas_oil_ratio'];
+    $bsw = $_POST['basic_sed_water'];
+    $bean = $_POST['bean'];
+    $thp = $_POST['tubing_hang_press'];
+    $bhp = $_POST['bottom_hole_pressure'];
+    $well = $_POST['prod_well'];
+    $production_date = $_POST['prod_date'];
+    $ent_user = $_SESSION['id'];
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+//    INSERT INTO `inmoti6_mysite`.`comments` (`id`, `name`, `email`, `website`,
+//        `comment`, `timestamp`, `articleid`) VALUES (NULL, '$users_name',
+//        '$users_email', '$users_website', '$users_comment',
+//        CURRENT_TIMESTAMP, '$articleid');";
 
-$sql = "INSERT INTO production(well, production_date, oil, gas, water, gor, bsw, bean, thp, bhp, api, ent_user)
-                          VALUES ('$prod_well','$prod_date','$oil_prod','$gas_prod', '$water_prod', '$gas_oil_ratio','$basic_sed_water','$bean', '$tubing_hang_press','$bottom_hole_pressure','$a_p_i','$ent_user')";
 
-if ($conn->query($sql) === TRUE) {
-    header("location: ../view_production.php");
-}
-else{
-    header("location: ../add_production.php");
-}
+    $sql = "INSERT INTO production ('well', 'production_date','oil','gas','water','gor','bsw','bean','thp','bhp')
+VALUES ('$well' ,'$production_date','$oil' ,'$gas','$water','$gor', '$bsw' , '$bean', '$thp', '$bhp')";
 
-$conn->close();
+    $result = mysqli_query($conn, $sql) or die ("");
+
+// if successfully updated.
+    if ($result) {
+        header("location: ../view_production.php");
+    } else {
+        header("location: ../edit_production.php");
+    }
+}
+?>
 
