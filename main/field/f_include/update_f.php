@@ -31,14 +31,14 @@ if ($conn->connect_error) {
 ///**********************************************/
 $field_id = $_POST['field_id'];
 $name = $_POST['name'];
-$situated = $_POST['situated'];
-$location = $_POST['location'];
+//$situated = $_POST['situated'];
+//$location = $_POST['location'];
 $field_type = $_POST['field_type_new'];
 $water_depth = $_POST['water_depth'];
 $status = $_POST['status_new'];
 
 
-$sql = "UPDATE field SET field_name = '$name' , situated_off_on='$situated', location='$location', field_type='$field_type', water_depth='$water_depth' , status='$status' WHERE field_id ='$field_id'";
+$sql = "UPDATE field SET field_name = '$name' ,  field_type='$field_type', water_depth='$water_depth' , status='$status' WHERE field_id ='$field_id'";
 $result=mysqli_query($conn, $sql) or die ("");
 
 // if successfully updated.
