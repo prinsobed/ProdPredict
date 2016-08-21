@@ -191,12 +191,12 @@ if ($conn->connect_error) {
 
                                             <li>
                                                 <label for = "situated">Situated: <span class="required">*</span></label>
-                                                <input type="text" name="situated" id="situated" class="field-text" value=""  accesskey="3" disabled /><br>
+                                                <input type="text" name="situated" id="situated" class="field-text"  accesskey="3" disabled /><br>
                                             </li>
 
                                             <li>
                                                 <label for = "location">Location: <span class="required">*</span></label>
-                                                <input type="text" name="location" id="location" class="field-text" value=""  accesskey="4" disabled /><br>
+                                                <input type="text" name="location" id="location" class="field-text"  accesskey="4" disabled /><br>
                                             </li>
 
                                             <li>
