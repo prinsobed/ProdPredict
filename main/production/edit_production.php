@@ -279,7 +279,7 @@ if ($conn->connect_error) {
 
 
 <script type="application/javascript">
-    function getSelected(value){
+    function getSelWell(value){
         console.log(value)
         //get values using ajax
 
@@ -287,7 +287,38 @@ if ($conn->connect_error) {
             type: 'post', //uses the post method asynchronously
             url:  'p_includes/edit_p.php', //php page that does the actual query
             data: {
-                val: value, seldate //the get value passed to the php page: its the wellid in this case.
+                val: value //the get value passed to the php page: its the wellid in this case.
+            },
+            success:function(response){ //call back
+                /**
+                 * Get the response call back and split into an array using the next line delimeter
+                 * @type {Array}
+                 */
+                var splitResponse = response.split("\n");
+                var productionDate = splitResponse[0];
+
+
+                /**
+                 * pass the values retrieved dynamically into the corresponding input element by using their id
+                 */
+                document.getElementById("prod_date").value = productionDate;
+            },
+            error: function(err){ //error call back
+                console.log(err);
+            }
+        });
+    }
+
+
+    function getSelDate(wDate){
+        console.log(wDate)
+        //get values using ajax
+
+        $.ajax({
+            type: 'post', //uses the post method asynchronously
+            url:  'p_includes/edit_p.php', //php page that does the actual query
+            data: {
+                val: wDate //the get value passed to the php page: its the wellid in this case.
             },
             success:function(response){ //call back
                 /**
@@ -310,7 +341,6 @@ if ($conn->connect_error) {
                 /**
                  * pass the values retrieved dynamically into the corresponding input element by using their id
                  */
-                document.getElementById("prod_date").value = productionDate;
                 document.getElementById("oil_prod").value = oil;
                 document.getElementById("gas_prod").value = gas;
                 document.getElementById("water_prod").value = water;
