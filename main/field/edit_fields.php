@@ -209,7 +209,7 @@ if ($conn->connect_error) {
 
                                             <li>
                                                 <label for = "water_depth">Water Depth(m): </label>
-                                                <input type="text" name="water_depth" class="field-text" value=""  accesskey="7" placeholder="Depth in metres"/><br>
+                                                <input type="text" name="water_depth" id="water_depth" class="field-text" value=""  accesskey="7"/><br>
                                             </li>
 
 
