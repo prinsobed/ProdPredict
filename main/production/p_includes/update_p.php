@@ -1,5 +1,5 @@
 <?php
-echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]) . htmlspecialchars($_POST["gas_prod"]). '!';
+echo 'Bonjour ' . htmlspecialchars($_POST["oil_prod"]), htmlspecialchars($_POST["gas_prod"]). '!';
 ?>
 
 
