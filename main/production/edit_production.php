@@ -289,49 +289,49 @@ if ($conn->connect_error) {
             console.log('selected well: ' + wellSel);
             console.log('selcted date: '+ param);
 
-//                $.ajax({
-//                    type: 'post', //uses the post method asynchronously
-//                    url:  'p_includes/edit_p.php', //php page that does the actual query
-//                    data: {
-//                        val: wellSel,
-//                        val2: param
-//                        //the get value passed to the php page: its the wellid in this case.
-//                    },
-//                    success:function(response){ //call back
-//                        /**
-//                         * Get the response call back and split into an array using the next line delimeter
-//                         * @type {Array}
-//                         */
-//                        var splitResponse = response.split("\n");
-//                        var oil     = splitResponse[0];
-//                        var gas     = splitResponse[1];
-//                        var water   = splitResponse[2];
-//                        var gor     = splitResponse[3];
-//                        var bsw     = splitResponse[4];
-//                        var bean    = splitResponse[5];
-//                        var thp     = splitResponse[6];
-//                        var bhp     = splitResponse[7];
-//                        var api     = splitResponse[8];
-//
-//
-//                        /**
-//                         * pass the values retrieved dynamically into the corresponding input element by using their id
-//                         */
-//                        document.getElementById("oil_prod").value = oil;
-//                        document.getElementById("gas_prod").value = gas;
-//                        document.getElementById("water_prod").value = water;
-//                        document.getElementById("gas_oil_ratio").value = gor;
-//                        document.getElementById("basic_sed_water").value = bsw;
-//                        document.getElementById("bean").value = bean;
-//                        document.getElementById("tubing_hang_press").value = thp;
-//                        document.getElementById("bottom_hole_pressure").value = bhp;
-//                        document.getElementById("a_p_i").value = api;
-//
-//                    },
-//                    error: function(err){ //error call back
-//                        console.log(err);
-//                    }
-//                });
+                $.ajax({
+                    type: 'post', //uses the post method asynchronously
+                    url:  'p_includes/edit_p.php', //php page that does the actual query
+                    data: {
+                        val: wellSel,
+                        val2: param
+                        //the get value passed to the php page: its the wellid in this case.
+                    },
+                    success:function(response){ //call back
+                        /**
+                         * Get the response call back and split into an array using the next line delimeter
+                         * @type {Array}
+                         */
+                        var splitResponse = response.split("\n");
+                        var oil     = splitResponse[0];
+                        var gas     = splitResponse[1];
+                        var water   = splitResponse[2];
+                        var gor     = splitResponse[3];
+                        var bsw     = splitResponse[4];
+                        var bean    = splitResponse[5];
+                        var thp     = splitResponse[6];
+                        var bhp     = splitResponse[7];
+                        var api     = splitResponse[8];
+
+
+                        /**
+                         * pass the values retrieved dynamically into the corresponding input element by using their id
+                         */
+                        document.getElementById("oil_prod").value = oil;
+                        document.getElementById("gas_prod").value = gas;
+                        document.getElementById("water_prod").value = water;
+                        document.getElementById("gas_oil_ratio").value = gor;
+                        document.getElementById("basic_sed_water").value = bsw;
+                        document.getElementById("bean").value = bean;
+                        document.getElementById("tubing_hang_press").value = thp;
+                        document.getElementById("bottom_hole_pressure").value = bhp;
+                        document.getElementById("a_p_i").value = api;
+
+                    },
+                    error: function(err){ //error call back
+                        console.log(err);
+                    }
+                });
         }
     }
 
