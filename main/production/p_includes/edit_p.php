@@ -30,7 +30,7 @@ $getDValue = $_POST['val2'];
 if(isset($getDValue)) {
 
 //Select all from production well where well is the value passed through ajax
-    $sql = "SELECT * FROM production WHERE well = '$getWValue' AND production_date = $getDValue";
+    $sql = "SELECT * FROM production WHERE well = '$getWValue' AND production_date = '$getDValue'";
 
     $result = $conn->query($sql);
 
