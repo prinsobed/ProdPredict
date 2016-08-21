@@ -190,7 +190,7 @@ if ($conn->connect_error) {
                                                 <option value=" ">Please Select</br></option>;
                                                 <?php
                                                 $dateSelect = "";
-                                                $sel = "SELECT * FROM production WHERE well = $wellSelect";
+                                                $sel = "SELECT * FROM production";
                                                 $result = $conn->query($sel);
 
                                                 if ($result->num_rows > 0) {
