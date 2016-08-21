@@ -12,7 +12,7 @@
 // to help us easily embed the charts.
 /* Include the `fusioncharts.php` file that contains functions  to embed the charts. */
 
-include("../../includes/fusioncharts.php");
+include("../../../includes/fusioncharts.php");
 
 /* The following 4 code lines contain the database connection information. Alternatively, you can move these code lines to a separate file and include the file here. You can also modify this code based on your database connection. */
 
@@ -35,8 +35,8 @@ $h_hydro = $_POST['hydrocarbon'];
 $rep_type = $_POST['report_type'];
 
 // Form the SQL query that returns the top 10 most populous countries
-$strQuery = "SELECT * FROM production";
-//WHERE well = '$h_well' AND production_date BETWEEN '#$h_start#' AND '#$h_end#' ORDER BY production_date ASC";
+$strQuery = "SELECT * FROM production WHERE well = '$h_well'";
+// AND production_date BETWEEN '#$h_start#' AND '#$h_end#' ORDER BY production_date ASC";
 
 $result = mysqli_query($conn, $strQuery);
 while($row = mysqli_fetch_array($result)) {
