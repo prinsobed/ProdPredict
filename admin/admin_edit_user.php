@@ -35,9 +35,12 @@ if ($conn->connect_error) {
     <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/dropzone.css">
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/bootstrap.js"></script>
     <script src="../assets/js/npm.js"></script>
+    <script src="../assets/js/dropzone.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <!-- End of Head -->
 
