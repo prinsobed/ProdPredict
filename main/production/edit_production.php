@@ -156,7 +156,7 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form action="p_includes/edit_p.php" method="POST">
+                                    <form action="p_includes/update_p.php" method="POST">
                                         <ul class="form-style-1">
 
                                             <label for = "prod_well">Well: <span class="required">*</span></label>
@@ -248,7 +248,7 @@ if ($conn->connect_error) {
                                             <br><br>
 
                                             <input type="reset" value="Clear" accesskey="13">
-                                            <input type="submit" value="Save" accesskey="14">
+                                            <input type="submit" value="Update" accesskey="14">
 
                                         </ul>
                                     </form>
@@ -370,9 +370,3 @@ if ($conn->connect_error) {
 
 </script>
 
-<?php
-//UPDATE production
-//                    SET oil=oil, gas=gas, water=water, gor=gor, bsw=bsw, bean=bean, thp=thp, bhp=bhp
-//                    WHERE well = $wellSelect AND production_date = $dateSelect;
-//
-//?>
