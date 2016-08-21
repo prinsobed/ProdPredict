@@ -156,7 +156,8 @@ if(!$_SESSION['username']){
                         </article>
                     </div>
                     <div class="panel-footer">
-                        <a class="btn btn-default" href="" role="button">Export to File</a>
+                        <a class="btn btn-default" href="" role="button"><span <span class="glyphicon glyphicon-print">&nbsp;</span>Print Graph</a>&nbsp;
+                        <a class="btn btn-default" href="" role="button"><span class="glyphicon glyphicon-cloud-download">&nbsp;</span>Save Graph to PDF</a>
                     </div>
                 </div></div>
         </section>

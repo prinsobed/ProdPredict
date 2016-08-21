@@ -163,8 +163,9 @@ if(!$_SESSION['username']){
 
     <!-- Footer starts here -->
     <footer>
-        <div class="row">
-            <div class="col-sm-12">Designed by Obed Kraine Boachie, ©2016.</div>
+        <div class="panel-footer">
+            <a class="btn btn-default" href="" role="button"><span <span class="glyphicon glyphicon-print">&nbsp;</span>Print Data</a>&nbsp;
+            <a class="btn btn-default" href="" role="button"><span class="glyphicon glyphicon-cloud-download">&nbsp;</span>Save Data to PDF</a>
         </div>
     </footer>
     <!-- End of Footer -->
