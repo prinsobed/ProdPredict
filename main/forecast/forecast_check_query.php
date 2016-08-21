@@ -167,19 +167,19 @@ if ($conn->connect_error) {
                                         <ul class="form-style-1">
 
 
-                                            <label for = "well_1">Forecast Well: <span class="required">*</span></label>
-                                            <select name="well_1" required accesskey="1" required>
-                                                <option value="" accesskey="2">Please Select</option>
+                                            <label for = "fore_well">Forecast Well: <span class="required">*</span></label>
+                                            <select name="fore_well" required accesskey="1" required>
+                                                <option value="">Please Select</option>
                                                 <?php
-                                                $sel = "SELECT DISTINCT well FROM production";
-                                                $result = $conn->query($sel);
+                                                $sel_w = "SELECT DISTINCT well FROM production";
+                                                $result = $conn->query($sel_w);
 
                                                 if ($result->num_rows > 0) {
                                                     // output data of each row
                                                     while($row = $result->fetch_assoc()) {
-                                                        $items = $row["well_id"];
                                                         ?>
-                                                        <option value="<?php echo $items; ?>"><?php echo $items; ?> </br></option>;
+
+                                                        <option value="<?php echo $row["well"]; ?>"><?php echo $row["well"]; ?> </option>;
                                                         <?php
                                                     }
                                                 } else {?>
@@ -187,6 +187,7 @@ if ($conn->connect_error) {
                                                     <?php
                                                 }
                                                 ?>
+
                                             </select><br>
                                             <br>
 
