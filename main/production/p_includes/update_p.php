@@ -29,7 +29,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ///**********************************************/
-$oil = $_POST['oil_prod'];
+$oil = $_POST["oil_prod"];
 $gas = $_POST['gas_prod'];
 $water = $_POST['water_prod'];
 $gor = $_POST['gas_oil_ratio'];
@@ -41,12 +41,13 @@ $well = $_POST['prod_well'];
 $production_date = $_POST['prod_date'];
 
 
-$sql = "UPDATE production SET oil= '$oil' , gas='$gas', water='$water', gor='$gor', bsw='$bsw' , bean='$bean', thp ='$thp', bhp='$bhp' WHERE well='$well' AND production_date = '$production_date'";
+$sql = "UPDATE production SET oil= '$oil' , gas='$gas', water='$water', gor='$gor', bsw='$bsw' , bean='$bean', thp ='$thp', bhp='$bhp' WHERE well='$well' AND production_date='$production_date'";
 $result=mysqli_query($conn, $sql) or die ("");
 
 // if successfully updated.
 if($result){
-    header("location: ../view_production.php");
+//    header("location: ../view_production.php");
+    echo $oil." - ".$gas ." - ". $water ." - ". $gor ." - ". $bsw ." - ". $thp ." - ". $bhp ." - ". $well." - ". $production_date;
 }
 else {
     header("location: ../edit_production.php");
