@@ -36,6 +36,7 @@ $rep_type = $_POST['report_type'];
 
 // Form the SQL query that returns data values
 $strQuery = "SELECT * FROM  production WHERE well = '$h_well' AND production_date BETWEEN '$h_start' AND '$h_end' ORDER BY production_date ASC";
+$result = mysqli_query($conn, $strQuery);
 
 //$result = mysqli_query($conn, $strQuery);
 //while ($row = mysqli_fetch_assoc($result)) {
@@ -43,32 +44,41 @@ $strQuery = "SELECT * FROM  production WHERE well = '$h_well' AND production_dat
 //    echo $row['production_date'];
 //    echo " | ";
 
+// Print out rows
+$data = array();
+while ( $row = $result->fetch_assoc() ) {
+    $data[] = $row;
+}
+echo json_encode( $data );
 
 
-// Execute the query, or else return the error message.
-$result = $dbhandle->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}");
 
-// If the query returns a valid response, prepare the JSON string
-if ($result) {
-    // The `$arrData` array holds the chart attributes and data
-    $arrData = array();
-    $arrData["data"] = array();
-
-    // Push the data into the array
-    while($row = mysqli_fetch_array($result)) {
-        array_push($arrData["data"], array(
-                "label" => $row["oil"],
-                "value" => $row["production_date"]
-            )
-        );
-    }
-
-    /*JSON Encode the data to retrieve the string containing the JSON representation of the data in the array. */
-    $jsonData = json_encode($arrData);
-
-    foreach($arrData as $key => $value){
-        print "$key => $value \n";
-    }
+//
+//
+//// Execute the query, or else return the error message.
+//$result = $dbhandle->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}");
+//
+//// If the query returns a valid response, prepare the JSON string
+//if ($result) {
+//    // The `$arrData` array holds the chart attributes and data
+//    $arrData = array();
+//    $arrData["data"] = array();
+//
+//    // Push the data into the array
+//    while($row = mysqli_fetch_array($result)) {
+//        array_push($arrData["data"], array(
+//                "label" => $row["oil"],
+//                "value" => $row["production_date"]
+//            )
+//        );
+//    }
+//
+//    /*JSON Encode the data to retrieve the string containing the JSON representation of the data in the array. */
+//    $jsonData = json_encode($arrData);
+//
+//    foreach($arrData as $key => $value){
+//        print "$key => $value \n";
+//    }
 
 
 
@@ -91,6 +101,6 @@ if ($result) {
 //    $string = file_get_contents($jsonData);
 //    echo $string;
 
-}
+//}
 
 ?>
