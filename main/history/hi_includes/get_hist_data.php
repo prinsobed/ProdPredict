@@ -37,48 +37,36 @@ $rep_type = $_POST['report_type'];
 // Form the SQL query that returns data values
 $strQuery = "SELECT * FROM  production WHERE well = '$h_well' AND production_date BETWEEN '$h_start' AND '$h_end' ORDER BY production_date ASC";
 
+//$result = mysqli_query($conn, $strQuery);
+//while ($row = mysqli_fetch_assoc($result)) {
+//    echo $row['well'];
+//    echo $row['production_date'];
+//    echo " | ";
+
+
+
 // Execute the query, or else return the error message.
 $result = $dbhandle->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}");
 
 // If the query returns a valid response, prepare the JSON string
 if ($result) {
     // The `$arrData` array holds the chart attributes and data
-    $arrData = array(
-        "chart" => array(
-            "caption" => "Well History",
-            "paletteColors" => "#0075c2",
-            "bgColor" => "#ffffff",
-            "borderAlpha"=> "20",
-            "canvasBorderAlpha"=> "0",
-            "usePlotGradientColor"=> "0",
-            "plotBorderAlpha"=> "10",
-            "showXAxisLine"=> "1",
-            "xAxisLineColor" => "#999999",
-            "showValues" => "0",
-            "divlineColor" => "#999999",
-            "divLineIsDashed" => "1",
-            "showAlternateHGridColor" => "0"
-
-
-        )
-    );
-
+    $arrData = array();
     $arrData["data"] = array();
 
     // Push the data into the array
     while($row = mysqli_fetch_array($result)) {
         array_push($arrData["data"], array(
-                "label" => $row["Date"],
-                "value" => $row["Production"]
+                "label" => $row["oil"],
+                "value" => $row["production_date"]
             )
         );
     }
 
     /*JSON Encode the data to retrieve the string containing the JSON representation of the data in the array. */
-
     $jsonData = json_encode($arrData);
 
-    foreach($jsonData as $key => $value){
+    foreach($arrData as $key => $value){
         print "$key => $value \n";
     }
 
