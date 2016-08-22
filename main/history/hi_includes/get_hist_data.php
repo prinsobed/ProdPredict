@@ -35,7 +35,7 @@ $h_hydro = $_POST['hydrocarbon'];
 $rep_type = $_POST['report_type'];
 
 // Form the SQL query that returns data values
-$strQuery = "SELECT * FROM  production WHERE well = '$h_well' AND production_date >= '#$h_start#'";
+$strQuery = "SELECT * FROM  production WHERE well = '$h_well' AND production_date IS >= '#$h_start#'";
 //  BETWEEN '#$h_start#' AND '#$h_end#' ORDER BY production_date ASC";
 
 $result = mysqli_query($conn, $strQuery);
