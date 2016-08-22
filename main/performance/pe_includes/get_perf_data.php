@@ -8,7 +8,7 @@
 
 include("../../../includes/fusioncharts.php");
 
-//Database connection information.
+/* The following 4 code lines contain the database connection information. Alternatively, you can move these code lines to a separate file and include the file here. You can also modify this code based on your database connection. */
 
 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
 $username="bed8c15b456030"; // Mysql username
@@ -22,15 +22,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$h_well = $_POST['hist_well'];
-$h_start = $_POST['start_date'];
-$h_end = $_POST['end_date'];
-$h_hydro = $_POST['hydrocarbon'];
+$f_well_1 = $_POST['well_1'];
+$f_well_2 = $_POST['well_2'];
+$f_start = $_POST['start_date'];
+$f_end = $_POST['end_date'];
+$f_hydro = $_POST['hydrocarbon'];
 $rep_type = $_POST['report_type'];
 
 // Form the SQL query that returns data values
-$strQuery = "SELECT production_date,oil FROM  production WHERE well = '$h_well' AND production_date BETWEEN '$h_start' AND '$h_end' ORDER BY production_date ASC";
+$strQuery = "SELECT production_date,oil FROM  production WHERE well = '$f_well_1' AND production_date BETWEEN '$f_start' AND '$f_end' ORDER BY production_date ASC";
 $result = mysqli_query($conn, $strQuery);
+
+$strQuery_2 = "SELECT production_date,oil FROM  production WHERE well = '$f_well_2' AND production_date BETWEEN '$f_start' AND '$f_end' ORDER BY production_date ASC";
+$result_2 = mysqli_query($conn, $strQuery_2);
 
 //$result = mysqli_query($conn, $strQuery);
 //while ($row = mysqli_fetch_assoc($result)) {
@@ -45,7 +49,41 @@ while ( $row = $result->fetch_assoc() ) {
 }
 echo json_encode( $data );
 
+//foreach($data as $key => $value){
+//        print "$key => $value \n";
+//    }
+
+
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 d3.json($data, function(data) {

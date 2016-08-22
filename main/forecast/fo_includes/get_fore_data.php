@@ -6,9 +6,15 @@
  * Time: 8:26 AM
  */
 
+
+// This is a simple example on how to draw a chart using FusionCharts and PHP.
+// We have included includes/fusioncharts.php, which contains functions
+// to help us easily embed the charts.
+/* Include the `fusioncharts.php` file that contains functions  to embed the charts. */
+
 include("../../../includes/fusioncharts.php");
 
-//Database connection information.
+/* The following 4 code lines contain the database connection information. Alternatively, you can move these code lines to a separate file and include the file here. You can also modify this code based on your database connection. */
 
 $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
 $username="bed8c15b456030"; // Mysql username
@@ -45,7 +51,29 @@ while ( $row = $result->fetch_assoc() ) {
 }
 echo json_encode( $data );
 
+//foreach($data as $key => $value){
+//        print "$key => $value \n";
+//    }
+
+
 ?>
+<script>
+    var chart = c3.generate({
+        data: {
+            json: $data,
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: function (x) {
+                        return x.getFullYear();
+                    }
+                }
+            }
+        }
+    });
+</script>
+
 
 <script>
 d3.json($data, function(data) {
