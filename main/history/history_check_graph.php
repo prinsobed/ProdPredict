@@ -174,28 +174,7 @@ if(!$_SESSION['username']){
                     <div class="panel-body">
                         <div id="chart">
 
-                            <script>
-                                var xAxisArr = <?php echo json_encode($datesArray); ?>;
-                                var dataArr = <?php echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>;
-                                var chart = c3.generate({
-                                    bindto: '#chart',
-                                    data: {
-                                        x: 'x',
-                                        columns: [
-                                            xAxisArr,
-                                            dataArr
-                                        ]
-                                    },
-                                    axis: {
-                                        x: {
-                                            type: 'timeseries',
-                                            tick: {
-                                                format: '%Y-%m-%d'
-                                            }
-                                        }
-                                    }
-                                });
-                            </script>
+
 
                         </div>
                         <!-- History -->
@@ -228,7 +207,28 @@ if(!$_SESSION['username']){
 </body>
 <!-- End of Page Body -->
 </html>
-
+<script>
+    var xAxisArr = <?php echo json_encode($datesArray); ?>;
+    var dataArr = <?php echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>;
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            x: 'x',
+            columns: [
+                xAxisArr,
+                dataArr
+            ]
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: '%Y-%m-%d'
+                }
+            }
+        }
+    });
+</script>
 <!---->
 <!--<script>-->
 <!--    var chart = c3.generate({-->
