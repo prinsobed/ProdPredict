@@ -128,8 +128,12 @@ if(!$_SESSION['username']){
                         </div>
                     </div>
 
+                    <?php
+                    $result = mysqli_query("SELECT count(*) from users;");
+                    mysqli_result($result, 0);
+                    ?>
                     <div class="panel panel-default">
-                        <div class="panel-heading">Users</div>
+                        <div class="panel-heading">Users<span class="badge">&nbsp;<?php echo $result?></span></div>
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
@@ -173,6 +177,7 @@ if(!$_SESSION['username']){
                                             <th>Email</th>
                                             <th>Password</th>
                                             <th>Type</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php
@@ -209,6 +214,10 @@ if(!$_SESSION['username']){
                     <td id="email" contenteditable="true">' .$row["email"].'</td>
                     <td id="password" contenteditable="true">' .$row["password"].'</td>
                     <td id="u_type" contenteditable="true">' .$row["user_type"].'</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-warning">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
 
                 </tbody>
