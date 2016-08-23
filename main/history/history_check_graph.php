@@ -172,7 +172,7 @@ if(!$_SESSION['username']){
                 <div class="panel panel-default">
                     <div class="panel-heading">Well Production History Graph</div>
                     <div class="panel-body">
-                        <div id="chart">
+                        <div id="chart" onclick="printDiv('chart')" value="print a div!">
 
 
 
@@ -207,6 +207,8 @@ if(!$_SESSION['username']){
 </body>
 <!-- End of Page Body -->
 </html>
+
+Chart Plotting Javascript
 <script>
     var xAxisArr = <?php echo json_encode($datesArray); ?>;
     var dataArr = <?php echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>;
@@ -225,15 +227,24 @@ if(!$_SESSION['username']){
                 tick: {
                     format: '%Y-%m-%d'
                 }
-                y: {
-                    max: 10000,
-                    min: 1000
-                    // Range includes padding, set 0 if no padding needed
-                    // padding: {top:0, bottom:0}
-                }
             }
         }
     });
+</script>
+
+<!--Script for printing-->
+<script>
+
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
 </script>
 <!---->
 <!--<script>-->
