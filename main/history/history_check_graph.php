@@ -138,18 +138,70 @@ if(!$_SESSION['username']){
 
         <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
 
+        <?php
+
+        $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+        $username="bed8c15b456030"; // Mysql username
+        $password="58380471"; // Mysql password
+        $dbname="db_prodpredict"; // Database name
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        $strQuery = "SELECT production_date,oil FROM  production WHERE well = '$h_well' AND production_date BETWEEN '$h_start' AND '$h_end' ORDER BY production_date ASC";
+        $result = mysqli_query($conn, $strQuery);
+
+        // Print out rows
+        $valuesArray = array();
+        $datesArray = array();
+
+        $valuesArray[] = 'Oil';
+        $datesArray[] = 'x';
+        while ($row = $result->fetch_assoc()) {
+            $datesArray[] = $row['production_date'];
+            $valuesArray[] = $row['oil'];
+        }
+        ?>
+
         <section>
             <div class="col-sm-9">
 
                 <div class="panel panel-default">
                     <div class="panel-heading">Well Production History Graph</div>
                     <div class="panel-body">
-                        <div id="chart"></div>
+                        <div id="chart">
+
+                            <script>
+                                var xAxisArr = <?php echo json_encode($datesArray); ?>;
+                                var dataArr = <?php echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>;
+                                var chart = c3.generate({
+                                    bindto: '#chart',
+                                    data: {
+                                        x: 'x',
+                                        columns: [
+                                            xAxisArr,
+                                            dataArr
+                                        ]
+                                    },
+                                    axis: {
+                                        x: {
+                                            type: 'timeseries',
+                                            tick: {
+                                                format: '%Y-%m-%d'
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+
+                        </div>
                         <!-- History -->
                         <article>
 
 
-                            <!-- Code Here -->
 
 
 
@@ -177,15 +229,15 @@ if(!$_SESSION['username']){
 <!-- End of Page Body -->
 </html>
 
-
-<script>
-    var chart = c3.generate({
-        bindto: '#chart',
-        data: {
-            columns: [
-                ['data1', 30, 200, 100, 400, 150, 250],
-                ['data2', 50, 20, 10, 40, 15, 25]
-            ]
-        }
-    });
-</script>
+<!---->
+<!--<script>-->
+<!--    var chart = c3.generate({-->
+<!--        bindto: '#chart',-->
+<!--        data: {-->
+<!--            columns: [-->
+<!--                ['data1', 30, 200, 100, 400, 150, 250],-->
+<!--                ['data2', 50, 20, 10, 40, 15, 25]-->
+<!--            ]-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
