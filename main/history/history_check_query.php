@@ -164,7 +164,7 @@ if ($conn->connect_error) {
                                 <!-- History -->
                                 <article>
                                     <div id="main_feature">
-                                        <form action="hi_includes/get_hist_data.php" method="POST">
+                                        <form action="history_check_graph.php" method="POST">
                                             <ul class="form-style-1">
 
                                                 <label for = "hist_well">History Well:<span class="required">*</span></label>
