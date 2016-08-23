@@ -225,6 +225,12 @@ if(!$_SESSION['username']){
                 tick: {
                     format: '%Y-%m-%d'
                 }
+                y: {
+                    max: 10000,
+                    min: 1000
+                    // Range includes padding, set 0 if no padding needed
+                    // padding: {top:0, bottom:0}
+                }
             }
         }
     });
