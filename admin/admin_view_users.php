@@ -141,11 +141,12 @@ if(!$_SESSION['username']){
                     </div>
 
                     <?php
-                    $theCount = mysqli_query("SELECT count(*) from users;");
-                    mysqli_result($theCount, 0);
+//                    $theCount = mysqli_query("SELECT count(*) from users;");
+//                    mysqli_result($theCount, 0);
+                    $cnt = mysql_num_rows(mysqli_query('select * from users'));
                     ?>
                     <div class="panel panel-default">
-                        <div class="panel-heading">Users<span class="badge">&nbsp;<?php echo $theCount?></span></div>
+                        <div class="panel-heading">Users<span class="badge">&nbsp;<?php echo $cnt?></span></div>
                         <div class="panel-body">
                             <div class="row2">
                                 <ul>
