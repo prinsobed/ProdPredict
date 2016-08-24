@@ -159,8 +159,10 @@ if ($conn->connect_error) {
                                     <?
 
                                     //empty the table of its current records
-//                                    $deleterecords = "TRUNCATE TABLE tablename";
-//                                    mysqli_query($conn, $deleterecords);
+                                    $deleterecords = "TRUNCATE TABLE tablename";
+                                    mysqli_query($conn, $deleterecords);
+
+
                                     //Get ID of this User
                                     $ent_user = test_input($_SESSION['id']);
 
