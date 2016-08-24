@@ -187,7 +187,7 @@ if(!$_SESSION['username']){
                         </article>
                     </div>
                     <div class="panel-footer">
-                        <a class="btn btn-default" href="" role="button"><span <span class="glyphicon glyphicon-print">&nbsp;</span>Print Graph</a>&nbsp;
+                        <a class="btn btn-default" href="" role="button" onclick="printDiv('chart')" ><span class="glyphicon glyphicon-print">&nbsp;</span>Print Graph</a>&nbsp;
                         <a class="btn btn-default" href="" role="button"><span class="glyphicon glyphicon-cloud-download">&nbsp;</span>Save Graph to PDF</a>
                     </div>
                 </div></div>
@@ -235,7 +235,7 @@ Chart Plotting Javascript
 <!--Script for printing-->
 <script>
 
-    function printDiv(divName) {
+    function printDiv(chart) {
         var printContents = document.getElementById(divName).innerHTML;
         var originalContents = document.body.innerHTML;
 
