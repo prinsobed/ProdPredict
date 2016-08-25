@@ -218,7 +218,6 @@ if(!$_SESSION['username']){
                     <td id="password" contenteditable="true">' .$row["password"].'</td>
                     <td id="u_type" contenteditable="true">' .$row["user_type"].'</td>
                     <td id="action">
-                        <button type="button" class="btn btn-warning btn-sm">Edit</button>&nbsp;
                         <button type="button" class="btn btn-danger btn-sm" >Delete</button>
                     </td>
                 </tr>
