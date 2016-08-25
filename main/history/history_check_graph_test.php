@@ -18,7 +18,7 @@ if(!$_SESSION['username']){
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Well Production History</title>
+    <title>ProdPredict | Well Production Forecast</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
@@ -69,7 +69,7 @@ if(!$_SESSION['username']){
 
     <!-- Start of Breadcrumb or Address Bar -->
     <ol class="breadcrumb">
-        <li><a href="../home.php">Home</a> / Well Production History / Check History / Graph</li>
+        <li><a href="../home.php">Home</a> / Well Production Forecast / Check Forecast / Graph</li>
     </ol>
     <!-- End of Breadcrumb or Address Bar -->
 
@@ -170,7 +170,7 @@ if(!$_SESSION['username']){
             <div class="col-sm-9">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Well Production History Graph</div>
+                    <div class="panel-heading">Well Production Forecast Graph</div>
                     <div class="panel-body">
                         <div id="chart" onclick="printDiv('chart')" value="print a div!">
 
@@ -252,8 +252,8 @@ Chart Plotting Javascript
         bindto: '#chart',
         data: {
             columns: [
-                ['Alpha1', 30, 200, 100, 400, 150, 250],
-                ['Alpha4', 50, 20, 10, 40, 15, 25]
+                ['Alpha1', 234, 200, 240, 280, 289, 276, 256, 233, 221]
+//                ['Alpha4', 50, 20, 10, 40, 15, 25]
             ]
         }
     });
