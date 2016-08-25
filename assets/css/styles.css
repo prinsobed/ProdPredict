@@ -106,11 +106,17 @@ textarea, select{
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
 }
+.form-style-1 input[type=delete]:hover, .form-style-1 input[type=button]:hover{
+    background: red;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
 .form-style-1 .required{
     color:red;
 }
 
-.link{
+#link{
     background: white;
     box-shadow:none;
     -moz-box-shadow:none;

@@ -217,7 +217,9 @@ if(!$_SESSION['username']){
                     <td id="password" contenteditable="true">' .$row["password"].'</td>
                     <td id="u_type" contenteditable="true">' .$row["user_type"].'</td>
                     <td id="action">
-                        <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+                        <form action="" method="get">
+                        <input type="submit" name="delete" value="Delete" >
+                        </form>
                     </td>
                 </tr>
 
