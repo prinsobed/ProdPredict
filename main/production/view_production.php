@@ -161,6 +161,7 @@ if(!$_SESSION['username']){
                                             <th>THP(PSI)</th>
                                             <th>BHP(PSGI)</th>
                                             <th>API</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php
@@ -200,6 +201,9 @@ if(!$_SESSION['username']){
                     <td id="thp" contenteditable="true">' .$row["thp"].'</td>
                     <td id="bhp" contenteditable="true">' .$row["bhp"].'</td>
                     <td id="api" contenteditable="true">' .$row["api"].'</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+                    </td>
                 </tr>
 
                 </tbody>

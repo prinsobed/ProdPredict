@@ -141,9 +141,8 @@ if(!$_SESSION['username']){
                     </div>
 
                     <?php
-//                    $theCount = mysqli_query("SELECT count(*) from users;");
-//                    mysqli_result($theCount, 0);
-                    $cnt = mysqli_num_rows(mysqli_query("select * from users"));
+
+
                     ?>
                     <div class="panel panel-default">
                         <div class="panel-heading">Users</div>
@@ -173,7 +172,7 @@ if(!$_SESSION['username']){
             <div class="col-sm-9">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">User Data &nbsp;<span class="badge">&nbsp;<?php echo " ".$cnt?></span></div>
+                    <div class="panel-heading">User Data</div>
                     <div class="panel-body">
                         <div class="row2">
                             <!-- History -->

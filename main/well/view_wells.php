@@ -150,6 +150,7 @@ if(!$_SESSION['username']){
                                             <th>Field</th>
                                             <th>Production Start</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php
@@ -183,6 +184,9 @@ if(!$_SESSION['username']){
                     <td id="l_name" contenteditable="true">' .$row["field_id"].'</td>
                     <td id="company" contenteditable="true">' .$row["production_start"].'</td>
                     <td id="email" contenteditable="true">' .$row["status"].'</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+                    </td>
                 </tr>
 
                 </tbody>

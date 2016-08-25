@@ -76,6 +76,10 @@
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
                                         <input type="submit" name="Submit" value="Login" accesskey="3">
                                     </li>
+                                    <li>
+                                        <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
+                                        <a href="url" id="">Request for Access</a>&nbsp;&nbsp;<a href="url">Change Password</a>
+                                    </li>
                                 </ul>
                             </form>
 

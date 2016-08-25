@@ -152,6 +152,7 @@ if(!$_SESSION['username']){
                                             <th>Type</th>
                                             <th>Water Depth(m)</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <?php
@@ -187,6 +188,9 @@ if(!$_SESSION['username']){
                     <td id="field_type" contenteditable="true">' .$row["field_type"].'</td>
                     <td id="water_depth" contenteditable="true">' .$row["water_depth"].'</td>
                     <td id="status" contenteditable="true">' .$row["status"].'</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+                    </td>
                 </tr>
 
                 </tbody>

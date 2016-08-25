@@ -110,6 +110,15 @@ textarea, select{
     color:red;
 }
 
+.link{
+    background: white;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    color: #0f0f0f;
+    font-size: xx-small;
+}
+
 
 /*!*Editable Table*!*/
  /*table.zebra-style {*/
