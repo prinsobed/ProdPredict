@@ -117,6 +117,8 @@ textarea, select{
     -webkit-box-shadow:none;
     color: #0f0f0f;
     font-size: xx-small;
+    text-decoration: none;
+    text-decoration-color: #0f0f0f;
 }
 
 
