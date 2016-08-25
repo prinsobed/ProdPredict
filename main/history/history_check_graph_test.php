@@ -252,7 +252,7 @@ Chart Plotting Javascript
         bindto: '#chart',
         data: {
             columns: [
-                ['Alpha1', 234, 200, 240, 280, 289, 276, 256, 233, 221]
+                ['Alpha1', 234, 240, 280, 289, 256, 221]
 //                ['Alpha4', 50, 20, 10, 40, 15, 25]
             ]
         }
