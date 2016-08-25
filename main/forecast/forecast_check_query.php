@@ -192,12 +192,20 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <label for = "period">Forecast Period </label>
-                                            <label for = "start_date">From (Forecast Start): <span class="required">*</span></label>
-                                            <input type="date" name="start_date" accesskey="3"/><br>
+                                            <select name="period" required>
+                                                <option value="" accesskey="4">Please Select</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
                                             <br>
-
-                                            <label for = "end_date">To (Forecast End): <span class="required">*</span></label>
-                                            <input type="date" name="end_date" accesskey="4"/><br>
                                             <br>
 
                                             <li>
