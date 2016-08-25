@@ -78,7 +78,7 @@
                                     </li>
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
-                                        <a href="#" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Change Password</a>
+                                        <a href="#" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
                                     </li>
                                 </ul>
                             </form>
