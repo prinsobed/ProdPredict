@@ -7,7 +7,7 @@
  * Time: 8:02 AM
  */
 
-
+//Closes User Session and returns user to Login Page
 session_start();
 session_destroy();
 

@@ -29,7 +29,7 @@ $mypassword=$_POST['password'];
 //$mypassword = mysqli_real_escape_string($mypassword, $conn);
 //$enc_mypassword=md5($mypassword);
 
-
+//Checking the database for the username and password
 $sql="SELECT * FROM $tbl_name WHERE email='$myusername' and password='$mypassword'";
 $result=mysqli_query($conn, $sql);
 
@@ -45,6 +45,7 @@ if(mysqli_num_rows($result) == 1){
         $_SESSION['id'] = $returnedResult["id"];
 
     }
+    //Redirection
     header("location:login_success.php");
 }
 else{
