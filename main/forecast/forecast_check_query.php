@@ -193,7 +193,7 @@ if ($conn->connect_error) {
 
                                             <label for = "period">Forecast Period </label>
                                             <select name="period" required>
-                                                <option value="" accesskey="4">Please Select</option>
+                                                <option value="" accesskey="4">Please Select</option>&nbsp;Years
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
