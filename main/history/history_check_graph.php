@@ -140,6 +140,7 @@ if(!$_SESSION['username']){
 
         <?php
 
+        echo 'hey';
         $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
         $username="bed8c15b456030"; // Mysql username
         $password="58380471"; // Mysql password
@@ -160,7 +161,6 @@ if(!$_SESSION['username']){
 
         //$valuesArray[] = 'Oil';
         //$datesArray[] = 'x';
-        echo 'hey';
         while ($row = $result->fetch_array()) {
 //           echo $row['production_date'];
 //           echo $row['oil'];
