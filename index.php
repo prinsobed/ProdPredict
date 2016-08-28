@@ -59,6 +59,17 @@
                     <div class="panel-body">
                         <div class="row2">
 
+
+                            <div class="modal fade" id="register-modal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2>Register</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <form action="includes/checklogin.php" method="POST" class="form-style-1">
 
                                 <ul>
@@ -84,15 +95,7 @@
 
                                    //
                                     <!-- Register Modal -->
-                                    <div class="modal fade" id="register-modal" role="dialog">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h2>Register</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                     //
 
                                 </ul>
