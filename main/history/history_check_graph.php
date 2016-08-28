@@ -160,9 +160,9 @@ if(!$_SESSION['username']){
 
         $valuesArray[] = 'Oil';
         $datesArray[] = 'x';
-        while ($row = $result->fetch_assoc()) {
-           echo $datesArray[] = $row['production_date'];
-           echo $valuesArray[] = $row['oil'];
+        while ($row = $result->fetch_array()) {
+            $datesArray[] = $row['production_date'];
+            $valuesArray[] = $row['oil'];
         }
         ?>
 
