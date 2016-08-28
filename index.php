@@ -78,7 +78,28 @@
                                     </li>
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
-                                        <a href="#" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
+                                        <a href="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
+                                        <!-- Modal -->
+                                        <div id="myModal" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Modal Header</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Some text in the modal.</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
                                     </li>
                                 </ul>
                             </form>
