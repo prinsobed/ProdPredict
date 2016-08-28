@@ -158,11 +158,11 @@ if(!$_SESSION['username']){
         $valuesArray = array();
         $datesArray = array();
 
-        $valuesArray[] = 'Oil';
-        $datesArray[] = 'x';
+        //$valuesArray[] = 'Oil';
+        //$datesArray[] = 'x';
         while ($row = $result->fetch_array()) {
-            $datesArray[] = $row['production_date'];
-            $valuesArray[] = $row['oil'];
+           echo $datesArray[] = $row['production_date'];
+           echo $valuesArray[] = $row['oil'];
         }
         ?>
 
