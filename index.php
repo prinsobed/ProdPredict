@@ -79,6 +79,9 @@
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
                                         <a href="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
+
+                                        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
                                         <!-- Modal -->
                                         <div id="myModal" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
