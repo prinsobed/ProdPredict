@@ -177,7 +177,7 @@ if(!$_SESSION['username']){
                         <div class="row2">
                             <!-- History -->
                             <article>
-                                <div id="add_user">
+                                <div id="main_feature">
 
                                     <table class="table">
                                         <thead>
@@ -195,7 +195,7 @@ if(!$_SESSION['username']){
                                         <?php
                                         include "../includes/ajax.php";
 
-
+                                        $per_page = 3;
 
 
                                         $sql = "SELECT id, firstname, lastname, company, email, password, user_type FROM users";
@@ -257,4 +257,42 @@ if(!$_SESSION['username']){
 <!-- End of Page Body -->
 </html>
 
+<?php
+// check if the 'id' variable is set in URL, and check that it is valid
 
+if (isset($_GET['id']) && is_numeric($_GET['id']))
+
+{
+
+// get id value
+
+    $id = $_GET['id'];
+
+
+
+// delete the entry
+
+    $result = mysqli_query("DELETE FROM users WHERE id=$id")
+
+    or die(mysqli_error());
+
+
+
+// redirect back to the view page
+
+    header("Location: admin_view_users.php");
+
+}
+
+else
+
+// if id isn't set, or isn't valid, redirect back to view page
+
+{
+
+    header("Location: admin_edit_user.php");
+
+}
+
+
+?>
