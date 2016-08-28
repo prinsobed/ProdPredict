@@ -79,25 +79,16 @@
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
                                         <a href="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
-
+                                    <li><a href="#register-modal" data-toggle="modal" data-target="#register-modal">Register</a></li>
                                     </li>
 
                                    //
-                                    <a href="#" data-toggle="modal" data-target="#modalRegister"> Register</a></li>
-
-                                    <div id="modalRegister" class="modal fade" role="dialog">
+                                    <!-- Register Modal -->
+                                    <div class="modal fade" id="register-modal" role="dialog">
                                         <div class="modal-dialog">
-                                            <!-- Modal content-->
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title" style="text-align-last: center">Register</h4>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <h2>Register</h2>
                                                 </div>
                                             </div>
                                         </div>
