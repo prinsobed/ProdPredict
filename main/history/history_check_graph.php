@@ -165,9 +165,9 @@ if(!$_SESSION['username']){
                 array_push($yArray, $row['oil']);
             }
         }
-
-        print_r($xArray);
-        print_r($yArray);
+//
+//        print_r($xArray);
+//        print_r($yArray);
 
         ?>
 
@@ -220,9 +220,6 @@ if(!$_SESSION['username']){
     //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
     //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
 
-
-    console.log('xAxisArr: ' + xAxisArr);
-    console.log('dataArr: ' + dataArr);
 
     var chart = c3.generate({
         bindto: '#chart',
