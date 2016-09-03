@@ -209,6 +209,12 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <li>
+                                                <label for = "name">B: </label>
+                                                <input type="text" name="bvalue" class="field-text" value=""  accesskey="2" placeholder="B Value="/><br>
+                                            </li>
+
+
+                                            <li>
                                                 <label for = "hydrocarbon">Hydrocarbon: <span class="required">*</span></label>
                                                 <input type="radio" name="hydrocarbon" value="All" checked accesskey="5"> All<br>
                                                 <input type="radio" name="hydrocarbon" value="Oil"> Oil
