@@ -12,10 +12,6 @@ if(!$_SESSION['username']){
 }
 ?>
 
-<script>
-    var xAxisArr;
-    var dataArr
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Start of Head -->
@@ -240,11 +236,12 @@ Chart Plotting Javascript
 //    var dataArr = ["Oil",10000,2000,20000,15000,1];
     //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
     //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
+
+    var xAxisArr = <?php json_encode($xArray); ?>
+    var dataArr = <?php json_encode($yArray); ?>
+
     console.log('xAxisArr: ' + xAxisArr);
     console.log('dataArr: ' + dataArr);
-
-    xAxisArr = <?php json_encode($xArray); ?>
-    dataArr = <?php json_encode($yArray); ?>
 
     var chart = c3.generate({
         bindto: '#chart',
