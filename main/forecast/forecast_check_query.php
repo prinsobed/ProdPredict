@@ -210,7 +210,7 @@ if ($conn->connect_error) {
 
                                             <li>
                                                 <label for = "name">B: </label>
-                                                <input type="text" name="bvalue" class="field-text" value=""  accesskey="2" placeholder="B Value="/><br>
+                                                <input type="text" name="bvalue" class="field-text" value=""  accesskey="2" placeholder="B Value"/><br>
                                             </li>
 
 
