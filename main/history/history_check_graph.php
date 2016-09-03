@@ -169,34 +169,6 @@ if(!$_SESSION['username']){
         print_r($xArray);
         print_r($yArray);
 
-        echo "
-           <script>
-           var xAxisArr = ['x','2016-08-23', '2016-08-24', '2016-08-25', '2016-08-26', '2016-08-31'];
-           var dataArr = ['Oil',10000,2000,20000,15000,1];
-            
-                var chart = c3.generate({
-                    bindto: '#chart',
-                    data: {
-                        x: 'x',
-                        columns: [
-                            xAxisArr,
-                            dataArr,
-                        ]
-                    },
-                    axis: {
-                        x: {
-                            type: 'timeseries',
-                            tick: {
-                                format: '%Y-%m-%d'
-                            }
-                        }
-                    }
-                });
-            </script>
-        ";
-
-
-
         ?>
 
         <section>
@@ -240,6 +212,40 @@ if(!$_SESSION['username']){
 </body>
 <!-- End of Page Body -->
 </html>
+
+<script>
+
+    var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
+    var dataArr = ["Oil",10000,2000,20000,15000,1];
+    //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
+    //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
+
+    var xAxisArr = <?php json_encode($xArray); ?>
+    var dataArr = <?php json_encode($yArray); ?>
+
+    console.log('xAxisArr: ' + xAxisArr);
+    console.log('dataArr: ' + dataArr);
+
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            x: 'x',
+            columns: [
+                xAxisArr,
+                dataArr,
+            ]
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: '%Y-%m-%d'
+                }
+            }
+        }
+    });
+</script>
+
 <!--Script for printing-->
 <script>
     function printDiv(chart) {
