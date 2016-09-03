@@ -10,6 +10,14 @@ session_start();
 if(!$_SESSION['username']){
     header("Location: ../../index.php");
 }
+
+if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
+    $_SESSION['hist_well'] = $_POST['hist_well'];
+    $_SESSION['start_date'] = $_POST['start_date'];
+    $_SESSION['end_date'] = $_POST['end_date'];
+    $_SESSION['hydrocarbon'] = $_POST['hydrocarbon'];
+    header("Location: history_check_report.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -157,12 +165,31 @@ if(!$_SESSION['username']){
         }
         $strQuery = "SELECT * FROM production WHERE production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result = mysqli_query($conn, $strQuery);
-        array_push($xArray, 'x');
-        array_push($yArray, 'Oil');
+        if($hydrocarbon == 'Oil'){
+            array_push($xArray, 'x');
+            array_push($yArray, 'Oil');
+
+        }else if($hydrocarbon == 'Gas'){
+            array_push($xArray, 'x');
+            array_push($yArray, 'Gas');
+
+        }else if($hydrocarbon == 'Water'){
+            array_push($xArray, 'x');
+            array_push($yArray, 'Water');
+        }
+
         while ($row = $result->fetch_array()) {
             if($hydrocarbon == 'Oil') {
                 array_push($xArray, $row['production_date']);
                 array_push($yArray, $row['oil']);
+
+            }else if ($hydrocarbon == 'Gas'){
+                array_push($xArray, $row['production_date']);
+                array_push($yArray, $row['gas']);
+
+            }else if($hydrocarbon == 'Water'){
+                array_push($xArray, $row['production_date']);
+                array_push($yArray, $row['water']);
             }
         }
         ?>
