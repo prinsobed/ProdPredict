@@ -215,10 +215,10 @@ if(!$_SESSION['username']){
 
 <script>
 
-    var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
-    var dataArr = ["Oil",10000,2000,20000,15000,1];
-    //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
-    //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
+    //var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
+    //var dataArr = ["Oil",10000,2000,20000,15000,1];
+    var xAxisArr = <?php echo json_encode($xArray); ?>//;
+    var dataArr = <?php echo json_encode($yArray, JSON_NUMERIC_CHECK); ?>//;
 
 
     var chart = c3.generate({
