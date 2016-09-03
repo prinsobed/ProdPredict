@@ -220,8 +220,6 @@ if(!$_SESSION['username']){
     //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
     //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
 
-    var xAxisArr = <?php json_encode($xArray); ?>
-    var dataArr = <?php json_encode($yArray); ?>
 
     console.log('xAxisArr: ' + xAxisArr);
     console.log('dataArr: ' + dataArr);
