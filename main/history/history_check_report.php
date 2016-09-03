@@ -141,202 +141,30 @@ if(!$_SESSION['username']){
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <?php
-                                    // This is a simple example on how to draw a chart using FusionCharts and PHP.
-                                    // We have included includes/fusioncharts.php, which contains functions
-                                    // to help us easily embed the charts.
-                                    include("../../includes/fusioncharts.php");
-                                    // Create the chart - Pie 3D Chart with data given in constructor parameter
-                                    // Syntax for the constructor - new FusionCharts("type of chart", "unique chart id", "width of chart", "height of chart", "div id to render the chart", "type of data", "actual data")
 
-                                    $mscombi2dChart = new FusionCharts("mscombi2d", "ex3", "100%", 400, "chart-1", "json", '{
-    "chart": {
-        "caption": "Actual Revenues, Targeted Revenues & Profits",
-        "subcaption": "Last year",
-        "xaxisname": "Month",
-        "yaxisname": "Amount (In USD)",
-        "numberprefix": "$",
-        "theme": "ocean"
-    },
-    "categories": [
-        {
-            "category": [
-                {
-                    "label": "Jan"
-                },
-                {
-                    "label": "Feb"
-                },
-                {
-                    "label": "Mar"
-                },
-                {
-                    "label": "Apr"
-                },
-                {
-                    "label": "May"
-                },
-                {
-                    "label": "Jun"
-                },
-                {
-                    "label": "Jul"
-                },
-                {
-                    "label": "Aug"
-                },
-                {
-                    "label": "Sep"
-                },
-                {
-                    "label": "Oct"
-                },
-                {
-                    "label": "Nov"
-                },
-                {
-                    "label": "Dec"
-                }
-            ]
-        }
-    ],
-    "dataset": [
-        {
-            "seriesname": "Actual Revenue",
-            "data": [
-                {
-                    "value": "16000"
-                },
-                {
-                    "value": "20000"
-                },
-                {
-                    "value": "18000"
-                },
-                {
-                    "value": "19000"
-                },
-                {
-                    "value": "15000"
-                },
-                {
-                    "value": "21000"
-                },
-                {
-                    "value": "16000"
-                },
-                {
-                    "value": "20000"
-                },
-                {
-                    "value": "17000"
-                },
-                {
-                    "value": "25000"
-                },
-                {
-                    "value": "19000"
-                },
-                {
-                    "value": "23000"
-                }
-            ]
-        },
-        {
-            "seriesname": "Projected Revenue",
-            "renderas": "line",
-            "showvalues": "0",
-            "data": [
-                {
-                    "value": "15000"
-                },
-                {
-                    "value": "16000"
-                },
-                {
-                    "value": "17000"
-                },
-                {
-                    "value": "18000"
-                },
-                {
-                    "value": "19000"
-                },
-                {
-                    "value": "19000"
-                },
-                {
-                    "value": "19000"
-                },
-                {
-                    "value": "19000"
-                },
-                {
-                    "value": "20000"
-                },
-                {
-                    "value": "21000"
-                },
-                {
-                    "value": "22000"
-                },
-                {
-                    "value": "23000"
-                }
-            ]
-        },
-        {
-            "seriesname": "Profit",
-            "renderas": "area",
-            "showvalues": "0",
-            "data": [
-                {
-                    "value": "4000"
-                },
-                {
-                    "value": "5000"
-                },
-                {
-                    "value": "3000"
-                },
-                {
-                    "value": "4000"
-                },
-                {
-                    "value": "1000"
-                },
-                {
-                    "value": "7000"
-                },
-                {
-                    "value": "1000"
-                },
-                {
-                    "value": "4000"
-                },
-                {
-                    "value": "1000"
-                },
-                {
-                    "value": "8000"
-                },
-                {
-                    "value": "2000"
-                },
-                {
-                    "value": "7000"
-                }
-            ]
-        }
-    ]
-}');
-                                    // Render the chart
-                                    $mscombi2dChart->render();
-                                    ?>
-
-                                    <!-- Code Here -->
+                                    <tablet class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Well</th>
+                                            <th>Production Date</th>
+                                            <th>Oil(BOPD)</th>
+                                            <th>Gas(MMCFD)</th>
+                                            <th>Water(BBLS)</th>
+                                            <th>GOR(SCF/B)</th>
+                                            <th>BSW(%)</th>
+                                            <th>Bean(1/16")</th>
+                                            <th>THP(PSI)</th>
+                                            <th>BHP(PSGI)</th>
+                                            <th>API</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
 
 
+
+
+
+                                    </tablet>
                                 </div>
                             </article>
 
