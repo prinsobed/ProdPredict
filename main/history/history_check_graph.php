@@ -164,18 +164,11 @@ if(!$_SESSION['username']){
         array_push($xArray, 'x');
         array_push($yArray, 'Oil');
         while ($row = $result->fetch_array()) {
-            if($hydrocarbon == 'Gas') {
+            if($hydrocarbon == 'Oil') {
                 array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['gas']);
+                array_push($yArray, $row['oil']);
             }
         }
-
-        echo "
-            <script type='application/javascript'>
-                xAxisArr = {$xArray};
-                dataArr = {$yArray};
-            </script>
-        ";
 
         ?>
 
@@ -249,6 +242,10 @@ Chart Plotting Javascript
     //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
     console.log('xAxisArr: ' + xAxisArr);
     console.log('dataArr: ' + dataArr);
+
+    xAxisArr = <?php json_encode($xArray); ?>
+    dataArr = <?php json_encode($yArray); ?>
+
     var chart = c3.generate({
         bindto: '#chart',
         data: {
