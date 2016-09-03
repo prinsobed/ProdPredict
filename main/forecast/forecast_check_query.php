@@ -209,8 +209,9 @@ if ($conn->connect_error) {
                                             <br>
 
                                             <li>
-                                                <label for = "name">B: </label>
-                                                <input type="text" name="bvalue" class="field-text" value=""  accesskey="2" placeholder="B Value="/><br>
+                                                <label for = "bValue">B Value: <span class="required">*</span></label>
+                                                <input type="range" min="0" max="0.99" step="0.1" name="bValue"/>
+<!--                                                <input type="text" name="bvalue" class="field-text" value=""  accesskey="2" placeholder="B Value="/><br>-->
                                             </li>
 
 
