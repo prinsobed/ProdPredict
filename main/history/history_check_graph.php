@@ -169,6 +169,33 @@ if(!$_SESSION['username']){
         print_r($xArray);
         print_r($yArray);
 
+        echo "
+           <script>
+            
+                var chart = c3.generate({
+                    bindto: '#chart',
+                    data: {
+                        x: 'x',
+                        columns: [
+                            {$xArray},
+                            {$yArray},
+                        ]
+                    },
+                    axis: {
+                        x: {
+                            type: 'timeseries',
+                            tick: {
+                                format: '%Y-%m-%d'
+                            }
+                        }
+                    }
+                });
+            </script>
+        
+        "
+
+
+
         ?>
 
         <section>
@@ -212,9 +239,7 @@ if(!$_SESSION['username']){
 </body>
 <!-- End of Page Body -->
 </html>
-
-Chart Plotting Javascript
-<script>
+<!--<script>-->
     //    var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
     //    var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
     //    var chart = c3.generate({
@@ -240,31 +265,31 @@ Chart Plotting Javascript
     //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
     //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
 
-    var xAxisArr = <?php json_encode($xArray); ?>
-    var dataArr = <?php json_encode($yArray); ?>
-
-    console.log('xAxisArr: ' + xAxisArr);
-    console.log('dataArr: ' + dataArr);
-
-    var chart = c3.generate({
-        bindto: '#chart',
-        data: {
-            x: 'x',
-            columns: [
-                xAxisArr,
-                dataArr,
-            ]
-        },
-        axis: {
-            x: {
-                type: 'timeseries',
-                tick: {
-                    format: '%Y-%m-%d'
-                }
-            }
-        }
-    });
-</script>
+//    var xAxisArr = <?php //json_encode($xArray); ?>
+//    var dataArr = <?php //json_encode($yArray); ?>
+//
+//    console.log('xAxisArr: ' + xAxisArr);
+//    console.log('dataArr: ' + dataArr);
+//
+//    var chart = c3.generate({
+//        bindto: '#chart',
+//        data: {
+//            x: 'x',
+//            columns: [
+//                xAxisArr,
+//                dataArr,
+//            ]
+//        },
+//        axis: {
+//            x: {
+//                type: 'timeseries',
+//                tick: {
+//                    format: '%Y-%m-%d'
+//                }
+//            }
+//        }
+//    });
+//</script>
 
 <!--Script for printing-->
 <script>
