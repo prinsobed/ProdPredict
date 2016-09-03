@@ -6,7 +6,6 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
-
 session_start();
 if(!$_SESSION['username']){
     header("Location: ../../index.php");
@@ -139,31 +138,40 @@ if(!$_SESSION['username']){
         <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
 
         <?php
+        $hist_well = $_POST['hist_well'];
+        $start_date = $_POST['start_date'];
+        $end_date = $_POST['end_date'];
+        $hydrocarbon = $_POST['hydrocarbon'];
 
-        $servername="ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-        $username="bed8c15b456030"; // Mysql username
-        $password="58380471"; // Mysql password
-        $dbname="db_prodpredict"; // Database name
+        $xArray = [];
+        $yArray = [];
 
+        $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+        $username = "bed8c15b456030"; // Mysql username
+        $password = "58380471"; // Mysql password
+        $dbname = "db_prodpredict"; // Database name
         $conn = new mysqli($servername, $username, $password, $dbname);
-
         // Check connection
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $strQuery = "SELECT production_date,oil FROM  production WHERE well = '$h_well' AND production_date BETWEEN '$h_start' AND '$h_end' ORDER BY production_date ASC";
+        $strQuery = "SELECT * FROM production WHERE production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result = mysqli_query($conn, $strQuery);
 
-        // Print out rows
-        $valuesArray = array();
-        $datesArray = array();
-
-        //$valuesArray[] = 'Oil';
-        //$datesArray[] = 'x';
         while ($row = $result->fetch_array()) {
-//           echo $row['production_date'];
-//           echo $row['oil'];
+            if($hydrocarbon == 'Gas') {
+                array_push($xArray, $row['production_date']);
+                array_push($yArray, $row['gas']);
+            }
         }
+
+        echo "
+            <script type='application/javascript'>
+                var xAxisArr = {$xArray};
+                var dataArr = {$yArray};
+            </script>
+        ";
+
         ?>
 
         <section>
@@ -210,62 +218,57 @@ if(!$_SESSION['username']){
 
 Chart Plotting Javascript
 <script>
-//    var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
-//    var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
-//    var chart = c3.generate({
-//        bindto: '#chart',
-//        data: {
-//            x: 'x',
-//            columns: [
-//                xAxisArr,
-//                dataArr
-//            ]
-//        },
-//        axis: {
-//            x: {
-//                type: 'timeseries',
-//                tick: {
-//                    format: '%Y-%m-%d'
-//                }
-//            }
-//        }
-//    });
-
-var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
-var dataArr = ["Oil",10000,2000,20000,15000,1];
-//var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
-//var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
-var chart = c3.generate({
-    bindto: '#chart',
-    data: {
-        x: 'x',
-        columns: [
-            xAxisArr,
-            dataArr,
-        ]
-    },
-    axis: {
-        x: {
-            type: 'timeseries',
-            tick: {
-                format: '%Y-%m-%d'
+    //    var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
+    //    var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
+    //    var chart = c3.generate({
+    //        bindto: '#chart',
+    //        data: {
+    //            x: 'x',
+    //            columns: [
+    //                xAxisArr,
+    //                dataArr
+    //            ]
+    //        },
+    //        axis: {
+    //            x: {
+    //                type: 'timeseries',
+    //                tick: {
+    //                    format: '%Y-%m-%d'
+    //                }
+    //            }
+    //        }
+    //    });
+//    var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
+//    var dataArr = ["Oil",10000,2000,20000,15000,1];
+    //var xAxisArr = <?php //echo json_encode($datesArray); ?>//;
+    //var dataArr = <?php //echo json_encode($valuesArray, JSON_NUMERIC_CHECK); ?>//;
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            x: 'x',
+            columns: [
+                xAxisArr,
+                dataArr,
+            ]
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: '%Y-%m-%d'
+                }
             }
         }
-    }
-});
+    });
 </script>
 
 <!--Script for printing-->
 <script>
-
     function printDiv(chart) {
         var printContents = document.getElementById(divName).innerHTML;
         var originalContents = document.body.innerHTML;
-
         document.body.innerHTML = printContents;
-
         window.print();
-
         document.body.innerHTML = originalContents;
     }
 </script>
