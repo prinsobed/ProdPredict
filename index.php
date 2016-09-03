@@ -59,17 +59,6 @@
                     <div class="panel-body">
                         <div class="row2">
 
-
-                            <div class="modal fade" id="register-modal" role="dialog">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h2>Register</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <form action="includes/checklogin.php" method="POST" class="form-style-1">
 
                                 <ul>
@@ -89,8 +78,7 @@
                                     </li>
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
-                                        <a href="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
-                                    <li><a href="#register-modal" data-toggle="modal" data-target="#register-modal">Register</a></li>
+                                        <a href="#" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
                                     </li>
 
                                    //
