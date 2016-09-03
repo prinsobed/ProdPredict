@@ -165,10 +165,6 @@ if(!$_SESSION['username']){
                 array_push($yArray, $row['oil']);
             }
         }
-//
-        print_r($xArray);
-        print_r($yArray);
-
         ?>
 
         <section>
