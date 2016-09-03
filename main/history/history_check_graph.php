@@ -157,7 +157,8 @@ if(!$_SESSION['username']){
         }
         $strQuery = "SELECT * FROM production WHERE production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result = mysqli_query($conn, $strQuery);
-
+        array_push($xArray, 'x');
+        array_push($yArray, 'Oil');
         while ($row = $result->fetch_array()) {
             if($hydrocarbon == 'Gas') {
                 array_push($xArray, $row['production_date']);
