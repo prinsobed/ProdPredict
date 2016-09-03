@@ -166,8 +166,8 @@ if(!$_SESSION['username']){
             }
         }
 //
-//        print_r($xArray);
-//        print_r($yArray);
+        print_r($xArray);
+        print_r($yArray);
 
         ?>
 
