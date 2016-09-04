@@ -163,7 +163,7 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $strQuery = "SELECT * FROM production WHERE production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $strQuery = "SELECT * FROM production WHERE ('$hist_well') = well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result = mysqli_query($conn, $strQuery);
         if($hydrocarbon == 'Oil'){
             array_push($xArray, 'x');

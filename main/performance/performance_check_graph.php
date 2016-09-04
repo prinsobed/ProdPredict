@@ -11,6 +11,15 @@ session_start();
 if(!$_SESSION['username']){
     header("Location: ../../index.php");
 }
+if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
+    $_SESSION['hist_well_1'] = $_POST['well_1'];
+    $_SESSION['hist_well_2'] = $_POST['well_2'];
+    $_SESSION['start_date'] = $_POST['start_date'];
+    $_SESSION['end_date'] = $_POST['end_date'];
+    $_SESSION['hydrocarbon'] = $_POST['hydrocarbon'];
+    header("Location: history_check_report.php");
+}
+?>
 ?>
 
 <!DOCTYPE html>
@@ -142,21 +151,76 @@ if(!$_SESSION['username']){
         </div>
 
         <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+        <?php
+        $hist_well_1 = $_POST['well_1'];
+        $hist_well_2 = $_POST['well_2'];
+        $start_date = $_POST['start_date'];
+        $end_date = $_POST['end_date'];
+        $hydrocarbon = $_POST['hydrocarbon'];
+
+        $xArray = [];
+        $yArray1 = [];
+        $yArray2 = [];
+
+        $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+        $username = "bed8c15b456030"; // Mysql username
+        $password = "58380471"; // Mysql password
+        $dbname = "db_prodpredict"; // Database name
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        $strQuery = "SELECT * FROM production WHERE $hist_well_1=well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $result = mysqli_query($conn, $strQuery);
+        if($hydrocarbon == 'Oil'){
+            array_push($xArray, 'x');
+            array_push($yArray, 'Oil');
+
+        }else if($hydrocarbon == 'Gas'){
+            array_push($xArray, 'x');
+            array_push($yArray, 'Gas');
+
+        }else if($hydrocarbon == 'Water'){
+            array_push($xArray, 'x');
+            array_push($yArray, 'Water');
+        }
+
+        while ($row = $result->fetch_array()) {
+            if($hydrocarbon == 'Oil') {
+                array_push($xArray, $row['production_date']);
+                array_push($yArray, $row['oil']);
+
+            }else if ($hydrocarbon == 'Gas'){
+                array_push($xArray, $row['production_date']);
+                array_push($yArray, $row['gas']);
+
+            }else if($hydrocarbon == 'Water'){
+                array_push($xArray, $row['production_date']);
+                array_push($yArray, $row['water']);
+            }
+        }
+        ?>
+
+
         <section>
             <div class="col-sm-9">
 
                 <div class="panel panel-default">
                     <div class="panel-heading">Well Production Performance Graph</div>
                     <div class="panel-body">
-                        <div class="row2">
-                            <!-- History -->
-                            <article>
-                                <div id="chart">
+                        <div id="chart" onclick="printDiv('chart')" value="print a div!">
+
+
+
+                        </div>
+                        <!-- History -->
+                        <article>
 
                                     <!-- Code Here -->
 
 
-                                </div>
+
                             </article>
                         </div>
                     </div>
@@ -185,15 +249,17 @@ if(!$_SESSION['username']){
 
 
 <script>
+    var xAxisArr = <?php echo json_encode($xArray); ?>//;
+    var dataArr = <?php echo json_encode($yArray, JSON_NUMERIC_CHECK); ?>//;
+
+
     var chart = c3.generate({
+        bindto: '#chart',
         data: {
             x: 'x',
-//        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
             columns: [
-                ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-//            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-                ['data1', 30, 200, 100, 400, 150, 250],
-                ['data2', 130, 340, 200, 500, 250, 350]
+                xAxisArr,
+                dataArr,
             ]
         },
         axis: {
@@ -205,13 +271,15 @@ if(!$_SESSION['username']){
             }
         }
     });
+</script>
 
-    setTimeout(function () {
-        chart.load({
-            columns: [
-                ['data3', 400, 500, 450, 700, 600, 500]
-            ]
-        });
-    }, 1000);
-
+<!--Script for printing-->
+<script>
+    function printDiv(chart) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
 </script>

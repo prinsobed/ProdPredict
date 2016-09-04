@@ -30,10 +30,13 @@ if ($conn->connect_error) {
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Well Production Performance</title>
+    <title>ProdPredict | Well Production History</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css" />
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="../../assets/js/c3.js"></script><!-- load jquery -->
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/npm.js"></script>
@@ -163,7 +166,7 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form action="pe_includes/analysis_p.php" method="POST">
+                                    <form action="performance_check_graph.php" method="POST">
                                         <ul class="form-style-1">
 
                                             <label for = "Wells">Performance Wells </label>
