@@ -8,8 +8,8 @@
 
 
 if($_POST["submit"]) {
-    $recipient="your@email.address";
-    $subject="Form to email message";
+    $recipient="prinsobed@gmail.com";
+    $subject="ProdPredict User Message";
     $sender=$_POST["sender"];
     $senderEmail=$_POST["senderEmail"];
     $message=$_POST["message"];
@@ -21,31 +21,95 @@ if($_POST["submit"]) {
     $thankYou="<p>Thank you! Your message has been sent.</p>";
 }
 
-?><!DOCTYPE html>
+?>
 
-<html>
+
+<!DOCTYPE html>
 <head>
-    <meta charset="utf-8">
-    <title>Contact form to email</title>
+    <meta charset="UTF-8">
+    <title>ProdPredict | Sign In</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+    <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/index_only.css">
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/npm.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--/*	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>*/-->
 </head>
 
+<!-- Start of Body of Page -->
 <body>
+<!-- Start of Navigation or Header Bar -->
+<div class="container">
+    <header>
+        <div class="navbar">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand text-uppercase" href="#">ProdPredict <span class="label label-success text-capitalize">V1</span></a>
+                    </div>
 
-<?=$thankYou ?>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- End of Navigation or Header Bar -->
 
-<form method="post" action="contact.php">
-    <label>Name:</label>
-    <input name="sender">
 
-    <label>Email address:</label>
-    <input name="senderEmail">
+    <!-- Main Page starts here -->
+    <div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6"><div class="panel panel-default">
+                    <div class="panel-heading">Send Us a Comment</div>
+                    <div class="panel-body">
+                        <div class="row2">
 
-    <label>Message:</label>
-    <textarea rows="5" cols="20" name="message"></textarea>
+                            <?=$thankYou ?>
 
-    <input type="submit" name="submit">
-</form>
+                            <form method="post" action="" class="form-style-1">
+                                <label>Name:</label>
+                                <input type="text" name="sender">
+
+                                <label>Email address:</label>
+                                <input type="email" name="senderEmail">
+
+                                <label>Message:</label>
+                                <textarea rows="5" cols="20" name="message"></textarea>
+
+                                <input type="submit" name="submit">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
