@@ -81,11 +81,6 @@
                                         <a href="#" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
                                     </li>
 
-                                   //
-                                    <!-- Register Modal -->
-
-                                    //
-
                                 </ul>
                             </form>
 
