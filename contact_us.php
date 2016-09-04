@@ -1,33 +1,26 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: 1314863
- * Date: 04/09/2016
- * Time: 14:11
+ * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
+ * Project: ProdPredict V1
+ * Date: 8/1/2016
+ * Time: 8:02 AM
  */
 
-
-if($_POST["submit"]) {
-    $recipient="prinsobed@gmail.com";
-    $subject="ProdPredict User Message";
-    $sender=$_POST["sender"];
-    $senderEmail=$_POST["senderEmail"];
-    $message=$_POST["message"];
-
-    $mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
-
-    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
-
-    $thankYou="<p>Thank you! Your message has been sent.</p>";
+session_start();
+if(!$_SESSION['username']){
+    header("Location: ../../index.php");
 }
-
 ?>
 
 
+
+
 <!DOCTYPE html>
+    <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Sign In</title>
+    <title>ProdPredict | Contact Us</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -67,6 +60,12 @@ if($_POST["submit"]) {
     </header>
     <!-- End of Navigation or Header Bar -->
 
+    <!-- Start of Breadcrum or Address Bar -->
+    <ol class="breadcrumb">
+        <li><a href="main/home.php">Home</a></li>
+    </ol>
+    <!-- End of Breadcrum or Address Bar -->
+
 
     <!-- Main Page starts here -->
     <div>
@@ -104,6 +103,27 @@ if($_POST["submit"]) {
 </body>
 
 </html>
+
+<!--PHP to Send User Message-->
+<?php
+
+if($_POST["submit"]) {
+$recipient="prinsobed@gmail.com";
+$subject="ProdPredict User Message";
+$sender=$_POST["sender"];
+$senderEmail=$_POST["senderEmail"];
+$message=$_POST["message"];
+
+$mailBody="Name: $sender\nEmail: $senderEmail\n\n$message";
+
+mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
+
+$thankYou="<p>Thank you! Your message has been sent.</p>";
+
+header('Location: main/home.php');
+}
+
+?>
 
 
 
