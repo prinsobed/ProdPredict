@@ -171,33 +171,42 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $strQuery = "SELECT * FROM production WHERE $hist_well_1=well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
-        $result = mysqli_query($conn, $strQuery);
+        $strQuery1 = "SELECT * FROM production WHERE $hist_well_1=well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $result1 = mysqli_query($conn, $strQuery1);
+
+        $strQuery2 = "SELECT * FROM production WHERE $hist_well_2=well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $result2 = mysqli_query($conn, $strQuery2);
         if($hydrocarbon == 'Oil'){
             array_push($xArray, 'x');
-            array_push($yArray, 'Oil');
+            array_push($yArray1, 'Oil: Well 1');
+            array_push($yArray2, 'Oil: Well 2');
 
         }else if($hydrocarbon == 'Gas'){
             array_push($xArray, 'x');
-            array_push($yArray, 'Gas');
+            array_push($yArray1, 'Gas: Well 1');
+            array_push($yArray2, 'Gas: Well 2');
 
         }else if($hydrocarbon == 'Water'){
             array_push($xArray, 'x');
-            array_push($yArray, 'Water');
+            array_push($yArray1, 'Water: Well 1');
+            array_push($yArray2, 'Water: Well 2');
         }
 
         while ($row = $result->fetch_array()) {
             if($hydrocarbon == 'Oil') {
                 array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['oil']);
+                array_push($yArray1, $row['oil']);
+                array_push($yArray2, $row['oil']);
 
             }else if ($hydrocarbon == 'Gas'){
                 array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['gas']);
+                array_push($yArray1, $row['gas']);
+                array_push($yArray2, $row['gas']);
 
             }else if($hydrocarbon == 'Water'){
                 array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['water']);
+                array_push($yArray1, $row['water']);
+                array_push($yArray2, $row['water']);
             }
         }
         ?>

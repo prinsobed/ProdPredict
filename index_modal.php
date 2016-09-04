@@ -71,7 +71,7 @@
                                     </li>
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
-                                        <a href="#myModal" data-toggle="modal" data-target="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#pcModal" data-toggle="modal" data-target="#pcModal" id="link">Change Password</a>
+                                        <a href="#myModal" data-toggle="modal" data-target="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#" id="link">Change Password</a>
                                     </li>
 
                                 </ul>
@@ -103,7 +103,10 @@
                 </div>
                 <div class="modal-body">
                     <div id="main_feature">
-                        <form action = "request.php" method = "POST">
+
+                        <?=$thankYou ?>
+
+                        <form action = "" method = "GET">
                             <ul class="form-style-1">
 
                                 <label for = "firstname">First Name: <span class="required">*</span></label>
@@ -141,45 +144,7 @@
     </div>
 
 
-
-    <div class="modal fade" id="pcModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Password Change Request</h4>
-                </div>
-                <div class="modal-body">
-                    <div id="main_feature">
-                        <form action = "request.php" method = "GET">
-                            <ul class="form-style-1">
-
-                                <label for = "firstname">First Name: <span class="required">*</span></label>
-                                <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
-                                <br>
-
-                                <label for = "lastname">Last Name: <span class="required">*</span></label>
-                                <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
-
-                                <label for = "email">Email: <span class="required">*</span></label>
-                                <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
-
-                                <input type="reset" name="clear" value="Clear" accesskey="7">
-                                <input type="submit" name="submit" value="Submit" accesskey="8">
-
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-//Javascript to Chechk Same Password
+<!--Javascript to Check Same Password-->
 <script>
 
     var password = document.getElementById("password")
@@ -197,10 +162,11 @@
     confirm_password.onkeyup = validatePassword;
 </script>
 
-//Php to Send Access Request to Admin by Email
+
+<!--Php to Send Access Request to Admin by Email-->
 <?php
 
-if($_POST["password"]) {
+if($_GET["lastname"]) {
 
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -217,24 +183,6 @@ if($_POST["password"]) {
     $message = "Hello Admin,\n I request for access to ProdPredict. \n\n My details are:\n\n First Name: ".$firstname."\n". "Last Name: ".$lastname."\n"."Company: ".$company."\n"."Email: ".$email."\n"."Preferred Password: ".$password."\n\n\n Thank You";
 
     mail($recipient, $subject, $message, "From: $sender <$email>");
-
-$thankYou="<p>Thank you! Your request has been sent.</p>";
-}
-?>
-
-//Php to Send Password Change Request to Admin by Email
-<?php
-
-if($_GET["email"]) {
-
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $recipient = "prinsobed@gmail.com";
-
-    $message = "Hello Admin, I request access to ProdPredict. \n\n My details are:\n\n First Name: ".$firstname."\n". "Last Name: ".$lastname."\n"."Company: ".$company."\n"."Email: ".$email."\n"."Preferred Password: ".$password."\n\n\n Thank You";
-
-    mail($recipient, $subject, $message, "From: $email <$email>");
 
 $thankYou="<p>Thank you! Your request has been sent.</p>";
 }
