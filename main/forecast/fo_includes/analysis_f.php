@@ -11,12 +11,6 @@ if(!$_SESSION['username']){
     header("Location: ../../index.php");
 }
 
-    $fore_well      = $_POST['fore_well'];
-    $period         = $_POST['period'];
-    $bvalue         = $_POST['bvalue'];
-    $hydrocarbon    = $_POST['hydrocarbon'];
-    $dca_type       = $_POST['dca_type'];
-    $report_type    = $_POST['report_type'];
 ?>
 
 <!DOCTYPE html>
@@ -26,17 +20,17 @@ if(!$_SESSION['username']){
     <meta charset="UTF-8">
     <title>ProdPredict | Well Forecast</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
-    <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
     <!-- Load c3.css -->
     <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css">
 
     <!-- Load d3.js and c3.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
-    <script src="../../assets/js/c3.min.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/bootstrap.js"></script>
-    <script src="../../assets/js/npm.js"></script>
+    <script src="../../../assets/js/c3.min.js"></script>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../assets/js/bootstrap.js"></script>
+    <script src="../../../assets/js/npm.js"></script>
 </head>
 <!-- End of Head -->
 
@@ -75,7 +69,7 @@ if(!$_SESSION['username']){
 
     <!-- Start of Breadcrumb or Address Bar -->
     <ol class="breadcrumb">
-        <li><a href="../home.php">Home</a> / Well Production Forecast / Check Forecast / Graph</li>
+        <li><a href="../home.php">Home</a> / Well Production History / Check History / Graph</li>
     </ol>
     <!-- End of Breadcrumb or Address Bar -->
 
@@ -145,52 +139,65 @@ if(!$_SESSION['username']){
         <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
 
         <?php
-        $hist_well = $_POST['hist_well'];
-        $start_date = $_POST['start_date'];
-        $end_date = $_POST['end_date'];
-        $hydrocarbon = $_POST['hydrocarbon'];
 
-        $xArray = [];
-        $yArray = [];
+            $fore_well      = $_POST['fore_well'];
+            $period         = $_POST['period'];
+            $bvalue         = $_POST['bvalue'];
+            $year           = $_POST['year'];
+            $hydrocarbon    = $_POST['hydrocarbon'];
+            $dca_type       = $_POST['dca_type'];
+            $report_type    = $_POST['report_type'];
 
-        $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-        $username = "bed8c15b456030"; // Mysql username
-        $password = "58380471"; // Mysql password
-        $dbname = "db_prodpredict"; // Database name
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        }
-        $strQuery = "SELECT * FROM production WHERE production_date BETWEEN ('$start_date') AND ('$end_date')";
-        $result = mysqli_query($conn, $strQuery);
-        if($hydrocarbon == 'Oil'){
-            array_push($xArray, 'x');
-            array_push($yArray, 'Oil');
+            $dataResult = [];
+            $de = null;
+            $di = null;
+            $firstValueInRange = 0;
+            $lastValueInRange = 0;
+            $d = null;
+            $q = null;
 
-        }else if($hydrocarbon == 'Gas'){
-            array_push($xArray, 'x');
-            array_push($yArray, 'Gas');
+            $xArray = [];
+            $yArray = [];
+            $dataResult = [];
 
-        }else if($hydrocarbon == 'Water'){
-            array_push($xArray, 'x');
-            array_push($yArray, 'Water');
-        }
-
-        while ($row = $result->fetch_array()) {
-            if($hydrocarbon == 'Oil') {
-                array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['oil']);
-
-            }else if ($hydrocarbon == 'Gas'){
-                array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['gas']);
-
-            }else if($hydrocarbon == 'Water'){
-                array_push($xArray, $row['production_date']);
-                array_push($yArray, $row['water']);
+            $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+            $username = "bed8c15b456030"; // Mysql username
+            $password = "58380471"; // Mysql password
+            $dbname = "db_prodpredict"; // Database name
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-        }
+            $strQuery = "SELECT * FROM production WHERE production_date like '%$year%' and well = '$fore_well'";
+            $result = mysqli_query($conn, $strQuery);
+
+            while ($row = $result->fetch_array()) {
+                if ($hydrocarbon == 'Oil') {
+                    array_push($dataResult, $row['oil']);
+                } else if ($hydrocarbon == 'Gas') {
+                    array_push($dataResult, $row['gas']);
+                } else if ($hydrocarbon == 'Water') {
+                    array_push($dataResult, $row['water']);
+                }
+            }
+
+            if(isset($dataResult)){
+                $firstValueInRange = $dataResult[0];
+                $lastValueInRange  = $dataResult[11];
+                $de = ($firstValueInRange - $lastValueInRange)/$firstValueInRange;
+                $di = 1 - $de;
+                $d = -log($di);
+
+                array_push($yArray, 'Forecast');
+                array_push($xArray, 'x');
+                for($i=1; $i<= $period; $i++){
+                    $q = $firstValueInRange*(1 + ($bvalue*$i));
+                    array_push($yArray, $q);
+                    array_push($xArray, $i);
+                }
+            }
+
         ?>
 
         <section>
@@ -237,8 +244,8 @@ if(!$_SESSION['username']){
 
 <script>
 
-    //var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
-    //var dataArr = ["Oil",10000,2000,20000,15000,1];
+    //Plotting Graph with c3 Charts Library
+
     var xAxisArr = <?php echo json_encode($xArray); ?>//;
     var dataArr = <?php echo json_encode($yArray, JSON_NUMERIC_CHECK); ?>//;
 
@@ -251,14 +258,6 @@ if(!$_SESSION['username']){
                 xAxisArr,
                 dataArr,
             ]
-        },
-        axis: {
-            x: {
-                type: 'timeseries',
-                tick: {
-                    format: '%Y-%m-%d'
-                }
-            }
         }
     });
 </script>
@@ -273,3 +272,5 @@ if(!$_SESSION['username']){
         document.body.innerHTML = originalContents;
     }
 </script>
+
+

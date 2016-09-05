@@ -192,8 +192,8 @@ if ($conn->connect_error) {
                                             <br>
                                             <br>
 
-                                            <label for = "fore_well">Select Year: <span class="required">*</span></label>
-                                            <select name="fore_well" required accesskey="1" required>
+                                            <label for = "year">Select Year: <span class="required">*</span></label>
+                                            <select name="year" required accesskey="1" required>
                                                 <option value="">Please Select</option>
                                                 <?php
                                                 $sel_w = "SELECT DISTINCT EXTRACT(YEAR FROM production_date) as year FROM production";
