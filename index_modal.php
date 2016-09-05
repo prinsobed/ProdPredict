@@ -71,7 +71,7 @@
                                     </li>
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
-                                        <a href="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
+                                        <a href="#myModal" data-toggle="modal" data-target="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#" id="link">Change Password</a>
                                     </li>
 
                                 </ul>
@@ -92,9 +92,6 @@
 
 
 <div class="container">
-    <h2>Large Modal</h2>
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -106,7 +103,10 @@
                 </div>
                 <div class="modal-body">
                     <div id="main_feature">
-                        <form action = "a_include/add_u.php" method = "POST">
+
+                        <?=$thankYou ?>
+
+                        <form action = "" method = "GET">
                             <ul class="form-style-1">
 
                                 <label for = "firstname">First Name: <span class="required">*</span></label>
@@ -125,10 +125,9 @@
                                 <label for = "password">Password: <span class="required">*</span></label>
                                 <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password" required/><br><br>
 
-                                <label for = "type">Type: <span class="required">*</span></label>
-                                <input type="radio" name="type" value="1" accesskey="6" checked> User
-                                <input type="radio" name="type" value="2"> Admin</input><br><br>
-                                <br>
+                                <label for = "password">Confirm Password: <span class="required">*</span></label>
+                                <input type="password" name="confirm_password" class="field-text"   accesskey="5" placeholder="Password Confirmation" required/><br><br>
+
 
                                 <input type="reset" name="clear" value="Clear" accesskey="7">
                                 <input type="submit" name="submit" value="Submit" accesskey="8">
@@ -143,4 +142,48 @@
             </div>
         </div>
     </div>
-</div>
+
+
+<!--Javascript to Check Same Password-->
+<script>
+
+    var password = document.getElementById("password")
+            , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
+
+
+<!--Php to Send Access Request to Admin by Email-->
+<?php
+
+if($_GET["lastname"]) {
+
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $company = $_POST['company'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+
+    $recipient="prinsobed@gmail.com";
+    $subject="Request for Access from ".$firstname." ".$lastname;
+    $sender= $firstname." ".$lastname;
+    $senderEmail= $email;
+    $message = "Hello Admin,\n I request for access to ProdPredict. \n\n My details are:\n\n First Name: ".$firstname."\n". "Last Name: ".$lastname."\n"."Company: ".$company."\n"."Email: ".$email."\n"."Preferred Password: ".$password."\n\n\n Thank You";
+
+    mail($recipient, $subject, $message, "From: $sender <$email>");
+
+$thankYou="<p>Thank you! Your request has been sent.</p>";
+}
+?>

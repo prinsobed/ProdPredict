@@ -11,13 +11,6 @@ if(!$_SESSION['username']){
     header("Location: ../../index.php");
 }
 
-if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
-    $_SESSION['hist_well'] = $_POST['hist_well'];
-    $_SESSION['start_date'] = $_POST['start_date'];
-    $_SESSION['end_date'] = $_POST['end_date'];
-    $_SESSION['hydrocarbon'] = $_POST['hydrocarbon'];
-    header("Location: history_check_report.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -153,6 +146,9 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
 
         $xArray = [];
         $yArray = [];
+        $yArray1 = [];
+        $yArray2 = [];
+        $yArray3 = [];
 
         $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
         $username = "bed8c15b456030"; // Mysql username
@@ -163,7 +159,7 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $strQuery = "SELECT * FROM production WHERE production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $strQuery = "SELECT * FROM production WHERE ('$hist_well') = well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result = mysqli_query($conn, $strQuery);
         if($hydrocarbon == 'Oil'){
             array_push($xArray, 'x');
@@ -176,6 +172,12 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
         }else if($hydrocarbon == 'Water'){
             array_push($xArray, 'x');
             array_push($yArray, 'Water');
+
+        }else if($hydrocarbon == 'All'){
+            array_push($xArray, 'x');
+            array_push($yArray1, 'Oil');
+            array_push($yArray2, 'Gas');
+            array_push($yArray3, 'Water');
         }
 
         while ($row = $result->fetch_array()) {
@@ -190,7 +192,13 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
             }else if($hydrocarbon == 'Water'){
                 array_push($xArray, $row['production_date']);
                 array_push($yArray, $row['water']);
-            }
+
+            }else if($hydrocarbon == 'All'){
+                array_push($xArray, $row['production_date']);
+                array_push($yArray1, $row['oil']);
+                array_push($yArray2, $row['gas']);
+                array_push($yArray3, $row['water']);
+        }
         }
         ?>
 
@@ -238,8 +246,8 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
 
 <script>
 
-    //var xAxisArr = ["x","2016-08-23","2016-08-24","2016-08-25","2016-08-26","2016-08-31"];
-    //var dataArr = ["Oil",10000,2000,20000,15000,1];
+//Plotting Graph with c3 Charts Library
+
     var xAxisArr = <?php echo json_encode($xArray); ?>//;
     var dataArr = <?php echo json_encode($yArray, JSON_NUMERIC_CHECK); ?>//;
 
@@ -274,3 +282,5 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
         document.body.innerHTML = originalContents;
     }
 </script>
+
+
