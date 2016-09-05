@@ -188,7 +188,33 @@ if ($conn->connect_error) {
                                                 }
                                                 ?>
 
-                                            </select><br>
+                                            </select>
+                                            <br>
+                                            <br>
+
+                                            <label for = "fore_well">Select Year: <span class="required">*</span></label>
+                                            <select name="fore_well" required accesskey="1" required>
+                                                <option value="">Please Select</option>
+                                                <?php
+                                                $sel_w = "SELECT DISTINCT EXTRACT(YEAR FROM production_date) as year FROM production";
+                                                $result = $conn->query($sel_w);
+
+                                                if ($result->num_rows > 0) {
+                                                    // output data of each row
+                                                    while($row = $result->fetch_assoc()) {
+                                                        ?>
+
+                                                        <option value="<?php echo $row["year"]; ?>"><?php echo $row["year"]; ?> </option>;
+                                                        <?php
+                                                    }
+                                                } else {?>
+                                                    <option value=" "><?php echo  "No year Found"; ?> </br></option>;
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </select>
+                                            <br>
                                             <br>
 
                                             <label for = "period">Forecast Period (Years) </label>
