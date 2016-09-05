@@ -104,8 +104,6 @@
                 <div class="modal-body">
                     <div id="main_feature">
 
-                        <?=$thankYou ?>
-
                         <form action = "" method = "GET">
                             <ul class="form-style-1">
 

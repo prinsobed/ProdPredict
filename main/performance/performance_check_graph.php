@@ -11,15 +11,7 @@ session_start();
 if(!$_SESSION['username']){
     header("Location: ../../index.php");
 }
-if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
-    $_SESSION['hist_well_1'] = $_POST['well_1'];
-    $_SESSION['hist_well_2'] = $_POST['well_2'];
-    $_SESSION['start_date'] = $_POST['start_date'];
-    $_SESSION['end_date'] = $_POST['end_date'];
-    $_SESSION['hydrocarbon'] = $_POST['hydrocarbon'];
-    header("Location: history_check_report.php");
-}
-?>
+
 ?>
 
 <!DOCTYPE html>
@@ -171,11 +163,12 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $strQuery1 = "SELECT * FROM production WHERE $hist_well_1=well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $strQuery1 = "SELECT * FROM production WHERE well = ('$hist_well_1')  AND production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result1 = mysqli_query($conn, $strQuery1);
 
-        $strQuery2 = "SELECT * FROM production WHERE $hist_well_2=well AND production_date BETWEEN ('$start_date') AND ('$end_date')";
+        $strQuery2 = "SELECT * FROM production WHERE well = ('$hist_well_2') AND production_date BETWEEN ('$start_date') AND ('$end_date')";
         $result2 = mysqli_query($conn, $strQuery2);
+
         if($hydrocarbon == 'Oil'){
             array_push($xArray, 'x');
             array_push($yArray1, 'Oil: Well 1');
@@ -192,21 +185,33 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
             array_push($yArray2, 'Water: Well 2');
         }
 
-        while ($row = $result->fetch_array()) {
+        while ($row1 = $result1->fetch_array()) {
             if($hydrocarbon == 'Oil') {
-                array_push($xArray, $row['production_date']);
-                array_push($yArray1, $row['oil']);
-                array_push($yArray2, $row['oil']);
+                array_push($xArray, $row1['production_date']);
+                array_push($yArray1, $row1['oil']);
 
             }else if ($hydrocarbon == 'Gas'){
-                array_push($xArray, $row['production_date']);
-                array_push($yArray1, $row['gas']);
-                array_push($yArray2, $row['gas']);
+                array_push($xArray, $row1['production_date']);
+                array_push($yArray1, $row1['gas']);
 
             }else if($hydrocarbon == 'Water'){
-                array_push($xArray, $row['production_date']);
-                array_push($yArray1, $row['water']);
-                array_push($yArray2, $row['water']);
+                array_push($xArray, $row1['production_date']);
+                array_push($yArray1, $row1['water']);
+            }
+        }
+
+        while ($row2 = $result2->fetch_array()) {
+            if($hydrocarbon == 'Oil') {
+                array_push($xArray, $row2['production_date']);
+                array_push($yArray2, $row2['oil']);
+
+            }else if ($hydrocarbon == 'Gas'){
+                array_push($xArray, $row2['production_date']);
+                array_push($yArray2, $row2['gas']);
+
+            }else if($hydrocarbon == 'Water'){
+                array_push($xArray, $row2['production_date']);
+                array_push($yArray2, $row2['water']);
             }
         }
         ?>
@@ -259,7 +264,8 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
 
 <script>
     var xAxisArr = <?php echo json_encode($xArray); ?>//;
-    var dataArr = <?php echo json_encode($yArray, JSON_NUMERIC_CHECK); ?>//;
+    var dataArr = <?php echo json_encode($yArray1, JSON_NUMERIC_CHECK); ?>//;
+    var dataArr2 = <?php echo json_encode($yArray2, JSON_NUMERIC_CHECK); ?>//;
 
 
     var chart = c3.generate({
@@ -268,7 +274,9 @@ if(isset($_POST['report_type']) && $_POST['report_type'] == 'Data'){
             x: 'x',
             columns: [
                 xAxisArr,
+                xAxisArr,
                 dataArr,
+                dataArr2
             ]
         },
         axis: {
