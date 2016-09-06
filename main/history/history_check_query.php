@@ -201,7 +201,7 @@ if ($conn->connect_error) {
                                                     <option value=" ">Please Select</br></option>;
                                                     <?php
 //                                                    $dateSelect = "";
-                                                    $sel_sd = "SELECT DISTINCT FROM production";
+                                                    $sel_sd = "SELECT DISTINCT production_date FROM production";
                                                     $result = $conn->query($sel_sd);
 
                                                     if ($result->num_rows > 0) {
@@ -228,7 +228,7 @@ if ($conn->connect_error) {
                                                     <option value=" ">Please Select</br></option>;
                                                     <?php
                                                     //                                                    $dateSelect = "";
-                                                    $sel_ed = "SELECT DISTINCT FROM production";
+                                                    $sel_ed = "SELECT * DISTINCT production_date FROM production";
                                                     $result = $conn->query($sel_ed);
 
                                                     if ($result->num_rows > 0) {
