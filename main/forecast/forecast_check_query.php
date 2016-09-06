@@ -163,7 +163,7 @@ if ($conn->connect_error) {
                             <!-- History -->
                             <article>
                                 <div id="main_feature">
-                                    <form action="fo_includes/analysis_f.php" method="POST">
+                                    <form action="forecast_check_graph.php" method="POST">
                                         <ul class="form-style-1">
 
 

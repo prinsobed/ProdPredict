@@ -131,6 +131,69 @@ if(!$_SESSION['username']){
         </div>
 
         <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+        <?php
+
+        $fore_well      = $_POST['fore_well'];
+        $period         = $_POST['period'];
+        $bvalue         = $_POST['bvalue'];
+        $year           = $_POST['year'];
+        $hydrocarbon    = $_POST['hydrocarbon'];
+        $dca_type       = $_POST['dca_type'];
+        $report_type    = $_POST['report_type'];
+
+        $dataResult = [];
+        $de = null;
+        $di = null;
+        $firstValueInRange = 0;
+        $lastValueInRange = 0;
+        $d = null;
+        $q = null;
+
+        $xArray = [];
+        $yArray = [];
+        $dataResult = [];
+
+        $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+        $username = "bed8c15b456030"; // Mysql username
+        $password = "58380471"; // Mysql password
+        $dbname = "db_prodpredict"; // Database name
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        $strQuery = "SELECT * FROM production WHERE production_date like '%$year%' and well = '$fore_well'";
+        $result = mysqli_query($conn, $strQuery);
+
+        while ($row = $result->fetch_array()) {
+            if ($hydrocarbon == 'Oil') {
+                array_push($dataResult, $row['oil']);
+            } else if ($hydrocarbon == 'Gas') {
+                array_push($dataResult, $row['gas']);
+            } else if ($hydrocarbon == 'Water') {
+                array_push($dataResult, $row['water']);
+            }
+        }
+
+        if(isset($dataResult)){
+            $firstValueInRange = $dataResult[0];
+            $lastValueInRange  = $dataResult[11];
+            $de = ($firstValueInRange - $lastValueInRange)/$firstValueInRange;
+            $di = 1 - $de;
+            $d = -log($di);
+
+            array_push($yArray, 'Forecast');
+            array_push($xArray, 'x');
+            for($i=1; $i<= $period; $i++){
+                $q = $firstValueInRange*(1 + ($bvalue*$i));
+                array_push($yArray, $q);
+                array_push($xArray, $i);
+            }
+        }
+
+        ?>
+
+
         <section>
             <div class="col-sm-9">
 
@@ -171,5 +234,36 @@ if(!$_SESSION['username']){
 </body>
 <!-- End of Page Body -->
 </html>
+
+<script>
+
+    //Plotting Graph with c3 Charts Library
+
+    var xAxisArr = <?php echo json_encode($xArray); ?>//;
+    var dataArr = <?php echo json_encode($yArray, JSON_NUMERIC_CHECK); ?>//;
+
+
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            x: 'x',
+            columns: [
+                xAxisArr,
+                dataArr,
+            ]
+        }
+    });
+</script>
+
+<!--Script for printing-->
+<script>
+    function printDiv(chart) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
 
 
