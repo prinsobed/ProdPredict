@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Created by PhpStorm.
  * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
@@ -6,11 +6,11 @@
  * Date: 8/1/2016
  * Time: 8:02 AM
  */
-
 session_start();
 if(!$_SESSION['username']){
     header("Location: ../../index.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +18,16 @@ if(!$_SESSION['username']){
 <!-- Start of Head -->
 <head>
     <meta charset="UTF-8">
-    <title>ProdPredict | Well Production Forecast</title>
+    <title>ProdPredict | Well Forecast</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="../../assets/css/styles.css" type="text/css">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Load c3.css -->
+    <link href="../../assets/css/c3.css" rel="stylesheet" type="text/css">
+
+    <!-- Load d3.js and c3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script src="../../assets/js/c3.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/bootstrap.js"></script>
     <script src="../../assets/js/npm.js"></script>
@@ -61,11 +67,11 @@ if(!$_SESSION['username']){
     </header>
     <!-- End of Navigation or Header Bar -->
 
-    <!-- Start of Breadcrum or Address Bar -->
+    <!-- Start of Breadcrumb or Address Bar -->
     <ol class="breadcrumb">
-        <li><a href="../home.php">Home</a> / Well Production Forecast / Check Forecast / Graph</li>
+        <li><a href="../home.php">Home</a> / Well Forecast / Graph</li>
     </ol>
-    <!-- End of Breadcrum or Address Bar -->
+    <!-- End of Breadcrumb or Address Bar -->
 
     <!-- Main Page starts here -->
     <main>
@@ -131,68 +137,68 @@ if(!$_SESSION['username']){
         </div>
 
         <!-- Main Section of Page for Analysis Option Selection, Showing or Editing Data/Graph -->
+
         <?php
 
-        $fore_well      = $_POST['fore_well'];
-        $period         = $_POST['period'];
-        $bvalue         = $_POST['bvalue'];
-        $year           = $_POST['year'];
-        $hydrocarbon    = $_POST['hydrocarbon'];
-        $dca_type       = $_POST['dca_type'];
-        $report_type    = $_POST['report_type'];
+            $fore_well      = $_POST['fore_well'];
+            $period         = $_POST['period'];
+            $bvalue         = $_POST['bvalue'];
+            $year           = $_POST['year'];
+            $hydrocarbon    = $_POST['hydrocarbon'];
+            $dca_type       = $_POST['dca_type'];
+            $report_type    = $_POST['report_type'];
 
-        $dataResult = [];
-        $de = null;
-        $di = null;
-        $firstValueInRange = 0;
-        $lastValueInRange = 0;
-        $d = null;
-        $q = null;
+            $dataResult = [];
+            $de = null;
+            $di = null;
+            $firstValueInRange = 0;
+            $lastValueInRange = 0;
+            $d = null;
+            $q = null;
 
-        $xArray = [];
-        $yArray = [];
-        $dataResult = [];
+            $xArray = [];
+            $yArray = [];
+            $dataResult = [];
 
-        $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
-        $username = "bed8c15b456030"; // Mysql username
-        $password = "58380471"; // Mysql password
-        $dbname = "db_prodpredict"; // Database name
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if (mysqli_connect_errno()) {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        }
-        $strQuery = "SELECT * FROM production WHERE production_date like '%$year%' and well = '$fore_well'";
-        $result = mysqli_query($conn, $strQuery);
-
-        while ($row = $result->fetch_array()) {
-            if ($hydrocarbon == 'Oil') {
-                array_push($dataResult, $row['oil']);
-            } else if ($hydrocarbon == 'Gas') {
-                array_push($dataResult, $row['gas']);
-            } else if ($hydrocarbon == 'Water') {
-                array_push($dataResult, $row['water']);
+            $servername = "ap-cdbr-azure-east-c.cloudapp.net"; // Host name
+            $username = "bed8c15b456030"; // Mysql username
+            $password = "58380471"; // Mysql password
+            $dbname = "db_prodpredict"; // Database name
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-        }
+            $strQuery = "SELECT * FROM production WHERE production_date like '%$year%' and well = '$fore_well'";
+            $result = mysqli_query($conn, $strQuery);
 
-        if(isset($dataResult)){
-            $firstValueInRange = $dataResult[0];
-            $lastValueInRange  = $dataResult[11];
-            $de = ($firstValueInRange - $lastValueInRange)/$firstValueInRange;
-            $di = 1 - $de;
-            $d = -log($di);
-
-            array_push($yArray, 'Forecast');
-            array_push($xArray, 'x');
-            for($i=1; $i<= $period; $i++){
-                $q = $firstValueInRange*(1 + ($bvalue*$i));
-                array_push($yArray, $q);
-                array_push($xArray, $i);
+            while ($row = $result->fetch_array()) {
+                if ($hydrocarbon == 'Oil') {
+                    array_push($dataResult, $row['oil']);
+                } else if ($hydrocarbon == 'Gas') {
+                    array_push($dataResult, $row['gas']);
+                } else if ($hydrocarbon == 'Water') {
+                    array_push($dataResult, $row['water']);
+                }
             }
-        }
+
+            if(isset($dataResult)){
+                $firstValueInRange = $dataResult[0];
+                $lastValueInRange  = $dataResult[11];
+                $de = ($firstValueInRange - $lastValueInRange)/$firstValueInRange;
+                $di = 1 - $de;
+                $d = -log($di);
+
+                array_push($yArray, 'Forecast');
+                array_push($xArray, 'x');
+                for($i=1; $i<= $period; $i++){
+                    $q = $firstValueInRange*(1 + ($bvalue*$i));
+                    array_push($yArray, $q);
+                    array_push($xArray, $i);
+                }
+            }
 
         ?>
-
 
         <section>
             <div class="col-sm-9">
@@ -200,21 +206,22 @@ if(!$_SESSION['username']){
                 <div class="panel panel-default">
                     <div class="panel-heading">Well Production Forecast Graph</div>
                     <div class="panel-body">
-                        <div class="row2">
-                            <!-- History -->
-                            <article>
-                                <div id="main_feature">
-
-                                    <!-- Code Here -->
+                        <div id="chart" onclick="printDiv('chart')" value="print a div!">
 
 
-                                </div>
-                            </article>
+
                         </div>
+                        <!-- History -->
+                        <article>
+
+
+
+
+
+                        </article>
                     </div>
                     <div class="panel-footer">
-                        <a class="btn btn-default" href="" role="button"><span class="glyphicon glyphicon-info-sign">&nbsp;</span>Analysis Results</a>&nbsp;
-                        <a class="btn btn-default" href="" role="button"><span <span class="glyphicon glyphicon-print">&nbsp;</span>Print Graph</a>&nbsp;
+                        <a class="btn btn-default" href="" role="button" onclick="printDiv('chart')" ><span class="glyphicon glyphicon-print">&nbsp;</span>Print Graph</a>&nbsp;
                         <a class="btn btn-default" href="" role="button"><span class="glyphicon glyphicon-cloud-download">&nbsp;</span>Save Graph to PDF</a>
                     </div>
                 </div></div>
