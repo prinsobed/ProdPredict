@@ -1,13 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Obed Kraine, RGU-1314863 , o.k.boachie@rgu.ac.uk
- * Project: ProdPredict V1
- * Date: 8/1/2016
- * Time: 8:02 AM
- */
-?>
-
 <!doctype html>
 <html>
 <head>
@@ -20,6 +10,9 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/npm.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--/*	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>*/-->
 </head>
@@ -51,7 +44,7 @@
 
 
     <!-- Main Page starts here -->
-    <main>
+    <div>
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6"><div class="panel panel-default">
@@ -78,7 +71,7 @@
                                     </li>
                                     <li>
                                         <!--                        <button type="button" class="btn btn-default">Sign Int</button>-->
-                                        <a href="#" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" id="link">Change Password</a>
+                                        <a href="#myModal" data-toggle="modal" data-target="#myModal" id="link">Request for Access</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#" id="link">Change Password</a>
                                     </li>
 
                                 </ul>
@@ -89,6 +82,106 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
+            </div>
+        </div>
+    </div>
+        </main>
 </body>
 
 </html>
+
+
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Access Request</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="main_feature">
+
+                        <form action = "" method = "GET">
+                            <ul class="form-style-1">
+
+                                <label for = "firstname">First Name: <span class="required">*</span></label>
+                                <input type="text" name="firstname" class="field-text" value=""  accesskey="1" placeholder="First Name" required/><br>
+                                <br>
+
+                                <label for = "lastname">Last Name: <span class="required">*</span></label>
+                                <input type="text" name="lastname" class="field-text" value=""  accesskey="2" placeholder="Last Name" required/><br><br>
+
+                                <label for = "company">Company: <span class="required">*</span></label>
+                                <input type="text" name="company" class="field-text" value=""  accesskey="3" placeholder="Company" required/><br><br>
+
+                                <label for = "email">Email: <span class="required">*</span></label>
+                                <input type="email" name="email" class="field-text" value=""  accesskey="4" placeholder="Corporate Email" required/><br><br>
+
+                                <label for = "password">Password: <span class="required">*</span></label>
+                                <input type="password" name="password" class="field-text"   accesskey="5" placeholder="Password" required/><br><br>
+
+                                <label for = "password">Confirm Password: <span class="required">*</span></label>
+                                <input type="password" name="confirm_password" class="field-text"   accesskey="5" placeholder="Password Confirmation" required/><br><br>
+
+
+                                <input type="reset" name="clear" value="Clear" accesskey="7">
+                                <input type="submit" name="submit" value="Submit" accesskey="8">
+
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--Javascript to Check Same Password-->
+<script>
+
+    var password = document.getElementById("password")
+            , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
+
+
+<!--Php to Send Access Request to Admin by Email-->
+<?php
+
+if($_GET["lastname"]) {
+
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $company = $_POST['company'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+
+    $recipient="prinsobed@gmail.com";
+    $subject="Request for Access from ".$firstname." ".$lastname;
+    $sender= $firstname." ".$lastname;
+    $senderEmail= $email;
+    $message = "Hello Admin,\n I request for access to ProdPredict. \n\n My details are:\n\n First Name: ".$firstname."\n". "Last Name: ".$lastname."\n"."Company: ".$company."\n"."Email: ".$email."\n"."Preferred Password: ".$password."\n\n\n Thank You";
+
+    mail($recipient, $subject, $message, "From: $sender <$email>");
+
+$thankYou="<p>Thank you! Your request has been sent.</p>";
+}
+?>

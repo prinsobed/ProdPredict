@@ -53,7 +53,7 @@ if(!$_SESSION['username']){
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">Welcome<?php echo ", "."{$_SESSION['firstname']}"; ?></a></li>
                             <li><a href="../contact_us.php">Settings</a></li>
-                            <a href="../includes/logout.php"><li><button type="button" class="btn navbar-btn btn-circle">Log Out</button></li></a>
+                           <li><button type="button" class="btn navbar-btn btn-circle"><a href="../includes/logout.php">Log Out</a></button></li>
                         </ul>
                     </div>
                 </div>
